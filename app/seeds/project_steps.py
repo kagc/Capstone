@@ -17,7 +17,7 @@ def seed_project_steps():
     
     p1step3 = ProjectStep(
         projectId = 1,
-        stepNum = 2,
+        stepNum = 3,
         stepTitle = "Third step to petting a cat",
         stepDescription = "Pet cat. Wow, you did it!"
     )

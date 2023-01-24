@@ -1,13 +1,13 @@
 from flask import Blueprint, redirect, request
 from flask_login import login_required,current_user
 from ..models import db, Project, User, ProjectStep
-from app.forms import ProjectForm, StepForm 
+from app.forms import StepForm 
 from .auth_routes import authenticate, validation_errors_to_error_messages
 
-project_step_route = Blueprint('projectSteps', __name__)
+project_step_route = Blueprint('project_steps', __name__)
 
 #Create a project step
-@project_step_route('/<int:projectId>/steps', methods=['POST'])
+@project_step_route.route('/projects/<int:projectId>/steps', methods=['POST'])
 @login_required
 def create_step(projectId):
     form = StepForm()
@@ -47,7 +47,7 @@ def create_step(projectId):
         }, 403
         
 #Update a step
-@project_step_route('/steps/<int:stepId>', methods=['PUT'])
+@project_step_route.route('/steps/<int:stepId>', methods=['PUT'])
 @login_required
 def update_step(stepId):
     form = StepForm()
@@ -93,7 +93,7 @@ def update_step(stepId):
         }, 403
         
 #Delete a step
-@project_step_route('/steps/<int:stepId>', methods=['DELETE'])
+@project_step_route.route('/steps/<int:stepId>', methods=['DELETE'])
 @login_required
 def delete_step(stepId):
     step = ProjectStep.query.get(stepId)

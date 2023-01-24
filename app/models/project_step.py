@@ -1,6 +1,5 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from .user import User
-from .project import Project
 
 class ProjectStep(db.Model):
     __tablename__ = 'project_steps'
@@ -16,7 +15,7 @@ class ProjectStep(db.Model):
     
     stepImageUrl = db.Column(db.String(1000))
     
-    project = db.relationship("Project", back_populates="project_steps")
+    project = db.relationship("Project", back_populates="steps")
     
     def to_dict_step(self):
         return {

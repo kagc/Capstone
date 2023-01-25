@@ -34,23 +34,23 @@ def single_project(id):
 @project_routes.route('', methods=['POST'])
 @login_required
 def create_project():
-    pForm = ProjectForm()
+    form = ProjectForm()
     # sForm = ProjectStepForm()
     
-    pForm['csrf_token'].data = request.cookies['csrf_token']
+    form['csrf_token'].data = request.cookies['csrf_token']
     
     currentId = current_user.get_id()
     
-    if pForm.validate_on_submit():
+    if form.validate_on_submit():
         new_project = Project(creatorId = currentId)
-        pForm.populate_obj(new_project)
+        form.populate_obj(new_project)
         db.session.add(new_project)
         db.session.commit()
         return new_project.to_dict_project(), 201
     
     return {
         'message': 'Validation Error',
-        "errors": validation_errors_to_error_messages(pForm.errors),
+        "errors": validation_errors_to_error_messages(form.errors),
         'statusCode': 400
     }, 400
     

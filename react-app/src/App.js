@@ -9,6 +9,8 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import SingleProject from './components/SingleProject';
+import CreateProject from './components/CreateProject';
+import EditProject from './components/EditProject';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -46,6 +48,12 @@ function App() {
         </Route>
         <Route path='/projects/:projectId' exact={true} >
           <SingleProject />
+        </Route>
+        <Route path='/editor' exact={true} >
+          <CreateProject />
+        </Route>
+        <Route path='/editor/:projectId' exact={true} >
+          <EditProject />
         </Route>
       </Switch>
     </BrowserRouter>

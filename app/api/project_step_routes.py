@@ -30,7 +30,8 @@ def create_step(projectId):
             
             db.session.add(new_step)
             db.session.commit()
-            return new_step.to_dict_step()
+            updatedProject = Project.query.get(projectId)
+            return updatedProject.to_dict_project()
         
     if form.errors:
         return {

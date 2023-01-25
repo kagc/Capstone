@@ -84,28 +84,56 @@ export const makeProject = (newProject, newStepsArr) => async dispatch => {
         body: JSON.stringify(newProject)
     })
     if (response.ok){
-        // const createdProject = await response.json()
+        const project = await response.json()
+        if (project.errors){
+            return project.errors
+        }
+        // console.log(newStepsArr.length,"length of the new steps")
+        let counter = 0
         for (let i = 0; i < newStepsArr.length; i++) {
             const step = newStepsArr[i]
-            const response2 = await fetch(`/api/projects/${createdProject.id}/steps`, {
+            const response2 = await fetch(`/api/projects/${project.id}/steps`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(step)
             })
-            
-            // if (response2.ok){
+
+            // if(response2.ok){
             //     dispatch(add(createdProject))
             //     return createdProject
             // }
+            
+            if (response2.status >= 400){
+                console.log('could not create steps')
+                throw response2
+                // dispatch(add(createdProject))
+                // return createdProject
+            }
+            counter++
+
+            if(counter === newStepsArr.length){
+            const project = await response2.json()
+            dispatch(add(project))
+            console.log('this is the created project', project)
+            return project
         }
+        }
+        
         // if (response.ok && response2.ok){
-            const createdProject = await response.json()
-            dispatch(add(createdProject))
-            return createdProject
+            // const createdProject = await response.json()
+            
         // }
+    } 
+    if (response.status >= 400){
+        throw response
     }
+//     else {
+//         const errorsArr = await response.json()
+//         console.log("IN PROJ THUNK could not create the project", errorsArr)
+//         return errorsArr.errors
+//     }
 }
 
 export const modProject = (projectData, stepsDataArr) => async dispatch => {
@@ -192,9 +220,10 @@ const projectsReducer = (state = initialState, action) => {
             return newState
 
         case ADD_PROJECT:
-            newState = { ...state, allProjects: { ...state.allProjects }, usersProjects: { ...state.usersProjects }}
+            newState = { ...state, allProjects: { ...state.allProjects }, singleProject: {}, usersProjects: { ...state.usersProjects }}
             newState.allProjects[action.project.id] = action.project
             newState.usersProjects[action.project.id] = action.project
+            newState.singleProject = action.project
             return newState
 
         case EDIT_PROJECT:

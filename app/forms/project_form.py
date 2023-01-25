@@ -6,6 +6,6 @@ class ProjectForm(FlaskForm):
     title = StringField('title', validators=[DataRequired()])
     category = StringField('category', validators=[DataRequired()])
     coverImageUrl = StringField('cover image', validators=[DataRequired()])
-    intro = StringField('introction', validators=[DataRequired()])
+    intro = StringField('intro', validators=[DataRequired()])
     supplies = StringField('supplies', validators=[DataRequired()])
     

@@ -45,7 +45,7 @@ function Navigation({ isLoaded }){
         <nav className="nav-container">
             <div className="navbar">
                 <div className="left-nav">
-                    <div>Icon/homelink</div>
+                    <div><NavLink to="/">Icon/homelink</NavLink></div>
                 </div>
 
                 <div className="mid-nav">
@@ -56,14 +56,15 @@ function Navigation({ isLoaded }){
                     {sessionUser === null ?
                         (
                             <div className="right-nav">
-                                <div><button className="login-button"><NavLink to="/login" exact={true}>Log In</NavLink></button></div>
-                                <div><button className="signup-button"><NavLink to="/sign-up" exact={true}>Sign Up</NavLink></button></div>
+                                <div><NavLink to="/login" exact={true}><button className="login-button">Log In</button></NavLink></div>
+                                <div><NavLink to="/sign-up" exact={true}><button className="signup-button">Sign Up</button></NavLink></div>
                             </div>
                             
                         )
                     : (
                         <div className="right-nav">
-                            <ProfileButton />
+                            <div><NavLink to="/editor"><button className="signup-button">+ New</button></NavLink></div>
+                            <div><ProfileButton /></div>
                         </div>
                     )}
                     

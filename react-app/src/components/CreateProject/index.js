@@ -95,11 +95,28 @@ const CreateProject = () => {
         // console.log(stepInputFields)
     }
 
+    const returnToPage = (e) => {
+        e.preventDefault()
+        history.push(`/`)
+    }
+
     if(!sessionUser) return null;
 
     return (
-        <div>
+        <div className="wholething">
+            <div className="content">
             <form onSubmit={submit}>
+                <div className="topbar">
+                    <div>
+                        <button onClick={returnToPage} className="login-button">Cancel</button>
+                    </div>
+                    <div>
+                        Draft
+                    </div>
+                    <div>
+                        <button className="signup-button" onClick={submit} type="submit">Publish</button>
+                    </div>
+                </div>
 
                 {/* <ul className='errorlist'>
                     {errors.map((error, idx) => (
@@ -111,20 +128,26 @@ const CreateProject = () => {
                         <div key={ind}>{error}</div>
                     ))}
                 </div>
+                <div className="section-container">
+                    <div className="section-name">Project Basics</div>
 
+                       <div className="input-label">Project Title</div> 
                 <input
+                className='input-line'
                 type="text"
                 name="title"
-                placeholder='Title'
+                placeholder='What did you make?'
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 required
                 ></input>
 
+<div className="input-label"> Category</div>
                 <select
                 // type="text"
+                className='input-line'
                 name="category"
-                placeholder='Category'
+                placeholder="Category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 required>
@@ -133,8 +156,14 @@ const CreateProject = () => {
                         value={category}>{category}</option>
                     ))}
                 </select>
+                        </div>
+                
+                        <div className="section-container">
+                    <div className="section-name">Introduction</div>
 
+                    <div className="input-label">Cover Image Url</div> 
                 <input
+                className='input-line'
                 type="text"
                 name="coverImageUrl"
                 placeholder='Cover Image Url'
@@ -142,57 +171,74 @@ const CreateProject = () => {
                 onChange={(e) => setCoverImageUrl(e.target.value)}
                 required ></input>
                 
+                <div className="input-label">Introduction</div> 
                 <input
+                className='input-line'
                 type="textarea"
                 name="intro"
-                placeholder='Introduction'
+                placeholder='Briefly describe what you made and why. Include a photo of your finished project.'
                 value={intro}
                 onChange={(e) => setIntro(e.target.value)}
                 required
                 ></input>
+                </div>
 
+
+                <div className="section-container">
+                    <div className="section-name">Supplies</div>
                 <input
+                className='input-line'
                 type="text"
                 name="supplies"
-                placeholder='Supplies'
+                placeholder='List any tools or materials used'
                 value={supplies}
                 onChange={(e) => setSupplies(e.target.value)}
                 required></input>
+                </div>
 
                 {stepInputFields.map((input, index) => {
                     let stepNum = index + 1
                     return (
-                        <div key={index}>
-                            <div>Step {index+1}</div>
+                        <div className="section-container "key={index}>
+                            <div className="step-section-top"><div className='step-section-top-mid'>Step {index+1}:
+                            <input
+                            className='input-line'
+                            type="text"
+                            name='stepTitle'
+                            placeholder='Enter Step Title'
+                            value={input.stepTitle} 
+                            onChange={e => handleFormChange(index, e)}
+                            required ></input>
+                            </div>
+                            
+                            <div className="remove-step-button"><button onClick={(e) => removeFields(index, e)}>Remove</button></div>
+                            </div>
                             {/* <input
                             name='stepNum'
                             placeholder='Step Number'
                             value={input.stepNum} 
                             onChange={e => handleFormChange(index, e)}/> */}
-                            <input
-                            type="text"
-                            name='stepTitle'
-                            placeholder='Step Title'
-                            value={input.stepTitle} 
-                            onChange={e => handleFormChange(index, e)}
-                            required ></input>
+                            
 
                             <input
+                            className='input-line'
                             type="text"
                             name='stepDescription'
-                            placeholder='Step Description'
+                            placeholder='Write a detailed description of this step.'
                             value={input.stepDescription} 
                             onChange={e => handleFormChange(index, e)}
                             required ></input>
 
-                            <button onClick={(e) => removeFields(index, e)}>Remove</button>
+                            
                         </div>
                     )
                 })}
-                <button onClick={addFields}>Add More..</button>
+                <div className='bottombar'><button className="steps-button" onClick={addFields}>Add New Step +</button></div>
+                
 
-                <button onClick={submit} type="submit">Submit</button>
+                
             </form>
+            </div>
         </div>
     )
 }

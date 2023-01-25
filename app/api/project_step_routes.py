@@ -31,7 +31,7 @@ def create_step(projectId):
             db.session.add(new_step)
             db.session.commit()
             updatedProject = Project.query.get(projectId)
-            return updatedProject.to_dict_project()
+            return updatedProject.to_dict_project(), 200
         
     if form.errors:
         return {
@@ -117,10 +117,12 @@ def delete_step(stepId):
     if int(authenticate()['id']) == int(project.creatorId):
         db.session.delete(step)
         db.session.commit()
-        return {
-            "message": "Step successfully deleted",
-            "statusCode": 200
-        }, 200
+        updatedProject = Project.query.get(step.projectId)
+        return updatedProject.to_dict_project(), 200
+        # return {
+        #     "message": "Step successfully deleted",
+        #     "statusCode": 200
+        # }, 200
         
     else:
         return {

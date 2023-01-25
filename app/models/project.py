@@ -13,7 +13,7 @@ class Project(db.Model):
     title = db.Column(db.String(40), nullable=False)
     category = db.Column(db.String(255), nullable=False)
     coverImageUrl = db.Column(db.String(1000), nullable=False)
-    intro = db.Column(db.String(255), nullable=False)
+    intro = db.Column(db.String(1000), nullable=False)
     supplies = db.Column(db.String(255), nullable=False)
     
     user = db.relationship("User", back_populates="projects")

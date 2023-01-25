@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector} from 'react-redux';
-import { getOneProject, modProject } from '../../store/project';
+import { getOneProject, modProject, nukeProject } from '../../store/project';
 
 const EditProject = () => {
     const { projectId } = useParams()
@@ -16,9 +16,10 @@ const EditProject = () => {
     const sessionUser = useSelector(state => state.session.user)
 
     const project = useSelector(state => state.projects.singleProject)
-    const steps = useSelector(state => state.projects.singleProject.steps)
-    console.log("!!!!!!!!!!!!!!!!!",steps)
-
+    const steps = useSelector(state => state.projects.singleProject.stepsList)
+    
+    steps.forEach(step => deletedSteps.push(step))
+    console.log("!!!!!!!!!!!!!!!!!deletedSteps ",deletedSteps)
     
 
     const [ title, setTitle ] = useState(project.title)
@@ -27,6 +28,7 @@ const EditProject = () => {
     const [ intro, setIntro ] = useState(project.intro)
     const [ supplies, setSupplies ] = useState(project.supplies)
     const [ stepInputFields, setStepInputFields ] = useState(steps)
+
     console.log("!!!!!!!!!!!!stepinputfield",stepInputFields)
     // setStepInputFields(steps)
     
@@ -42,7 +44,7 @@ const EditProject = () => {
     
     const handleFormChange = (index, e) => {
         let data = [ ...stepInputFields ]
-        data[index].stepNum = index + 1
+        // data[index].stepNum = index + 1
         // console.log("what is data",data[index].stepNum)
         data[index][e.target.name] = e.target.value
         setStepInputFields(data)
@@ -59,14 +61,24 @@ const EditProject = () => {
     }
 
     const removeFields = (index, e) => {
+        e.preventDefault()
         if (index === 0){
             return alert('cannot remove step 1')
         }
         let data = [...stepInputFields];
-        console.log(data[index].stepNum)
-        data[index].stepNum = index + 1
+        // console.log(data[index].stepNum)
+        // data[index].stepNum = index + 1
         data.splice(index, 1)
         setStepInputFields(data)
+    }
+
+    const unpublish = async (e) => {
+        e.preventDefault()
+
+        const data = await dispatch(nukeProject(project.id))
+        if (data){
+            history.push('/')
+        }
     }
 
     const submit = async (e) => {
@@ -77,8 +89,9 @@ const EditProject = () => {
             step.stepNum = stepCounter++
         })
 
-        const newProject = {
+        const updatedProject = {
             // creatorId: sessionUser.id,
+            projectId: projectId,
             title,
             category,
             coverImageUrl,
@@ -86,19 +99,19 @@ const EditProject = () => {
             supplies
         }
         
-        // const data = await dispatch(makeProject(newProject, stepInputFields))
+        const data = await dispatch(modProject(updatedProject, deletedSteps, stepInputFields))
 
-        // .catch(async (res) => {
-        //     const data = await res.json()
-        //     if(data && data.errors){
-        //         setErrors(data.errors)
-        //     }
+        .catch(async (res) => {
+            const data = await res.json()
+            if(data && data.errors){
+                setErrors(data.errors)
+            }
             
-        // })
+        })
 
-        // if (data){
-        //     history.push(`/projects/${data.id}`)
-        // }
+        if (data){
+            history.push(`/projects/${data.id}`)
+        }
 
     }
 
@@ -116,7 +129,7 @@ const EditProject = () => {
 <input
 type="text"
 name="title"
-placeholder='Title'
+placeholder={title}
 value={title}
 onChange={(e) => setTitle(e.target.value)}
 required
@@ -125,7 +138,7 @@ required
 <select
 // type="text"
 name="category"
-placeholder='Category'
+placeholder={category}
 value={category}
 onChange={(e) => setCategory(e.target.value)}
 required>
@@ -138,7 +151,7 @@ required>
 <input
 type="text"
 name="coverImageUrl"
-placeholder='Cover Image Url'
+placeholder={coverImageUrl}
 value={coverImageUrl}
 onChange={(e) => setCoverImageUrl(e.target.value)}
 required ></input>
@@ -146,7 +159,7 @@ required ></input>
 <input
 type="textarea"
 name="intro"
-placeholder='Introduction'
+placeholder={intro}
 value={intro}
 onChange={(e) => setIntro(e.target.value)}
 required
@@ -155,7 +168,7 @@ required
 <input
 type="text"
 name="supplies"
-placeholder='Supplies'
+placeholder={supplies}
 value={supplies}
 onChange={(e) => setSupplies(e.target.value)}
 required></input>
@@ -188,6 +201,8 @@ required></input>
 <button onClick={addFields}>Add More..</button>
 
 <button onClick={submit} type="submit">Submit</button>
+
+<button onClick={unpublish}>Unpublish</button>
 </form>
         </div>
     )

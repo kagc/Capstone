@@ -28,7 +28,7 @@ const CreateProject = () => {
 
     const handleFormChange = (index, e) => {
         let data = [ ...stepInputFields ]
-        data[index].stepNum = index + 1
+        // data[index].stepNum = index + 1
         // console.log("what is data",data[index].stepNum)
         data[index][e.target.name] = e.target.value
         setStepInputFields(data)
@@ -49,8 +49,8 @@ const CreateProject = () => {
             return alert('cannot remove step 1')
         }
         let data = [...stepInputFields];
-        console.log(data[index].stepNum)
-        data[index].stepNum = index + 1
+        // console.log(data[index].stepNum)
+        // data[index].stepNum = index + 1
         data.splice(index, 1)
         setStepInputFields(data)
     }

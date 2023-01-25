@@ -10,7 +10,7 @@ const SingleProject = () => {
     const dispatch = useDispatch()
 
     const project = useSelector(state => state.projects.singleProject)
-    console.log("anything?",project)
+    console.log("anything?",project.stepsList)
 
     useEffect(() => {
         dispatch(getOneProject(projectId))
@@ -20,7 +20,19 @@ const SingleProject = () => {
 
     return (
         <div>
-            {project.title}
+            <div>{project.title}</div>
+            <div>By {project.creatorInfo.username}</div>
+            <div><img src={`${project.coverImageUrl}`}></img></div>
+            <div>{project.intro}</div>
+            {project.stepsList.map(step => {
+                return (
+                    <div>
+                        <div>Step {step.stepNum}</div>
+                        <div>{step.stepTitle}</div>
+                        <div>{step.stepDescription}</div>
+                    </div>
+                )
+            })}
 
             <div>
                 <Link to={`/editor/${project.id}`} >

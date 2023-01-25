@@ -1,8 +1,8 @@
-"""users, projects, and steps
+"""users, projects, project steps
 
-Revision ID: e474351f0239
+Revision ID: cbe56a254f2d
 Revises: 
-Create Date: 2023-01-25 08:43:06.432526
+Create Date: 2023-01-25 09:24:41.604480
 
 """
 from alembic import op
@@ -13,7 +13,7 @@ environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
 
 # revision identifiers, used by Alembic.
-revision = 'e474351f0239'
+revision = 'cbe56a254f2d'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -32,7 +32,7 @@ def upgrade():
     )
     
     if environment == "production":
-        op.execute(f"ALTER TABLE rewards SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
         
     op.create_table('projects',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -47,7 +47,7 @@ def upgrade():
     )
     
     if environment == "production":
-        op.execute(f"ALTER TABLE rewards SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE projects SET SCHEMA {SCHEMA};")
         
     op.create_table('project_steps',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -59,9 +59,9 @@ def upgrade():
     sa.ForeignKeyConstraint(['projectId'], ['projects.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-
+    
     if environment == "production":
-        op.execute(f"ALTER TABLE pledges SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE project_steps SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
 
 

@@ -141,7 +141,7 @@ const EditProject = () => {
                 </div>
 
 
-<div>
+<div className="error-box">
     {errors.map((error, ind) => (
         <div key={ind}>{error}</div>
     ))}

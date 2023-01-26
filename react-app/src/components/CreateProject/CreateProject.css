@@ -23,6 +23,13 @@
     margin-left: 5rem;
 }
 
+.error-box {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
 .topbar {
     display: flex;
     flex-direction: row;

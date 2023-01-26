@@ -45,6 +45,7 @@ const CreateProject = () => {
     }
 
     const removeFields = (index, e) => {
+        e.preventDefault()
         if (index === 0){
             return alert('cannot remove step 1')
         }
@@ -123,7 +124,7 @@ const CreateProject = () => {
                         <li key={idx}>{error}</li>
                     ))}
                 </ul> */}
-                <div>
+                <div className="error-box">
                     {errors.map((error, ind) => (
                         <div key={ind}>{error}</div>
                     ))}

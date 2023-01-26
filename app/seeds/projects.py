@@ -14,7 +14,7 @@ def seed_projects():
         title = "How Breathe",
         category = "Living",
         coverImageUrl = "https://www.shutterstock.com/image-vector/infographics-breathing-cycle-inspiration-expiration-260nw-1836313750.jpg",
-        intro = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        intro = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis ",
         supplies = "At least 1 lung, 2 lungs for optimal results, 1 diaphragm"
     )
     
@@ -23,7 +23,7 @@ def seed_projects():
         title = "Lorem ipsum dolor sit amet",
         category = "Circuits",
         coverImageUrl = "https://randomwordgenerator.com/img/picture-generator/57e0dd414b53aa14f1dc8460962e33791c3ad6e04e507441722a72dd9f4acc_640.jpg",
-        intro = "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.",
+        intro = "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. ",
         supplies = "Anything you can get your hands one, use it all!"
     )
     
@@ -41,7 +41,7 @@ def seed_projects():
         title = "Fusce ulla",
         category = "Craft",
         coverImageUrl = "https://randomwordgenerator.com/img/picture-generator/57e3d5444f53ac14f1dc8460962e33791c3ad6e04e507440772872d3914ccc_640.jpg",
-        intro = "Quisque efficitur sapien sed libero pulvinar efficitur. Vivamus tempus tempor malesuada. Nunc maximus felis nec elit eleifend dignissim. Aenean vulputate magna ut commodo venenatis. Fusce ac diam risus. Maecenas luctus ante lectus, in vestibulum ipsum fermentum id. Vivamus leo enim, varius sed felis vitae, semper lacinia elit. Ma",
+        intro = "Quisque efficitur sapien sed libero pulvinar efficitur. Vivamus tempus tempor malesuada. Nunc maximus felis nec elit eleifend dignissim. Aenean vulputate ",
         supplies = "na leo. Integer sed tortor in leo pulvinar pla"
     )
     
@@ -50,8 +50,8 @@ def seed_projects():
         title = "Vestibulum vel dapibus nunc",
         category = "Cooking",
         coverImageUrl = "https://randomwordgenerator.com/img/picture-generator/55e1d34a4257b10ff3d8992cc12c30771037dbf85254794075287cdc9144_640.jpg",
-        intro = "nec lobortis tortor. Nullam volutpat justo vitae mi dapibus viverra. Donec eget nunc sed odio pharetra euismod. Donec a lectus mauris. Aenean sodales rutrum tristique. Vivamus ullamcorper, quam eget auctor viverra, erat erat feugiat sem, sit amet ultricies sem lectus id nibh. Aenean at finibus nibh, at vulputate purus. Donec ligula nisl, sodales tristique ex et, auctor semper risus.",
-        supplies = "Pellentesque euismod tortor luctus mauris convallis finibus. Vestibulum sit amet rhoncus metus, sit amet feugiat dui. Etiam vitae elit ut elit tincidunt pellentesque at sed nibh. Vivamus pharetra tellus id nunc placerat pellentesque. Nulla ac tempus magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce sed dui imperdiet, porta neque ac, scelerisque lorem."
+        intro = "nec lobortis tortor. Nullam volutpat justo vitae mi dapibus viverra. Donec eget nunc sed odio pharetra euismod. Donec a lectus mauris. Aenean sodales rutrum tristique. Vivamus ullamcorper, quam eget auctor viverra, erat erat feugiat ",
+        supplies = "Pellentesque euismod tortor luctus mauris convallis finibus. Vestibulum sit amet rhoncus metus, sit amet feugiat dui. Etiam vitae elit ut elit tincidunt pellentesque at sed nibh. Vivamus pharetra tellus id nunc placerat pellentesque. "
     )
     
     project7 = Project(

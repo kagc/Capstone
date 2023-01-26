@@ -10,7 +10,7 @@ class Project(db.Model):
         
     id = db.Column(db.Integer, primary_key=True)
     creatorId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
-    title = db.Column(db.String(40), nullable=False)
+    title = db.Column(db.String(255), nullable=False)
     category = db.Column(db.String(255), nullable=False)
     coverImageUrl = db.Column(db.String(1000), nullable=False)
     intro = db.Column(db.String(1000), nullable=False)

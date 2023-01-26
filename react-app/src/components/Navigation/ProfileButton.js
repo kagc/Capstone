@@ -49,7 +49,7 @@ function ProfileButton({ user }) {
   
     return (
       <div className='profile-button-div'>
-        <button onClick={openMenu} className="profile-button"></button>
+        <button onClick={openMenu} className="profile-button"><i class="fa-solid fa-cat"></i></button>
         <div className={ulClassName} ref={ulRef}>
         <div className='modal-dropdown'>
               <LogoutButton />

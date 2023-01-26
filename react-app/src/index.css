@@ -32,3 +32,10 @@ body {
   display: none
 }
 
+a:link {
+    text-decoration: none;
+}
+
+a:hover {
+    color: gray;
+}

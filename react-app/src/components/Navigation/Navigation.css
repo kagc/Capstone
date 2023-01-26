@@ -48,7 +48,7 @@
     font-size: 1.1rem;
     background-color: white;
     border: 1px solid rgb(177, 177, 177) !important;
-    border-radius: 8%;
+    border-radius: 5px;
     margin-right: 1rem;
 }
 
@@ -63,7 +63,7 @@
     font-size: 1.1rem;
     background-color: rgb(255, 213, 73);
     border: 1px solid rgb(255, 213, 73) !important;
-    border-radius: 8%;
+    border-radius: 5px;
     margin-right: 1rem;
 }
 
@@ -79,7 +79,8 @@
     padding-bottom: 5px;
     padding-right: 5px;
     padding-left: 12px;
-    /* border-radius: 50%; */
+    border-radius: 50%;
+    border: none;
     text-align: start;
     font-size: 2em;
     color: gray !important;
@@ -123,4 +124,10 @@
     right: 1rem;
     left: auto;
 
+}
+
+.fa-cat {
+    font-size: 1.6rem;
+    padding-top: 0.3rem;
+    padding-right: 0.4rem;
 }

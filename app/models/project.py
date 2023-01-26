@@ -14,7 +14,7 @@ class Project(db.Model):
     category = db.Column(db.String(255), nullable=False)
     coverImageUrl = db.Column(db.String(1000), nullable=False)
     intro = db.Column(db.String(1000), nullable=False)
-    supplies = db.Column(db.String(255), nullable=False)
+    supplies = db.Column(db.String(1000), nullable=False)
     
     user = db.relationship("User", back_populates="projects")
     steps = db.relationship("ProjectStep", back_populates="project", cascade="all, delete")

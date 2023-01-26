@@ -205,7 +205,8 @@ const CreateProject = () => {
                 required ></input>
                 
                 <div className="input-label">Introduction</div> 
-                <input
+                {/* <input */}
+                <textarea
                 className='input-line'
                 type="textarea"
                 name="intro"
@@ -213,7 +214,11 @@ const CreateProject = () => {
                 value={intro}
                 onChange={(e) => setIntro(e.target.value)}
                 required
-                ></input>
+                rows="5"
+                cols="50"
+                >
+                    </textarea>
+                {/* </input> */}
                 </div>
 
 

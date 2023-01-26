@@ -64,7 +64,7 @@ def seed_project_steps():
     p4step2 = ProjectStep(
         projectId = 4,
         stepNum = 2,
-        stepTitle = "Cras lobortis leo in faucibus consectetur",
+        stepTitle = "Cras lobortis leo in faucibus consecte",
         stepDescription = "Morbi sagittis eleifend est et vehicula. "
     )
     
@@ -99,7 +99,7 @@ def seed_project_steps():
     p6step2 = ProjectStep(
         projectId = 6,
         stepNum = 2,
-        stepTitle = "Vestibulum venenatis id leo sit amet consequat",
+        stepTitle = "Vestibulum venenatis id leo sit amet",
         stepDescription = " Duis dapibus"
     )
     
@@ -113,7 +113,7 @@ def seed_project_steps():
     p6step4 = ProjectStep(
         projectId = 6,
         stepNum = 4,
-        stepTitle = " Vestibulum cursus nisl convallis eros aliquam",
+        stepTitle = " Vestibulum cursus nisl convallis",
         stepDescription = "eget imperdiet nunc molestie. Phasellus molestie nec purus vel rutrum. Praesent id eleifend augue. Morbi eu urna dictum, tristique tortor nec, imperdiet ex. Aenean ac sem vitae ex maximus maximus."
     )
     

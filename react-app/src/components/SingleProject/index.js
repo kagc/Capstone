@@ -9,13 +9,15 @@ const SingleProject = () => {
     const { projectId } = useParams()
     const dispatch = useDispatch()
     const currentUser = useSelector(state => state.session.user)
-
+    
     const project = useSelector(state => state.projects.singleProject)
-    console.log("anything?",project.stepsList)
+    console.log(project)
 
     useEffect(() => {
         dispatch(getOneProject(projectId))
-    }, [dispatch])
+    }, [dispatch, projectId])
+    // console.log("anything?",project.stepsList)
+
 
     if (!project) return null
 
@@ -33,7 +35,7 @@ const SingleProject = () => {
             </div>
 
 
-            <div><img src={`${project.coverImageUrl}`}></img></div>
+            <div className="image-container"><img className="img" src={`${project.coverImageUrl}`}></img></div>
 
             {/* <div className="single-proj-section">Creator Info For Future</div> */}
 

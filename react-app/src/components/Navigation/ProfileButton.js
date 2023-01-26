@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import OpenModalMenuItem from './OpenModalMenuItem';
-import { Link, Route, useHistory } from 'react-router-dom'
+import { NavLink, Link, Route, useHistory } from 'react-router-dom'
 import './Navigation.css'
 import LogoutButton from "../auth/LogoutButton";
 import { getUserProjects } from "../../store/project";
@@ -70,7 +70,7 @@ function ProfileButton({ user }) {
               
             <div className="user-section"><div className="user-section-title">User Info</div>
               <div className="user-projects-container">
-                <div className="user-link">{user.username}</div>
+                <div className="user-link">Hello, {user.username}!</div>
 
               </div>
               </div>
@@ -79,9 +79,15 @@ function ProfileButton({ user }) {
               <div className="user-projects-container">
                 {userProjects.length ? (userProjects.map(project => {
                   return (
-                    <div className="user-link" key={project.id}><Link to={`/projects/${project.id}`}>{project.title}</Link></div>
+                      <Link onClick={closeMenu} to={`/projects/${project.id}`}>
+                    <div className="user-link" key={project.id}>
+                        
+                        {project.title}
+                        
+                        </div>
+                        </Link>
                   )
-                })): (<div>No Directions Yet</div>)}
+                })): (<div className="none-yet">No Directions Yet</div>)}
 
               </div>
               </div>

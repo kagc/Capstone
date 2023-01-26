@@ -26,11 +26,24 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
+  const demoLogin = async (e) => {
+    e.preventDefault();
+    
+    const demoEmail = 'demo@aa.io'
+    const demoPassword = 'password'
+
+    const data = await dispatch(login(demoEmail, demoPassword));
+    if (data) {
+      setErrors(data);
+    }
+  }
+
   if (user) {
     return <Redirect to='/' />;
   }
 
   return (
+    <div>
     <form onSubmit={onLogin}>
       <div>
         {errors.map((error, ind) => (
@@ -57,8 +70,20 @@ const LoginForm = () => {
           onChange={updatePassword}
         />
         <button type='submit'>Login</button>
+
       </div>
     </form>
+
+
+         <div className='form-holder'>
+               <form className='login-form-css' onSubmit={demoLogin}>
+                <div className='login-break'>or</div>
+      <button className="form-button" type="submit">Sign in as a Demo User</button>
+    </form>
+            </div>
+
+    
+    </div>
   );
 };
 

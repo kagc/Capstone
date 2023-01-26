@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import SingleProject from './components/SingleProject';
 import CreateProject from './components/CreateProject';
 import EditProject from './components/EditProject';
+import Navigation from './components/Navigation';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -29,7 +30,9 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      {/* <NavBar /> */}
+      <Navigation isLoaded={loaded} />
+      {loaded && (
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -56,6 +59,7 @@ function App() {
           <EditProject />
         </Route>
       </Switch>
+      )}
     </BrowserRouter>
   );
 }

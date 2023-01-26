@@ -1,0 +1,133 @@
+.nav-container {
+    /* overflow: hidden; */
+    display: flex;
+    flex-direction: row;
+    /* position: absolute !important; */
+    left: 0 !important;
+    top: 0 !important;
+    width: 100%;
+    /* border: red 1px solid; */
+    border-bottom: 1px lightgray solid;
+    background: white;
+    height: 5rem;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    /* border: red 1px solid; */
+    /* align-items: stretch; */
+    justify-content: space-between;
+    /* border-top: lightgray solid 1px; */
+    /* border-bottom: lightgray solid 1px; */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.right-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.login-button {
+    height: 2.5rem;
+    width: 5rem;
+    font-size: 1.1rem;
+    background-color: white;
+    border: 1px solid rgb(177, 177, 177) !important;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.login-button:hover {
+    background-color: rgb(236, 236, 236);
+    cursor: pointer;
+}
+
+.signup-button {
+    height: 2.5rem;
+    width: 5rem;
+    font-size: 1.1rem;
+    background-color: rgb(255, 213, 73);
+    border: 1px solid rgb(255, 213, 73) !important;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.signup-button:hover {
+    background-color: rgb(255, 201, 52);
+    cursor: pointer;
+}
+
+.profile-button {
+    /* border: solid darkgreen 2px !important;  */
+    /* background: white !important; */
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-left: 12px;
+    border-radius: 50%;
+    border: none;
+    text-align: start;
+    font-size: 2em;
+    color: gray !important;
+    font-stretch: 100%;
+    /* position: relative;
+    vertical-align: middle; */
+    justify-content: center;
+    flex-direction: row;
+    height: 2.5rem;
+    width: 2.5rem;
+    display: flex;
+    /* flex-direction: row; */
+}
+
+.profile-button-div {
+    padding-right: 1rem;
+    position: relative;
+}
+
+.modal-dropdown {
+    /* border: red 1px solid; */
+    position: relative;
+}
+
+.profile-dropdown {
+    border: gray 1px solid;
+    /* justify-content: left; */
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 10rem;
+    /* border-radius: 5%; */
+    /* box-shadow: 0px 0px 10px 1px lightgray; */
+    position: relative;
+    /* border: red 1px solid; */
+    position: absolute;
+    margin-top: 1rem;
+    z-index: 99;
+    float: right;
+    background: white;
+    right: 1rem;
+    left: auto;
+
+}
+
+.fa-cat {
+    font-size: 1.6rem;
+    padding-top: 0.3rem;
+    padding-right: 0.4rem;
+}

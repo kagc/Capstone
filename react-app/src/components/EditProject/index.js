@@ -115,18 +115,44 @@ const EditProject = () => {
 
     }
 
+    const returnToPage = (e) => {
+        e.preventDefault()
+        history.push(`/projects/${projectId}`)
+    }
+
     if( !project || !steps ) return null;
 
     return (
-        <div>
+        <div className="wholething">
+            <div className="content">
             <form onSubmit={submit}>
+
+            <div className="topbar">
+                    <div>
+                        <button onClick={returnToPage} className="login-button">Cancel</button>
+                    </div>
+                    <div className="draft-text">
+                        Draft
+                    </div>
+                    <div>
+                        <button className="unpublish-button" onClick={unpublish}>Unpublish</button>
+                        <button className="signup-button" onClick={submit} type="submit">Publish</button>
+                    </div>
+                </div>
+
+
 <div>
     {errors.map((error, ind) => (
         <div key={ind}>{error}</div>
     ))}
 </div>
 
+<div className="section-container">
+                    <div className="section-name">Project Basics</div>
+
+                       <div className="input-label">Project Title</div> 
 <input
+className='input-line'
 type="text"
 name="title"
 placeholder={title}
@@ -135,8 +161,9 @@ onChange={(e) => setTitle(e.target.value)}
 required
 ></input>
 
+<div className="input-label"> Category</div>
 <select
-// type="text"
+className='input-line'
 name="category"
 placeholder={category}
 value={category}
@@ -147,8 +174,14 @@ required>
         value={category}>{category}</option>
     ))}
 </select>
+</div>
 
+<div className="section-container">
+                    <div className="section-name">Introduction</div>
+
+                    <div className="input-label">Cover Image Url</div> 
 <input
+className='input-line'
 type="text"
 name="coverImageUrl"
 placeholder={coverImageUrl}
@@ -156,7 +189,9 @@ value={coverImageUrl}
 onChange={(e) => setCoverImageUrl(e.target.value)}
 required ></input>
 
+<div className="input-label">Introduction</div> 
 <input
+className='input-line'
 type="textarea"
 name="intro"
 placeholder={intro}
@@ -164,29 +199,40 @@ value={intro}
 onChange={(e) => setIntro(e.target.value)}
 required
 ></input>
+</div>
 
+<div className="section-container">
+                    <div className="section-name">Supplies</div>
 <input
+className='input-line'
 type="text"
 name="supplies"
 placeholder={supplies}
 value={supplies}
 onChange={(e) => setSupplies(e.target.value)}
 required></input>
+</div>
 
 {stepInputFields !== undefined && stepInputFields.map((input, index) => {
     let stepNum = index + 1
     return (
-        <div key={index}>
-            <div>Step {index+1}</div>
+        <div className="section-container "key={index}>
+                            <div className="step-section-top"><div className='step-section-top-mid'>Step {index+1}:
             <input
+            className='input-line'
             type="text"
             name='stepTitle'
             placeholder='Step Title'
             value={input.stepTitle} 
             onChange={e => handleFormChange(index, e)}
             required ></input>
+            </div>
+
+            <div className="remove-step-button"><button onClick={(e) => removeFields(index, e)}>Remove</button></div>
+                            </div>
 
             <input
+            className='input-line'
             type="text"
             name='stepDescription'
             placeholder='Step Description'
@@ -194,16 +240,16 @@ required></input>
             onChange={e => handleFormChange(index, e)}
             required ></input>
 
-            <button onClick={(e) => removeFields(index, e)}>Remove</button>
         </div>
     )
 })}
-<button onClick={addFields}>Add More..</button>
+<div className='bottombar'><button className="steps-button" onClick={addFields}>Add New Step +</button></div>
 
-<button onClick={submit} type="submit">Submit</button>
+{/* <button onClick={submit} type="submit">Submit</button> */}
 
-<button onClick={unpublish}>Unpublish</button>
 </form>
+
+</div>
         </div>
     )
 }

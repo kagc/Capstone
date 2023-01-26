@@ -98,7 +98,16 @@ const EditProject = () => {
             intro,
             supplies
         }
+
+        let canCreateProject = true
+        stepInputFields.forEach(step => {
+            if (step.stepTitle === "" || step.stepDescription === ""){
+                canCreateProject = false
+                return setErrors(["Steps cannot be left blank. Please fill in or remove that step."])
+            }
+        })
         
+        if (canCreateProject === true){
         const data = await dispatch(modProject(updatedProject, deletedSteps, stepInputFields))
 
         .catch(async (res) => {
@@ -114,6 +123,7 @@ const EditProject = () => {
         }
 
     }
+}
 
     const returnToPage = (e) => {
         e.preventDefault()

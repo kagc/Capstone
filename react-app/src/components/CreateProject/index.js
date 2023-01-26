@@ -72,8 +72,16 @@ const CreateProject = () => {
             intro,
             supplies
         }
-        
-        const data = await dispatch(makeProject(newProject, stepInputFields))
+        let canCreateProject = true
+        stepInputFields.forEach(step => {
+            if (step.stepTitle === "" || step.stepDescription === ""){
+                canCreateProject = false
+                return setErrors(["Steps cannot be left blank. Please fill in or remove that step."])
+            }
+        })
+        // return console.log(stepInputFields)
+        if (canCreateProject === true){
+            const data = await dispatch(makeProject(newProject, stepInputFields))
         // .then(() => history.push(`/projects/${data.id}`))
         .catch(async (res) => {
             const data = await res.json()
@@ -88,6 +96,22 @@ const CreateProject = () => {
         if (data){
             history.push(`/projects/${data.id}`)
         }
+        }
+        // const data = await dispatch(makeProject(newProject, stepInputFields))
+        // // .then(() => history.push(`/projects/${data.id}`))
+        // .catch(async (res) => {
+        //     const data = await res.json()
+        //     // return console.log(errorObj)
+        //     // newErrors.push(errorObj.message)
+        //     if(data && data.errors){
+        //         setErrors(data.errors)
+        //     }
+            
+        // })
+
+        // if (data){
+        //     history.push(`/projects/${data.id}`)
+        // }
 
         //   if(createdProject){
         //     history.push(`/projects/${createdProject.id}`)
@@ -220,7 +244,10 @@ const CreateProject = () => {
                             required ></input>
                             </div>
                             
-                            <div className="remove-step-button"><button onClick={(e) => removeFields(index, e)}>Remove</button></div>
+                            {index !== 0 && (
+                                <div className="remove-step-button"><button onClick={(e) => removeFields(index, e)}>Remove</button></div>
+                            )}
+                            {/* <div className="remove-step-button"><button onClick={(e) => removeFields(index, e)}>Remove</button></div> */}
                             </div>
                             {/* <input
                             name='stepNum'

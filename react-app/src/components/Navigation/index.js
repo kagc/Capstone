@@ -64,7 +64,7 @@ function Navigation({ isLoaded }){
                     : (
                         <div className="right-nav">
                             <div><NavLink to="/editor"><button className="signup-button">+ New</button></NavLink></div>
-                            <div><ProfileButton /></div>
+                            <div><ProfileButton user={sessionUser}/></div>
                         </div>
                     )}
                     

@@ -165,9 +165,11 @@ const CreateProject = () => {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 required
+                maxlength="150"
                 ></input>
+                <div className='input-counter'>{title.length} / 150</div>
 
-<div className="input-label"> Category</div>
+                <div className="input-label"> Category</div>
                 <select
                 // type="text"
                 // className='input-line'
@@ -207,7 +209,7 @@ const CreateProject = () => {
                 <div className="input-label">Introduction</div> 
                 {/* <input */}
                 <textarea
-                className='input-line'
+                className='input-line-big'
                 type="textarea"
                 name="intro"
                 placeholder='Briefly describe what you made and why. Include a photo of your finished project.'
@@ -216,6 +218,7 @@ const CreateProject = () => {
                 required
                 rows="5"
                 cols="50"
+                maxlength="1000"
                 >
                     </textarea>
                 {/* </input> */}
@@ -224,14 +227,17 @@ const CreateProject = () => {
 
                 <div className="section-container">
                     <div className="section-name">Supplies</div>
-                <input
-                className='input-line'
-                type="text"
+                    <textarea
+                className='input-line-big'
+                type="textarea"
                 name="supplies"
                 placeholder='List any tools or materials used'
                 value={supplies}
                 onChange={(e) => setSupplies(e.target.value)}
-                required></input>
+                required
+                rows="5"
+                cols="50"
+                maxlength="1000"></textarea>
                 </div>
 
                 {stepInputFields.map((input, index) => {
@@ -240,7 +246,8 @@ const CreateProject = () => {
                         <div className="section-container "key={index}>
                             <div className="step-section-top"><div className='step-section-top-mid'>Step {index+1}:
                             <input
-                            className='input-line'
+                            className='input-line-steptitle'
+                            maxlength="40"
                             type="text"
                             name='stepTitle'
                             placeholder='Enter Step Title'
@@ -261,14 +268,17 @@ const CreateProject = () => {
                             onChange={e => handleFormChange(index, e)}/> */}
                             
 
-                            <input
-                            className='input-line'
-                            type="text"
+                            <textarea
+                className='input-line-big'
+                type="textarea"
                             name='stepDescription'
                             placeholder='Write a detailed description of this step.'
                             value={input.stepDescription} 
                             onChange={e => handleFormChange(index, e)}
-                            required ></input>
+                            required 
+                            rows="5"
+                cols="50"
+                            maxlength="1000"></textarea>
 
                             
                         </div>

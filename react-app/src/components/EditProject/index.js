@@ -169,7 +169,9 @@ placeholder={title}
 value={title}
 onChange={(e) => setTitle(e.target.value)}
 required
+maxlength="150"
 ></input>
+<div className='input-counter'>{title.length} / 150</div>
 
 <div className="input-label"> Category</div>
 <select
@@ -200,27 +202,33 @@ onChange={(e) => setCoverImageUrl(e.target.value)}
 required ></input>
 
 <div className="input-label">Introduction</div> 
-<input
-className='input-line'
-type="textarea"
+<textarea
+                className='input-line-big'
+                type="textarea"
 name="intro"
 placeholder={intro}
 value={intro}
 onChange={(e) => setIntro(e.target.value)}
 required
-></input>
+rows="5"
+cols="50"
+maxlength="1000"
+></textarea>
 </div>
 
 <div className="section-container">
                     <div className="section-name">Supplies</div>
-<input
-className='input-line'
-type="text"
+                    <textarea
+                className='input-line-big'
+                type="textarea"
 name="supplies"
 placeholder={supplies}
 value={supplies}
 onChange={(e) => setSupplies(e.target.value)}
-required></input>
+required
+rows="5"
+                cols="50"
+                maxlength="1000"></textarea>
 </div>
 
 {stepInputFields !== undefined && stepInputFields.map((input, index) => {
@@ -229,7 +237,8 @@ required></input>
         <div className="section-container "key={index}>
                             <div className="step-section-top"><div className='step-section-top-mid'>Step {index+1}:
             <input
-            className='input-line'
+            className='input-line-steptitle'
+            maxlength="40"
             type="text"
             name='stepTitle'
             placeholder='Step Title'
@@ -241,14 +250,17 @@ required></input>
             <div className="remove-step-button"><button onClick={(e) => removeFields(index, e)}>Remove</button></div>
                             </div>
 
-            <input
-            className='input-line'
-            type="text"
+                            <textarea
+                className='input-line-big'
+                type="textarea"
             name='stepDescription'
             placeholder='Step Description'
             value={input.stepDescription} 
             onChange={e => handleFormChange(index, e)}
-            required ></input>
+            required 
+            rows="5"
+                cols="50"
+            maxlength="1000"></textarea>
 
         </div>
     )

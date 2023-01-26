@@ -56,7 +56,7 @@ def seed_projects():
     
     project7 = Project(
         creatorId = 3,
-        title = "Duis porta porta eros, congue scelerisque velit malesuada et.",
+        title = "Duis porta porta eros",
         category = "Outside",
         coverImageUrl = "https://randomwordgenerator.com/img/picture-generator/55e3d1424856a914f1dc8460962e33791c3ad6e04e50744172287ad29645c2_640.jpg",
         intro = "Duis porta porta eros, congue scelerisque velit malesuada et. Morbi dapibus metus vel justo iaculis pulvinar.",

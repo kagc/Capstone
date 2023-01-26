@@ -146,12 +146,20 @@ const CreateProject = () => {
 <div className="input-label"> Category</div>
                 <select
                 // type="text"
-                className='input-line'
+                // className='input-line'
                 name="category"
-                placeholder="Category"
+                placeholder="Select category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 required>
+                    <option>Select category</option>
+                    {/* <option value="1">{allCategories[0]}</option>
+                    <option value="2">{allCategories[1]}</option>
+                    <option value="3">{allCategories[2]}</option>
+                    <option value="4">{allCategories[3]}</option>
+                    <option value="5">{allCategories[4]}</option>
+                    <option value="6">{allCategories[5]}</option>
+                    <option value="7">{allCategories[6]}</option> */}
                     {allCategories.map(category => (
                         <option key={category}
                         value={category}>{category}</option>

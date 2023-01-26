@@ -163,7 +163,7 @@ required
 
 <div className="input-label"> Category</div>
 <select
-className='input-line'
+// className='input-line'
 name="category"
 placeholder={category}
 value={category}

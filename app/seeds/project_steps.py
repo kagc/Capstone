@@ -47,96 +47,96 @@ def seed_project_steps():
         stepDescription = "You did it! Now do it again, repeatedly, for the duration of your living existence. Good work!"
     )
     
-    p3step1 = ProjectStep(
-        projectId = 3,
-        stepNum = 1,
-        stepTitle = "First and ONLY step",
-        stepDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet bibendum turpis vel porta. Cras eleifend cursus maximus. Cras volutpat metus nulla, nec iaculis ante consectetur et. Vestibulum eu vehicula est. Sed non magna at augue ullamcorper maximus et non mauris. Phasellus finibus accumsan nulla, in elementum quam volutpat nec. Nunc eleifend, orci ac accumsan vulputate, turpis lacus imperdiet erat, quis euismod ligula diam sit amet purus. Aenean et mi quam."
-    )
+    # p3step1 = ProjectStep(
+    #     projectId = 3,
+    #     stepNum = 1,
+    #     stepTitle = "First and ONLY step",
+    #     stepDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet bibendum turpis vel porta. Cras eleifend cursus maximus. Cras volutpat metus nulla, nec iaculis ante consectetur et. Vestibulum eu vehicula est. Sed non magna at augue ullamcorper maximus et non mauris. Phasellus finibus accumsan nulla, in elementum quam volutpat nec. Nunc eleifend, orci ac accumsan vulputate, turpis lacus imperdiet erat, quis euismod ligula diam sit amet purus. Aenean et mi quam."
+    # )
     
-    p4step1 = ProjectStep(
-        projectId = 4,
-        stepNum = 1,
-        stepTitle = "sed, consectetur nunc. ",
-        stepDescription = "Quisque efficitur sapien sed libero pulvinar efficitur. Vivamus tempus tempor malesuada. Nunc maximus felis nec elit eleifend dignissim. Aenean vulputate magna ut commodo venenatis. Fusce ac diam risus. Maecenas luctus ante lectus, in vestibulum ipsum fermentum id. Vivamus leo enim, varius sed felis vi"
-    )
+    # p4step1 = ProjectStep(
+    #     projectId = 4,
+    #     stepNum = 1,
+    #     stepTitle = "sed, consectetur nunc. ",
+    #     stepDescription = "Quisque efficitur sapien sed libero pulvinar efficitur. Vivamus tempus tempor malesuada. Nunc maximus felis nec elit eleifend dignissim. Aenean vulputate magna ut commodo venenatis. Fusce ac diam risus. Maecenas luctus ante lectus, in vestibulum ipsum fermentum id. Vivamus leo enim, varius sed felis vi"
+    # )
     
-    p4step2 = ProjectStep(
-        projectId = 4,
-        stepNum = 2,
-        stepTitle = "Cras lobortis leo in faucibus consecte",
-        stepDescription = "Morbi sagittis eleifend est et vehicula. "
-    )
+    # p4step2 = ProjectStep(
+    #     projectId = 4,
+    #     stepNum = 2,
+    #     stepTitle = "Cras lobortis leo in faucibus consecte",
+    #     stepDescription = "Morbi sagittis eleifend est et vehicula. "
+    # )
     
-    p5step1 = ProjectStep(
-        projectId = 5,
-        stepNum = 1,
-        stepTitle = "Etiam eu facilisis justo",
-        stepDescription = "Proin vel magna leo. Integer sed tortor in leo pulvinar placerat eget id elit. Suspendisse sapien urna, rhoncus eu maximus quis, ultricies quis ligula. Vivamus id sem id felis ultrices vehicula sollicitudin eget est. Integer et felis luctus mauris porta pretium nec ac libero. Donec finibus enim eros, nec tempus odio gravida sit amet."
-    )
+    # p5step1 = ProjectStep(
+    #     projectId = 5,
+    #     stepNum = 1,
+    #     stepTitle = "Etiam eu facilisis justo",
+    #     stepDescription = "Proin vel magna leo. Integer sed tortor in leo pulvinar placerat eget id elit. Suspendisse sapien urna, rhoncus eu maximus quis, ultricies quis ligula. Vivamus id sem id felis ultrices vehicula sollicitudin eget est. Integer et felis luctus mauris porta pretium nec ac libero. Donec finibus enim eros, nec tempus odio gravida sit amet."
+    # )
     
-    p5step2 = ProjectStep(
-        projectId = 5,
-        stepNum = 2,
-        stepTitle = "Phasellus tincidunt",
-        stepDescription = "Sed gravida tellus a sollicitudin tristique. Phasellus eu vehicula orci. Phasellus condimentum blandit porttitor. Aenean rhoncus faucibus ipsum"
-    )
+    # p5step2 = ProjectStep(
+    #     projectId = 5,
+    #     stepNum = 2,
+    #     stepTitle = "Phasellus tincidunt",
+    #     stepDescription = "Sed gravida tellus a sollicitudin tristique. Phasellus eu vehicula orci. Phasellus condimentum blandit porttitor. Aenean rhoncus faucibus ipsum"
+    # )
     
-    p5step3 = ProjectStep(
-        projectId = 5,
-        stepNum = 3,
-        stepTitle = "Nulla id libero consequat",
-        stepDescription = "feugiat quam sit amet, ultricies quam. Duis eget justo sed enim malesuada porta et eu odio. Morbi vehicula rutrum blandit. Cras porttitor semper scelerisque. Mauris vel aliquam augue, non egestas ante. Nunc ultricies cursus nisl, at euismod metus iaculis quis. Vivamus eget diam feugiat, iaculi"
-    )
+    # p5step3 = ProjectStep(
+    #     projectId = 5,
+    #     stepNum = 3,
+    #     stepTitle = "Nulla id libero consequat",
+    #     stepDescription = "feugiat quam sit amet, ultricies quam. Duis eget justo sed enim malesuada porta et eu odio. Morbi vehicula rutrum blandit. Cras porttitor semper scelerisque. Mauris vel aliquam augue, non egestas ante. Nunc ultricies cursus nisl, at euismod metus iaculis quis. Vivamus eget diam feugiat, iaculi"
+    # )
     
-    p6step1 = ProjectStep(
-        projectId = 6,
-        stepNum = 1,
-        stepTitle = "nec lobortis tortor",
-        stepDescription = ". Vestibulum sit amet rhoncus metus, sit amet feugiat dui. Etiam vitae elit ut elit tincidunt pellentesque at sed nibh. Vivamus pharetra tellus id nunc placerat pellentesque."
-    )
+    # p6step1 = ProjectStep(
+    #     projectId = 6,
+    #     stepNum = 1,
+    #     stepTitle = "nec lobortis tortor",
+    #     stepDescription = ". Vestibulum sit amet rhoncus metus, sit amet feugiat dui. Etiam vitae elit ut elit tincidunt pellentesque at sed nibh. Vivamus pharetra tellus id nunc placerat pellentesque."
+    # )
     
-    p6step2 = ProjectStep(
-        projectId = 6,
-        stepNum = 2,
-        stepTitle = "Vestibulum venenatis id leo sit amet",
-        stepDescription = " Duis dapibus"
-    )
+    # p6step2 = ProjectStep(
+    #     projectId = 6,
+    #     stepNum = 2,
+    #     stepTitle = "Vestibulum venenatis id leo sit amet",
+    #     stepDescription = " Duis dapibus"
+    # )
     
-    p6step3 = ProjectStep(
-        projectId = 6,
-        stepNum = 3,
-        stepTitle = " Duis dapibus",
-        stepDescription = "sapien sit amet vehicula porta, ipsum lorem convallis ante, quis blandit lorem libero nec mauris. Aliquam erat volutpat. In fermentum sodales lectus, ut eleifend nisi molestie sed. "
-    )
+    # p6step3 = ProjectStep(
+    #     projectId = 6,
+    #     stepNum = 3,
+    #     stepTitle = " Duis dapibus",
+    #     stepDescription = "sapien sit amet vehicula porta, ipsum lorem convallis ante, quis blandit lorem libero nec mauris. Aliquam erat volutpat. In fermentum sodales lectus, ut eleifend nisi molestie sed. "
+    # )
     
-    p6step4 = ProjectStep(
-        projectId = 6,
-        stepNum = 4,
-        stepTitle = " Vestibulum cursus nisl convallis",
-        stepDescription = "eget imperdiet nunc molestie. Phasellus molestie nec purus vel rutrum. Praesent id eleifend augue. Morbi eu urna dictum, tristique tortor nec, imperdiet ex. Aenean ac sem vitae ex maximus maximus."
-    )
+    # p6step4 = ProjectStep(
+    #     projectId = 6,
+    #     stepNum = 4,
+    #     stepTitle = " Vestibulum cursus nisl convallis",
+    #     stepDescription = "eget imperdiet nunc molestie. Phasellus molestie nec purus vel rutrum. Praesent id eleifend augue. Morbi eu urna dictum, tristique tortor nec, imperdiet ex. Aenean ac sem vitae ex maximus maximus."
+    # )
     
-    p7step1 = ProjectStep(
-        projectId = 7,
-        stepNum = 1,
-        stepTitle = "Duis porta porta eros,",
-        stepDescription = "congue scelerisque velit malesuada et. Morbi dapibus metus vel justo iaculis pulvinar. Sed faucibus non urna sit amet tempor. Pellentesque elementum urna nec suscipit condimentum. Nulla id felis tincidunt, rutrum eros eget, lacinia nunc. Donec sem risus, tempor eu ligula nec, finibus dapibus ex. Donec sit amet ipsum ligula. Aenean at consectetur mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices."
-    )
+    # p7step1 = ProjectStep(
+    #     projectId = 7,
+    #     stepNum = 1,
+    #     stepTitle = "Duis porta porta eros,",
+    #     stepDescription = "congue scelerisque velit malesuada et. Morbi dapibus metus vel justo iaculis pulvinar. Sed faucibus non urna sit amet tempor. Pellentesque elementum urna nec suscipit condimentum. Nulla id felis tincidunt, rutrum eros eget, lacinia nunc. Donec sem risus, tempor eu ligula nec, finibus dapibus ex. Donec sit amet ipsum ligula. Aenean at consectetur mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices."
+    # )
     
-    p7step2 = ProjectStep(
-        projectId = 7,
-        stepNum = 2,
-        stepTitle = "consectetur adipiscing elit",
-        stepDescription = "Nunc eleifend, orci ac accumsan vulputate, turpis lacus imperdiet erat, quis euismod ligula diam sit amet purus. Aenean et mi quam."
-    )
+    # p7step2 = ProjectStep(
+    #     projectId = 7,
+    #     stepNum = 2,
+    #     stepTitle = "consectetur adipiscing elit",
+    #     stepDescription = "Nunc eleifend, orci ac accumsan vulputate, turpis lacus imperdiet erat, quis euismod ligula diam sit amet purus. Aenean et mi quam."
+    # )
     
-    p8step1 = ProjectStep(
-        projectId = 8,
-        stepNum = 1,
-        stepTitle = "Just do it",
-        stepDescription = "I believe in you. Believe in yourself."
-    )
+    # p8step1 = ProjectStep(
+    #     projectId = 8,
+    #     stepNum = 1,
+    #     stepTitle = "Just do it",
+    #     stepDescription = "I believe in you. Believe in yourself."
+    # )
     
     
     
@@ -150,19 +150,19 @@ def seed_project_steps():
     db.session.add(p2step2)
     db.session.add(p2step3)
     db.session.add(p2step4)
-    db.session.add(p3step1)
-    db.session.add(p4step1)
-    db.session.add(p4step2)
-    db.session.add(p5step1)
-    db.session.add(p5step2)
-    db.session.add(p5step3)
-    db.session.add(p6step1)
-    db.session.add(p6step2)
-    db.session.add(p6step3)
-    db.session.add(p6step4)
-    db.session.add(p7step1)
-    db.session.add(p7step2)
-    db.session.add(p8step1)
+    # db.session.add(p3step1)
+    # db.session.add(p4step1)
+    # db.session.add(p4step2)
+    # db.session.add(p5step1)
+    # db.session.add(p5step2)
+    # db.session.add(p5step3)
+    # db.session.add(p6step1)
+    # db.session.add(p6step2)
+    # db.session.add(p6step3)
+    # db.session.add(p6step4)
+    # db.session.add(p7step1)
+    # db.session.add(p7step2)
+    # db.session.add(p8step1)
     
     db.session.commit()
     

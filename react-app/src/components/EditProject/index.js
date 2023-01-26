@@ -98,7 +98,16 @@ const EditProject = () => {
             intro,
             supplies
         }
+
+        let canCreateProject = true
+        stepInputFields.forEach(step => {
+            if (step.stepTitle === "" || step.stepDescription === ""){
+                canCreateProject = false
+                return setErrors(["Steps cannot be left blank. Please fill in or remove that step."])
+            }
+        })
         
+        if (canCreateProject === true){
         const data = await dispatch(modProject(updatedProject, deletedSteps, stepInputFields))
 
         .catch(async (res) => {
@@ -114,6 +123,7 @@ const EditProject = () => {
         }
 
     }
+}
 
     const returnToPage = (e) => {
         e.preventDefault()
@@ -141,7 +151,7 @@ const EditProject = () => {
                 </div>
 
 
-<div>
+<div className="error-box">
     {errors.map((error, ind) => (
         <div key={ind}>{error}</div>
     ))}
@@ -163,7 +173,7 @@ required
 
 <div className="input-label"> Category</div>
 <select
-className='input-line'
+// className='input-line'
 name="category"
 placeholder={category}
 value={category}

@@ -45,6 +45,7 @@ const CreateProject = () => {
     }
 
     const removeFields = (index, e) => {
+        e.preventDefault()
         if (index === 0){
             return alert('cannot remove step 1')
         }
@@ -71,8 +72,16 @@ const CreateProject = () => {
             intro,
             supplies
         }
-        
-        const data = await dispatch(makeProject(newProject, stepInputFields))
+        let canCreateProject = true
+        stepInputFields.forEach(step => {
+            if (step.stepTitle === "" || step.stepDescription === ""){
+                canCreateProject = false
+                return setErrors(["Steps cannot be left blank. Please fill in or remove that step."])
+            }
+        })
+        // return console.log(stepInputFields)
+        if (canCreateProject === true){
+            const data = await dispatch(makeProject(newProject, stepInputFields))
         // .then(() => history.push(`/projects/${data.id}`))
         .catch(async (res) => {
             const data = await res.json()
@@ -87,6 +96,22 @@ const CreateProject = () => {
         if (data){
             history.push(`/projects/${data.id}`)
         }
+        }
+        // const data = await dispatch(makeProject(newProject, stepInputFields))
+        // // .then(() => history.push(`/projects/${data.id}`))
+        // .catch(async (res) => {
+        //     const data = await res.json()
+        //     // return console.log(errorObj)
+        //     // newErrors.push(errorObj.message)
+        //     if(data && data.errors){
+        //         setErrors(data.errors)
+        //     }
+            
+        // })
+
+        // if (data){
+        //     history.push(`/projects/${data.id}`)
+        // }
 
         //   if(createdProject){
         //     history.push(`/projects/${createdProject.id}`)
@@ -123,7 +148,7 @@ const CreateProject = () => {
                         <li key={idx}>{error}</li>
                     ))}
                 </ul> */}
-                <div>
+                <div className="error-box">
                     {errors.map((error, ind) => (
                         <div key={ind}>{error}</div>
                     ))}
@@ -145,12 +170,20 @@ const CreateProject = () => {
 <div className="input-label"> Category</div>
                 <select
                 // type="text"
-                className='input-line'
+                // className='input-line'
                 name="category"
-                placeholder="Category"
+                placeholder="Select category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 required>
+                    <option>Select category</option>
+                    {/* <option value="1">{allCategories[0]}</option>
+                    <option value="2">{allCategories[1]}</option>
+                    <option value="3">{allCategories[2]}</option>
+                    <option value="4">{allCategories[3]}</option>
+                    <option value="5">{allCategories[4]}</option>
+                    <option value="6">{allCategories[5]}</option>
+                    <option value="7">{allCategories[6]}</option> */}
                     {allCategories.map(category => (
                         <option key={category}
                         value={category}>{category}</option>
@@ -211,7 +244,10 @@ const CreateProject = () => {
                             required ></input>
                             </div>
                             
-                            <div className="remove-step-button"><button onClick={(e) => removeFields(index, e)}>Remove</button></div>
+                            {index !== 0 && (
+                                <div className="remove-step-button"><button onClick={(e) => removeFields(index, e)}>Remove</button></div>
+                            )}
+                            {/* <div className="remove-step-button"><button onClick={(e) => removeFields(index, e)}>Remove</button></div> */}
                             </div>
                             {/* <input
                             name='stepNum'

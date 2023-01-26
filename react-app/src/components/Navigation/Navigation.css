@@ -95,6 +95,10 @@
     /* flex-direction: row; */
 }
 
+.profile-button:hover {
+    cursor: pointer;
+}
+
 .profile-button-div {
     padding-right: 1rem;
     position: relative;
@@ -106,14 +110,13 @@
 }
 
 .profile-dropdown {
-    border: gray 1px solid;
-    /* justify-content: left; */
+    border: white 1px solid;
     padding-bottom: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    width: 10rem;
-    /* border-radius: 5%; */
-    /* box-shadow: 0px 0px 10px 1px lightgray; */
+    width: 13rem;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 1px lightgray;
     position: relative;
     /* border: red 1px solid; */
     position: absolute;
@@ -126,8 +129,58 @@
 
 }
 
+.dropdown-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-box-user-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: lightgray solid 1px;
+    /* padding-bottom: 2rem; */
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 .fa-cat {
     font-size: 1.6rem;
     padding-top: 0.3rem;
-    padding-right: 0.4rem;
+    padding-right: 0.3rem;
+}
+
+.user-section {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.user-section-title {
+    text-decoration: underline;
+    padding-bottom: 0.5rem;
+}
+
+.user-link {
+    width: 100%;
+    padding-bottom: 0.5rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.user-link> a {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.user-projects-container {
+    border-bottom: lightgray solid 1px;
+    margin-bottom: 0.5rem;
+}
+
+.none-yet {
+    font-weight: bold;
+    font-size: 0.7rem;
 }

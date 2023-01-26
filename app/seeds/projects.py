@@ -23,7 +23,7 @@ def seed_projects():
         title = "Lorem ipsum dolor sit amet",
         category = "Circuits",
         coverImageUrl = "https://randomwordgenerator.com/img/picture-generator/57e0dd414b53aa14f1dc8460962e33791c3ad6e04e507441722a72dd9f4acc_640.jpg",
-        intro = "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. ",
+        intro = "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue",
         supplies = "Anything you can get your hands one, use it all!"
     )
     

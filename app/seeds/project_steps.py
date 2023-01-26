@@ -22,30 +22,30 @@ def seed_project_steps():
         stepDescription = "Pet cat. Wow, you did it!"
     )
     
-    p2step1 = ProjectStep(
-        projectId = 2,
-        stepNum = 1,
-        stepTitle = "Flex diaphragm",
-        stepDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    )
-    p2step2 = ProjectStep(
-        projectId = 2,
-        stepNum = 2,
-        stepTitle = "Wait a second",
-        stepDescription = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, s"
-    )
-    p2step3 = ProjectStep(
-        projectId = 2,
-        stepNum = 3,
-        stepTitle = "Relax diaphragm",
-        stepDescription = "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. "
-    )
-    p2step4 = ProjectStep(
-        projectId = 2,
-        stepNum = 4,
-        stepTitle = "Repeat",
-        stepDescription = "You did it! Now do it again, repeatedly, for the duration of your living existence. Good work!"
-    )
+    # p2step1 = ProjectStep(
+    #     projectId = 2,
+    #     stepNum = 1,
+    #     stepTitle = "Flex diaphragm",
+    #     stepDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    # )
+    # p2step2 = ProjectStep(
+    #     projectId = 2,
+    #     stepNum = 2,
+    #     stepTitle = "Wait a second",
+    #     stepDescription = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, s"
+    # )
+    # p2step3 = ProjectStep(
+    #     projectId = 2,
+    #     stepNum = 3,
+    #     stepTitle = "Relax diaphragm",
+    #     stepDescription = "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. "
+    # )
+    # p2step4 = ProjectStep(
+    #     projectId = 2,
+    #     stepNum = 4,
+    #     stepTitle = "Repeat",
+    #     stepDescription = "You did it! Now do it again, repeatedly, for the duration of your living existence. Good work!"
+    # )
     
     # p3step1 = ProjectStep(
     #     projectId = 3,
@@ -146,10 +146,10 @@ def seed_project_steps():
     db.session.add(p1step2)
     db.session.add(p1step3)
     
-    db.session.add(p2step1)
-    db.session.add(p2step2)
-    db.session.add(p2step3)
-    db.session.add(p2step4)
+    # db.session.add(p2step1)
+    # db.session.add(p2step2)
+    # db.session.add(p2step3)
+    # db.session.add(p2step4)
     # db.session.add(p3step1)
     # db.session.add(p4step1)
     # db.session.add(p4step2)

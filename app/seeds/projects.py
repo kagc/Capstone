@@ -18,14 +18,14 @@ def seed_projects():
         supplies = "At least 1 lung, 2 lungs for optimal results, 1 diaphragm"
     )
     
-    # project3 = Project(
-    #     creatorId = 2,
-    #     title = "Lorem ipsum dolor sit amet",
-    #     category = "Circuits",
-    #     coverImageUrl = "https://randomwordgenerator.com/img/picture-generator/57e0dd414b53aa14f1dc8460962e33791c3ad6e04e507441722a72dd9f4acc_640.jpg",
-    #     intro = "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. ",
-    #     supplies = "Anything you can get your hands one, use it all!"
-    # )
+    project3 = Project(
+        creatorId = 2,
+        title = "Lorem ipsum dolor sit amet",
+        category = "Circuits",
+        coverImageUrl = "https://randomwordgenerator.com/img/picture-generator/57e0dd414b53aa14f1dc8460962e33791c3ad6e04e507441722a72dd9f4acc_640.jpg",
+        intro = "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. ",
+        supplies = "Anything you can get your hands one, use it all!"
+    )
     
     # project4 = Project(
     #     creatorId = 2,
@@ -74,7 +74,7 @@ def seed_projects():
     
     db.session.add(project1)
     db.session.add(project2)
-    # db.session.add(project3)
+    db.session.add(project3)
     # db.session.add(project4)
     # db.session.add(project5)
     # db.session.add(project6)

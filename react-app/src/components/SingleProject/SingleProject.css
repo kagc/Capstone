@@ -143,3 +143,130 @@
     /* border-radius: 20px; */
     /* object-fit: cover; */
 }
+
+.comment-section {
+    /* border: red solid 1px; */
+}
+
+.comment-input-box-container {
+    border: rgb(178, 178, 178) solid 1px;
+    border-radius: 5px;
+    padding: 1rem;
+    background-color: rgb(232, 232, 232);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.comment-input-top {
+    display: flex;
+    flex-direction: row;
+    width: 100%
+}
+
+.comment-input {
+    width: 100%;
+    margin-right: none !important;
+}
+
+.comment-text-input {
+    border: solid 1px gray;
+    background-color: white;
+    padding: 1rem;
+    width: 84%;
+    margin-right: 0px !important;
+    margin-bottom: 1rem;
+}
+
+.user-img {
+    width: 10%;
+}
+
+.comment-input-bottom {
+    display: flex;
+    flex-direction: row;
+}
+
+#cat {
+    border: 1px solid black;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background-color: lightgray;
+}
+
+.comment-msg{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 90%;
+}
+
+.comment-buttons> button {
+    height: 2rem;
+    width: 4rem;
+    background-color: rgb(255, 213, 73);
+    border: 1px solid rgb(255, 213, 73) !important;
+    border-radius: 5px;
+}
+
+.comment-buttons> button:hover {
+    background-color: rgb(255, 201, 52);
+    cursor: pointer;
+}
+
+.num-comments {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.one-comment {
+    border-top: 1px solid rgb(178, 178, 178);
+    padding: 1rem;
+}
+
+.one-comment-text {
+    margin-bottom: 1rem;
+}
+
+.one-comment-top {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+}
+
+.one-comment-top-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.commenter-info {
+    display: flex; 
+    flex-direction: row;
+    margin-left: 2rem;
+    margin-right: 1rem;
+}
+
+.one-comment-top-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.ud-comment-buttons {
+    border: none;
+    margin: 0.5rem;
+    background-color: white !important;
+    
+}
+
+.ud-comment-buttons:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    /* color: gray; */
+}

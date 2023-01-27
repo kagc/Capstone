@@ -7,11 +7,11 @@ from .auth_routes import validation_errors_to_error_messages
 comment_routes = Blueprint('comments', __name__)
 
 #Get all comments by current user
-@comment_routes.route('/reviews/current')
+@comment_routes.route('/comments/current')
 @login_required
 def user_comments():
     currentId = current_user.get_id()
-    return {"Comments": [comment.to_dict_project() for comment in Comment.query.all() if int(comment.creatorId) == int(currentId)]}
+    return {"Comments": [comment.to_dict_comment() for comment in Comment.query.filter(Comment.userId == currentId).all()]}
 
 #Get all comments by project instruction page Id
 @comment_routes.route('/projects/<int:projectId>/comments')
@@ -78,8 +78,8 @@ def edit_comment(commentId):
             'statusCode': 403
         }, 403
     
-    if form.validation_on_submit():
-        form.populate_object(comment)
+    if form.validate_on_submit():
+        form.populate_obj(comment)
         db.session.add(comment)
         db.session.commit()
         return comment.to_dict_comment()

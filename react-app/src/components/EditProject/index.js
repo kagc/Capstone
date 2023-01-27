@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector} from 'react-redux';
-import { getOneProject, modProject, nukeProject } from '../../store/project';
+import { getAllProjects, getOneProject, modProject, nukeProject } from '../../store/project';
 
 const EditProject = () => {
     const { projectId } = useParams()
@@ -14,28 +14,47 @@ const EditProject = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const sessionUser = useSelector(state => state.session.user)
-
+    
     const project = useSelector(state => state.projects.singleProject)
     const steps = useSelector(state => state.projects.singleProject.stepsList)
+    // const thisProject = useSelector(state => state.projects.allProjects[parseInt(projectId)])
+    // console.log(thisProject)
     
     steps.forEach(step => deletedSteps.push(step))
-    console.log("!!!!!!!!!!!!!!!!!deletedSteps ",deletedSteps)
-    
+    let tempTitle = project.title
+    let tempCat = project.category
+    let tempCover = project.setCoverImageUrl
+    let tempIntro = project.intro
+    let tempSupplies = project.supplies
+    // console.log("!!!!!!!!!!!!!!!!!deletedSteps ",deletedSteps)
 
-    const [ title, setTitle ] = useState(project.title)
-    const [category, setCategory ] = useState(project.category)
-    const [ coverImageUrl, setCoverImageUrl ] = useState(project.coverImageUrl)
-    const [ intro, setIntro ] = useState(project.intro)
-    const [ supplies, setSupplies ] = useState(project.supplies)
+    const [ title, setTitle ] = useState(tempTitle)
+    const [category, setCategory ] = useState(tempCat)
+    const [ coverImageUrl, setCoverImageUrl ] = useState(tempCover)
+    const [ intro, setIntro ] = useState(tempIntro)
+    const [ supplies, setSupplies ] = useState(tempSupplies)
     const [ stepInputFields, setStepInputFields ] = useState(steps)
+    // console.log(title)
 
-    console.log("!!!!!!!!!!!!stepinputfield",stepInputFields)
-    // setStepInputFields(steps)
-    
     useEffect(() => {
         dispatch(getOneProject(projectId))
-        setStepInputFields(steps)
+        dispatch(getAllProjects())
     }, [dispatch])
+
+    // const [ title, setTitle ] = useState("")
+    // const [category, setCategory ] = useState("")
+    // const [ coverImageUrl, setCoverImageUrl ] = useState("")
+    // const [ intro, setIntro ] = useState("")
+    // const [ supplies, setSupplies ] = useState("")
+    // const [ stepInputFields, setStepInputFields ] = useState([])
+    // setTitle(project.title)
+    // setCategory(project.category)
+    // setSupplies(project.supplies)
+    // setCoverImageUrl(project.coverImageUrl)
+    // setIntro(project.intro)
+
+    // console.log("!!!!!!!!!!!!stepinputfield",stepInputFields)
+    // setStepInputFields(steps)
     
     const [errors, setErrors] = useState([]);
     
@@ -131,6 +150,10 @@ const EditProject = () => {
     }
 
     if( !project || !steps ) return null;
+    if(title === undefined){
+        history.push(`/projects/${projectId}`)
+        alert("Whoops, there was an issue with your request, returning to directions page.")
+    }
 
     return (
         <div className="wholething">
@@ -171,7 +194,8 @@ onChange={(e) => setTitle(e.target.value)}
 required
 maxlength="150"
 ></input>
-<div className='input-counter'>{title.length} / 150</div>
+{title !== undefined && (<div className='input-counter'>{title.length} / 150</div>)}
+
 
 <div className="input-label"> Category</div>
 <select

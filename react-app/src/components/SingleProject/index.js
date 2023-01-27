@@ -82,7 +82,12 @@ const SingleProject = () => {
                 <div className="interact-bar">
 
                     <div><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
-                <div><i class="fa-solid fa-comments"></i>Comment</div></div>
+
+                <div>
+                    <a href="#comments"><i class="fa-solid fa-comments"></i> Comment</a>
+                    
+                    </div>
+                    </div>
 
                 <div className="line-break"></div></div>
 
@@ -95,7 +100,12 @@ const SingleProject = () => {
                 <div className="interact-bar">
 
                     <div><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
-                <div><i class="fa-solid fa-comments"></i>Comment</div></div>
+
+                <div>
+                    <a href="#comments"><i class="fa-solid fa-comments"></i> Comment</a>
+                    
+                    </div>
+                    </div>
 
                 <div className="line-break"></div></div>
 
@@ -110,10 +120,15 @@ const SingleProject = () => {
 
 
                     <div className="interaction-section">
-                <div className="interact-bar">
+                    <div className="interact-bar">
 
                     <div><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
-                <div><i class="fa-solid fa-comments"></i>Comment</div></div>
+
+                    <div>
+                    <a href="#comments"><i class="fa-solid fa-comments"></i> Comment</a>
+
+                    </div>
+                    </div>
 
                 <div className="line-break"></div></div>
 
@@ -122,7 +137,7 @@ const SingleProject = () => {
                 )
             })}
 
-            {currentUser.id === project.creatorInfo.id && (<div id="edit-float">
+            {currentUser && currentUser.id === project.creatorInfo.id && (<div id="edit-float">
                 <div className="admin-corner">Admin
                     <Link to={`/editor/${project.id}`} >
                     <button className="edit-button">Edit Directable</button>
@@ -133,13 +148,15 @@ const SingleProject = () => {
             </div>)}
 
 
-            <div className="comment-section">
+            <div id="comments" className="comment-section">
                 <div className="comment-input-box-container">
                             <form onSubmit={submitComment} className="comment-input">
                     <div className="comment-input-top">
                         <div className="user-img"><i id="cat" class="fa-solid fa-cat"></i></div>
                         {/* <div className="comment-input"> */}
                                 <textarea
+                                readOnly={currentUser === null ? true : false}
+                                placeholder={currentUser === null ? "Must be logged in to leave a comment." : null }
                                 className="comment-text-input"
                                 input="textarea"
                                 name="comment"
@@ -157,7 +174,7 @@ const SingleProject = () => {
                             <div>Please be positive and constructive.</div>
                         </div>
                         <div className="comment-buttons">
-                            <button onSubmit={submitComment} type="submit">Post</button>
+                            <button disabled={currentUser === null ? true : null } onSubmit={submitComment} type="submit">Post</button>
                         </div>
                         </div>
                             </form>
@@ -166,7 +183,7 @@ const SingleProject = () => {
 
             {comments.length > 0 && (
                 <div className="comments-list">
-                    <div className="num-comments">{comments.length} Comments</div>
+                    <div className="num-comments">{comments.length} Comment{comments.length > 1 ? "s" : null}</div>
                     
                     {comments.map(comment => {
                         return (
@@ -183,7 +200,7 @@ const SingleProject = () => {
                                         </div>
 
                                     <div className="one-comment-top-right">
-                                        {currentUser.id === comment.userId && (
+                                        {currentUser && currentUser.id === comment.userId && (
                                             <div>
 
                                                 <button className="ud-comment-buttons">Edit</button>

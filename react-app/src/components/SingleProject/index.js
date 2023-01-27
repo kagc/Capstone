@@ -4,22 +4,58 @@ import { useParams, useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector} from 'react-redux';
 import { getOneProject } from '../../store/project';
 import EditProject from '../EditProject';
+import { getAllComments, makeComment, removeComment } from '../../store/comment';
 
 const SingleProject = () => {
     const { projectId } = useParams()
     const dispatch = useDispatch()
     const currentUser = useSelector(state => state.session.user)
+
+    const [ comment, setComment ] = useState("")
+
+    const [errors, setErrors] = useState([]);
     
     const project = useSelector(state => state.projects.singleProject)
-    console.log(project)
+    const commentsObj = useSelector(state => state.comments.allComments)
+    const comments = Object.values(commentsObj)
+    // console.log(comments)
 
     useEffect(() => {
         dispatch(getOneProject(projectId))
+        dispatch(getAllComments(projectId))
     }, [dispatch, projectId])
     // console.log("anything?",project.stepsList)
 
+    const submitComment = async (e) => {
+        e.preventDefault()
 
-    if (!project) return null
+        const newComment = {
+            comment
+        }
+
+        console.log(newComment)
+
+        const data = await dispatch(makeComment(newComment, projectId))
+        .catch(async (res) =>{
+            const data = await res.json()
+            if (data && data.errors) {
+                setErrors(data.errors)
+            }
+        })
+
+        if (data) {
+            setComment("")
+        }
+    }
+
+    const deleteComment = async (e) => {
+        e.preventDefault()
+
+        const data = await dispatch(removeComment())
+    }
+
+
+    if (!project || !commentsObj ) return null
 
     return (
         <div className="wholething">
@@ -96,8 +132,85 @@ const SingleProject = () => {
                 
             </div>)}
 
+
+            <div className="comment-section">
+                <div className="comment-input-box-container">
+                            <form onSubmit={submitComment} className="comment-input">
+                    <div className="comment-input-top">
+                        <div className="user-img"><i id="cat" class="fa-solid fa-cat"></i></div>
+                        {/* <div className="comment-input"> */}
+                                <textarea
+                                className="comment-text-input"
+                                input="textarea"
+                                name="comment"
+                                value={comment}
+                                onChange={(e) => setComment(e.target.value)}
+                                required
+                                rows="5"
+                                cols="50"
+                                maxlength="1000"></textarea>
+                        {/* </div> */}
+                    </div>
+                    <div className="comment-input-bottom">
+                        <div className="comment-msg">
+                            <div>We have a be nice policy.</div>
+                            <div>Please be positive and constructive.</div>
+                        </div>
+                        <div className="comment-buttons">
+                            <button onSubmit={submitComment} type="submit">Post</button>
+                        </div>
+                        </div>
+                            </form>
+                    </div>
+                </div>
+
+            {comments.length > 0 && (
+                <div className="comments-list">
+                    <div className="num-comments">{comments.length} Comments</div>
+                    
+                    {comments.map(comment => {
+                        return (
+
+                            <div className="one-comment">
+                                <div className="one-comment-top">
+                                    <div className="one-comment-top-left">
+                                        <div className="user-img"><i id="cat" class="fa-solid fa-cat"></i></div>
+                                        <div className="commenter-info">{comment.userInfo.username} {comment.userId === project.creatorId && (
+                                            <div> (Author)</div>
+                                        )}</div>
+
+                                        <div>X Days ago</div>
+                                        </div>
+
+                                    <div className="one-comment-top-right">
+                                        {currentUser.id === comment.userId && (
+                                            <div>
+
+                                                <button className="ud-comment-buttons">Edit</button>
+                                                <button onClick={async (e) => {
+                                                    e.preventDefault()
+                                                    const data = await dispatch(removeComment(comment.id))
+    }} className="ud-comment-buttons">Delete</button>
+                                            </div>
+                                        )}
+                                    </div>
+                                    
+                                </div>
+
+                                <div className="one-comment-text">{comment.comment}</div>
+                            </div>
+                        )
+                    })}
+               
+                    
+                    
+                    </div>
+                   ) }
+
+            </div>
+
         </div>
-        </div>
+        // </div>
     )
 }
 

@@ -92,8 +92,8 @@ export const modComment = (comment) => async dispatch => {
     }
 }
 
-export const removeComment = (comment) => async dispatch => {
-    const response = await fetch(`/api/comments${comment.id}`, {
+export const removeComment = (commentId) => async dispatch => {
+    const response = await fetch(`/api/comments/${commentId}`, {
         method: "DELETE",
         headers: {
             'Content-Type': 'application/json'
@@ -134,7 +134,14 @@ const commentReducer = (state = initialState, action) => {
             newState.userComments[action.comment.id] = action.comment
             return newState
 
-        
+        case DELETE_COMMENT:
+            newState = { ...state, allComments: { ...state.allComments }, userComments: { ...state.userComments }}
+            delete newState.allComments[action.commentId]
+            delete newState.userComments[action.commentId]
+            return newState
+
+        default:
+            return state
     }
 }
 

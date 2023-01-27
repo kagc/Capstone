@@ -82,7 +82,12 @@ const SingleProject = () => {
                 <div className="interact-bar">
 
                     <div><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
-                <div><i class="fa-solid fa-comments"></i>Comment</div></div>
+
+                <div>
+                    <a href="#comments"><i class="fa-solid fa-comments"></i> Comment</a>
+                    
+                    </div>
+                    </div>
 
                 <div className="line-break"></div></div>
 
@@ -95,7 +100,12 @@ const SingleProject = () => {
                 <div className="interact-bar">
 
                     <div><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
-                <div><i class="fa-solid fa-comments"></i>Comment</div></div>
+
+                <div>
+                    <a href="#comments"><i class="fa-solid fa-comments"></i> Comment</a>
+                    
+                    </div>
+                    </div>
 
                 <div className="line-break"></div></div>
 
@@ -110,10 +120,15 @@ const SingleProject = () => {
 
 
                     <div className="interaction-section">
-                <div className="interact-bar">
+                    <div className="interact-bar">
 
                     <div><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
-                <div><i class="fa-solid fa-comments"></i>Comment</div></div>
+
+                    <div>
+                    <a href="#comments"><i class="fa-solid fa-comments"></i> Comment</a>
+
+                    </div>
+                    </div>
 
                 <div className="line-break"></div></div>
 
@@ -133,7 +148,7 @@ const SingleProject = () => {
             </div>)}
 
 
-            <div className="comment-section">
+            <div id="comments" className="comment-section">
                 <div className="comment-input-box-container">
                             <form onSubmit={submitComment} className="comment-input">
                     <div className="comment-input-top">

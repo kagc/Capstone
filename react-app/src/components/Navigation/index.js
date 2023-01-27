@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import './Navigation.css'
 import LogoutButton from "../auth/LogoutButton";
 import ProfileButton from "./ProfileButton";
+import icon from "../../images/directablesLogo.png"
 
 function Navigation({ isLoaded }){
     const sessionUser = useSelector(state => state.session.user);
@@ -33,19 +34,11 @@ function Navigation({ isLoaded }){
 
   const closeMenu = () => setShowMenu(false);
 
-//   const loginpage = () => {
-
-//   }
-
-//   const signuppage = () => {
-
-//   }
-
     return (
         <nav className="nav-container">
             <div className="navbar">
                 <div className="left-nav">
-                    <div><NavLink to="/">Icon/homelink</NavLink></div>
+                    <div><NavLink to="/"><img className="logo-img" src={icon}></img></NavLink></div>
                 </div>
 
                 <div className="mid-nav">

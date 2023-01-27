@@ -5,6 +5,7 @@ import { useDispatch, useSelector} from 'react-redux';
 import { getOneProject } from '../../store/project';
 import EditProject from '../EditProject';
 import { getAllComments, makeComment, removeComment } from '../../store/comment';
+let errImage = 'https://previews.123rf.com/images/sonsedskaya/sonsedskaya1902/sonsedskaya190200070/118117055-portrait-of-a-builder-cat-with-tools-in-paws.jpg'
 
 const SingleProject = () => {
     const { projectId } = useParams()
@@ -12,6 +13,7 @@ const SingleProject = () => {
     const currentUser = useSelector(state => state.session.user)
 
     const [ comment, setComment ] = useState("")
+    const [newSrc, setNewSrc] = useState('')
 
     const [errors, setErrors] = useState([]);
     
@@ -71,7 +73,16 @@ const SingleProject = () => {
             </div>
 
 
-            <div className="image-container"><img className="img" src={`${project.coverImageUrl}`}></img></div>
+            <div className="image-container">
+                <img 
+                className="img" 
+                onError={(e)=>{
+                    if(e.target.src !== errImage) {
+                    setNewSrc(errImage)
+                    e.target.src = errImage
+                    }
+                }}
+            src={`${project.coverImageUrl}`}></img></div>
 
             {/* <div className="single-proj-section">Creator Info For Future</div> */}
 

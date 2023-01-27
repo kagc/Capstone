@@ -201,17 +201,33 @@
     width: 90%;
 }
 
+.comment-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
 .comment-buttons> button {
     height: 2rem;
     width: 4rem;
     background-color: rgb(255, 213, 73);
     border: 1px solid rgb(255, 213, 73) !important;
     border-radius: 5px;
+    margin-right: 1rem;
 }
 
 .comment-buttons> button:hover {
     background-color: rgb(255, 201, 52);
     cursor: pointer;
+}
+
+#close-edit-button {
+    background-color: white;
+    border: solid 1px lightgray !important;
+    border-radius: 5px;
+}
+
+#close-edit-button:hover {
+    background: rgb(235, 235, 235);
 }
 
 .num-comments {

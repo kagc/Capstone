@@ -84,11 +84,12 @@ def edit_comment(commentId):
         db.session.commit()
         return comment.to_dict_comment()
     
-    return {
-        'message': 'Validation Error',
-        'errors': validation_errors_to_error_messages(form.errors),
-        'statusCode': 400
-    }, 400
+    if form.errors:
+        return {
+            'message': 'Validation Error',
+            'errors': validation_errors_to_error_messages(form.errors),
+            'statusCode': 400
+        }, 400
     
 #Delete a comment
 @comment_routes.route('/comments/<int:commentId>', methods=['DELETE'])
@@ -115,6 +116,7 @@ def delete_comment(commentId):
     db.session.commit()
     
     return {
+        "id": commentId,
         "message": "Comment successfully deleted.",
         'statusCode': 200
     }, 200

@@ -58,11 +58,7 @@ const LoginForm = () => {
 
             <div className='form-holder'>
     <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
+      
       <div>
         {/* <label htmlFor='email'>Email</label> */}
         <input
@@ -86,6 +82,11 @@ const LoginForm = () => {
         />
         <button id="login-button" className="form-button" type='submit'>Login</button>
 
+      </div>
+      <div className="error-box">
+        {errors.map((error, ind) => (
+          <div key={ind}>{error}</div>
+        ))}
       </div>
     </form>
     </div>

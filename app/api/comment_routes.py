@@ -13,7 +13,7 @@ def user_comments():
     currentId = current_user.get_id()
     return {"Comments": [comment.to_dict_comment() for comment in Comment.query.filter(Comment.userId == currentId).all()]}
 
-#Get all comments by project instruction page Id
+#Get all comments by project direction page Id
 @comment_routes.route('/projects/<int:projectId>/comments')
 def project_comments(projectId):
     return {"Comments": [comment.to_dict_comment() for comment in Comment.query.filter(Comment.projectId == projectId).all()]}

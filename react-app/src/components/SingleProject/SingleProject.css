@@ -153,7 +153,9 @@
 .comment-input-box-container {
     border: rgb(178, 178, 178) solid 1px;
     border-radius: 5px;
-    padding: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
     background-color: rgb(232, 232, 232);
     display: flex;
     flex-direction: column;
@@ -181,7 +183,7 @@
 }
 
 .user-img {
-    width: 10%;
+    width: 3.5rem;
 }
 
 .comment-input-bottom {
@@ -266,7 +268,7 @@
 .commenter-info {
     display: flex; 
     flex-direction: row;
-    margin-left: 2rem;
+    margin-left: 1rem;
     margin-right: 1rem;
 }
 
@@ -287,4 +289,39 @@
     text-decoration: underline;
     cursor: pointer;
     /* color: gray; */
+}
+
+#heart {
+    color: rgb(187, 31, 114);
+    padding-right: 0.5rem;
+}
+
+#unfaved-heart {
+    padding-right: 0.5rem;
+}
+
+#unfaved-button {
+    color: gray !important;
+}
+
+#unfaved-button:hover {
+    color: rgb(187, 31, 114) !important;
+}
+
+.unfaved-text {
+    color: black;
+}
+
+#faved {
+    box-shadow: inset 0px 1px 5px rgba(115, 115, 115, 0.9);
+    
+}
+
+#faved:hover {
+    background-color: rgb(238, 238, 238);
+}
+
+.fav-button:hover {
+    cursor: pointer;
+    background-color: rgb(230, 230, 230);
 }

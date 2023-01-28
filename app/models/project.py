@@ -18,7 +18,7 @@ class Project(db.Model):
     
     user = db.relationship("User", back_populates="projects")
     steps = db.relationship("ProjectStep", back_populates="project", cascade="all, delete")
-    # favorites = db.relationship("Favorite", back_populates="favorites", cascade="all, delete")
+    favorites = db.relationship("Favorite", back_populates="project", cascade="all, delete")
     comments = db.relationship("Comment", back_populates="project", cascade="all, delete")
     
     def to_dict_project(self):
@@ -32,4 +32,9 @@ class Project(db.Model):
             'supplies': self.supplies,
             'creator': User.query.get(self.creatorId).to_dict(),
             'steps': [step.to_dict_step() for step in ProjectStep.query.all() if int(step.projectId) == int(self.id)]
+        }
+        
+    def to_dict_project_title(self):
+        return {
+            'title': self.title
         }

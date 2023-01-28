@@ -3,9 +3,9 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    background-position-y: -20rem;
-    /* height: 100%; */
-    width: 100%;
+    background-position-y: -10rem;
+    height: 100%;
+    /* width: 100%; */
 }
 
 .auth-form-container {
@@ -17,7 +17,7 @@
 
 .auth-form {
     /* background-color: rgba(0, 0, 0, 0.61); */
-    height: 48rem;
+    height: 50rem;
     backdrop-filter: blur(5px);
     padding-top: 5rem;
     padding-left: 1rem;
@@ -44,6 +44,24 @@
 
 .form-button:hover {
     background-color: lightgray;
+    cursor: pointer;
+}
+
+.logout-button {
+    width: 100%;
+    height: 2em;
+    background-color: white;
+    /* color: white; */
+    /* transition: background 0.1s ease-in-out; */
+    /* margin-top: 2rem;
+    margin-bottom: 2rem; */
+    border: solid lightgray 1px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+.logout-button:hover {
+    background-color: rgb(229, 229, 229);
     cursor: pointer;
 }
 

@@ -116,9 +116,8 @@
     padding-right: 1rem;
     width: 13rem;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px 1px lightgray;
+    box-shadow: 0px 0px 2px 1px lightgray;
     position: relative;
-    /* border: red 1px solid; */
     position: absolute;
     margin-top: 1rem;
     z-index: 99;
@@ -180,9 +179,14 @@
     margin-bottom: 0.5rem;
 }
 
+.user-projects-container-BOTTOM {
+    margin-bottom: 0.5rem;
+}
+
 .none-yet {
     font-weight: bold;
     font-size: 0.7rem;
+    margin-bottom: 0.5rem;
 }
 
 .logo-img{

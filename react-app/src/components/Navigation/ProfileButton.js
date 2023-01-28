@@ -76,7 +76,7 @@ function ProfileButton({ user }) {
               </div>
 
               <div className="user-section"><div className="user-section-title">Project Directions</div>
-              <div className="user-projects-container">
+              <div className="user-projects-container-BOTTOM">
                 {userProjects.length ? (userProjects.map(project => {
                   return (
                       <Link onClick={closeMenu} to={`/projects/${project.id}`}>

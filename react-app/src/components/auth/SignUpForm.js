@@ -43,51 +43,73 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
+<div className="auth-bg">
+      <div className="auth-form-container">
+        <div className="auth-form">
+
+        <div className='form-holder'></div>
+    <form 
+    // className='login-form-css' 
+    onSubmit={onSignUp}>
+      
       <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label>User Name</label>
+        {/* <label>User Name</label> */}
         <input
+        className="auth-input-line"
           type='text'
           name='username'
+          placeholder='Username'
           onChange={updateUsername}
           value={username}
         ></input>
       </div>
       <div>
-        <label>Email</label>
+        {/* <label>Email</label> */}
         <input
+        className="auth-input-line"
           type='text'
           name='email'
+          placeholder='Email'
           onChange={updateEmail}
           value={email}
         ></input>
       </div>
       <div>
-        <label>Password</label>
+        {/* <label>Password</label> */}
         <input
+        className="auth-input-line"
           type='password'
           name='password'
+          placeholder='Password'
           onChange={updatePassword}
           value={password}
         ></input>
       </div>
       <div>
-        <label>Repeat Password</label>
+        {/* <label>Repeat Password</label> */}
         <input
+        className="auth-input-line"
           type='password'
           name='repeat_password'
+          placeholder='Confirm Password'
           onChange={updateRepeatPassword}
           value={repeatPassword}
           required={true}
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <button id="login-button" className="form-button"  type='submit'>Sign Up</button>
+
+      <div className="error-box">
+        {errors.map((error, ind) => (
+          <div key={ind}>{error}</div>
+        ))}
+      </div>
     </form>
+    </div>
+
+            </div>
+
+            </div>
   );
 };
 

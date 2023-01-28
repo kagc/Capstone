@@ -1,0 +1,27 @@
+.auth-bg {
+    background-image: url("https://i.redd.it/v6z0pp4rovk91.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position-y: -20rem;
+    /* height: 100%; */
+    width: 100%;
+}
+
+.auth-form-container {
+    height: 55rem;
+    width: 24rem;
+    margin-left: 4rem;
+    padding-top: 2rem;
+}
+
+.auth-form {
+    /* background-color: rgba(0, 0, 0, 0.61); */
+    height: 48rem;
+    backdrop-filter: blur(5px);
+    padding-top: 6rem;
+}
+
+.login-break {
+    text-align: center;
+}

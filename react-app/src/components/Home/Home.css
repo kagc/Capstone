@@ -113,7 +113,8 @@
     flex-direction: column;
     border: solid lightgray 1px;
     height: 20rem;
-    min-width: 19rem;
+    min-width: 18rem;
+    max-width: 18rem;
     margin-bottom: 2rem;
     overflow: hidden;
     border-radius: 5px;
@@ -154,4 +155,11 @@
 .category-card-holder {
     display: flex;
     flex-direction: row;
+}
+
+.fa-greater-than {
+    margin-left: 0.6rem;
+    color: gray;
+    font-weight: bolder;
+    font-size: 0.9rem;
 }

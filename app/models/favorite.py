@@ -10,7 +10,7 @@ class Favorite(db.Model):
         
     id = db.Column(db.Integer, primary_key=True)
     userId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
-    projectId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod(("projects.id"))))
+    projectId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod(("projects.id"))), nullable=False)
     
     project = db.relationship("Project", back_populates="favorites")
     user = db.relationship("User", back_populates="favorites")

@@ -8,7 +8,7 @@ favorite_routes = Blueprint('favorites', __name__)
 
 #Get all favorites by current user
 @favorite_routes.route('/favorites/current')
-@login_required()
+@login_required
 def user_favorites():
     currentId = current_user.get_id()
     return {"Favorites": [favorite.to_dict_favorite() for favorite in Favorite.query.filter(Favorite.userId == currentId).all()]}
@@ -20,7 +20,7 @@ def project_favorites(projectId):
 
 #Create a favorite
 @favorite_routes.route('/projects/<int:projectId>/favorites', methods=['POST'])
-@login_required()
+@login_required
 def create_favorite(projectId):
     form = FavoriteForm()
     
@@ -55,7 +55,7 @@ def create_favorite(projectId):
         
 #Delete a favorite
 @favorite_routes.route('/favorites/<int:favoriteId>', methods=['DELETE'])
-@login_required()
+@login_required
 def delete_favorite(favoriteId):
     favorite = Favorite.query.get(favoriteId)
     

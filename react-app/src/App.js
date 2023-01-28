@@ -13,6 +13,7 @@ import CreateProject from './components/CreateProject';
 import EditProject from './components/EditProject';
 import Navigation from './components/Navigation';
 import HomePage from './components/Home';
+import Footer from './components/Footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -61,6 +62,7 @@ function App() {
         </Route>
       </Switch>
       )}
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -1,0 +1,129 @@
+.footer-container {
+    height: 15rem;
+    /* border-top: solid gray 2px; */
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: rgb(91, 91, 91);
+    padding-left: 2rem;
+    padding-right: 2rem;
+    color: lightgray;
+    padding-top: 1rem;
+    line-height: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 50%;
+    width: 80%;
+}
+
+.footer-links-labels {
+    font-size: 1.1rem;
+    /* font-weight: bold; */
+    color: white;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    /* text-align: left; */
+    padding-bottom: 1rem;
+}
+
+.footer-link-section {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    padding-left: 1rem;
+}
+
+.footer-social-media {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 60%;
+    /* border-bottom: solid lightgray 2px; */
+}
+
+.footer-break {
+    width: 100%;
+    padding-top: 1rem;
+    border-bottom: 1px solid lightgray;
+}
+
+.footer-legal-links {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 0.9rem;
+    padding-bottom: 1rem;
+}
+
+.footer-bottom-right {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.footer-logo {
+    height: 10rem;
+    width: auto;
+}
+
+.footer-cat-holder {
+    display: flex;
+    flex-direction: row;
+    width: 25rem;
+}
+
+.footer-cat-column {
+    display: flex;
+    flex-direction: column;
+    width: 7rem;
+}
+
+.fa-github-alt {
+    font-size: 2.5rem;
+    border: solid lightgray 2px;
+    border-radius: 5px;
+}
+
+.footer-git-link {
+    width: 8rem;
+}
+
+.footer-git-link> a {
+    color: lightgray;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.footer-git-link> a:hover {
+    color: gray;
+    /* border: solid gray 2px; */
+}
+
+.footer-link-box {
+    width: 8rem;
+}
+
+.footer-link-box> a {
+    color: lightgray;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: 0.9rem;
+}
+
+.footer-link-box> a:hover {
+    color: gray;
+}

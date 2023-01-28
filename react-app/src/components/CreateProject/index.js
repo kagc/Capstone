@@ -76,7 +76,7 @@ const CreateProject = () => {
         stepInputFields.forEach(step => {
             if (step.stepTitle === "" || step.stepDescription === ""){
                 canCreateProject = false
-                return setErrors(["Steps cannot be left blank. Please fill in or remove that step."])
+                return setErrors(["Steps title and description cannot be left blank. Please fill in or remove that step."])
             }
         })
         // return console.log(stepInputFields)

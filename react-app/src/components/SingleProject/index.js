@@ -5,6 +5,7 @@ import { useDispatch, useSelector} from 'react-redux';
 import { getOneProject } from '../../store/project';
 import EditProject from '../EditProject';
 import { getAllComments, makeComment, modComment, removeComment } from '../../store/comment';
+import { getAllFavorites, makeFavorite, removeFavorite } from '../../store/favorite';
 let errImage = 'https://previews.123rf.com/images/sonsedskaya/sonsedskaya1902/sonsedskaya190200070/118117055-portrait-of-a-builder-cat-with-tools-in-paws.jpg'
 
 const SingleProject = () => {
@@ -13,6 +14,8 @@ const SingleProject = () => {
     const ulRef = useRef();
     const currentUser = useSelector(state => state.session.user)
 
+    const [ isLoaded, setIsLoaded ] = useState(false)
+
     const [ comment, setComment ] = useState("")
     const [newSrc, setNewSrc] = useState('')
 
@@ -20,43 +23,34 @@ const SingleProject = () => {
     const [ thisComment, setThisComment ] = useState("")
     const project = useSelector(state => state.projects.singleProject)
     const commentsObj = useSelector(state => state.comments.allComments)
-    const comments = Object.values(commentsObj)
-    // console.log(comments)
-
+    const favoritesObj = useSelector(state => state.favorites.allFavorites)
+    // console.log(favoritesObj)
     
     const [ editedComment, setEditedComment ] = useState("")
     const [ editedCommentId, setEditedCommentId ] = useState("")
-    // const openEdit = (e) => {
-    //     e.preventDefault();
-    //     if(showEdit) return
-    //     setEditedComment(comment)
-    //     setShowEdit(true)
-    // };
-    // useEffect(() => {
-    //     if(!showEdit) return
-
-    //     const closeEdit = (e) => {
-    //         if(!ulRef.current.container(e.target)) {
-    //             setShowEdit(false)
-    //         }
-    //     }
-
-    //     document.addEventListener('click', closeEdit);
-    //     return () => document.removeEventListener('click', closeEdit)
-    // }, [showEdit])
+    
     const closeEdit = (e) => {
         e.preventDefault();
         setShowEdit(false)
     }
-
-
+    
     const [errors, setErrors] = useState([]);
     
     useEffect(() => {
         dispatch(getOneProject(projectId))
         dispatch(getAllComments(projectId))
+        dispatch(getAllFavorites(projectId))
+        .then(setIsLoaded(true))
     }, [dispatch, projectId])
     // console.log("anything?",project.stepsList)
+    const comments = Object.values(commentsObj)
+    const favorites = Object.values(favoritesObj)
+
+    let userFaved = []
+    if (currentUser && favorites.length > 0) {
+        userFaved = favorites.filter(fav => fav.userId === currentUser.id)
+    }
+    // console.log(userFaved)
 
     const submitComment = async (e) => {
         e.preventDefault()
@@ -64,8 +58,6 @@ const SingleProject = () => {
         const newComment = {
             comment
         }
-
-        // console.log(newComment)
 
         const data = await dispatch(makeComment(newComment, projectId))
         .catch(async (res) =>{
@@ -87,8 +79,6 @@ const SingleProject = () => {
             comment: editedComment
         }
 
-        // return console.log(newEditedComment)
-
         const data = await dispatch(modComment(newEditedComment, editedCommentId))
         .catch(async (res) => {
             const data = await res.json()
@@ -102,31 +92,47 @@ const SingleProject = () => {
         }
     }
 
-    // const deleteComment = async (e) => {
-    //     e.preventDefault()
+    const submitFavorite = async (e) => {
+        e.preventDefault()
 
-    //     const data = await dispatch(removeComment())
-    // }
+        const favorite = {
+            projectId
+        }
+        // return console.log(favorite)
 
-    // const openEditComment = (e) => {
-    //     e.preventDefault()
+        const data = await dispatch(makeFavorite(favorite, projectId))
+        .catch(async (res) =>{
+            const data = await res.json()
+            if (data && data.errors) {
+                setErrors(data.errors)
+            }
+        })
+    }
 
-    // }
+    if (!project || !commentsObj || !favoritesObj ) return null
 
-
-    if (!project || !commentsObj ) return null
-
-    return (
+    return isLoaded && (
         <div className="wholething">
             <div className="single-proj-content">
 
             
             <div className="titlebar">{project.title}</div>
-            <div className="misc-infobar">By {project.creatorInfo.username} in {project.category}<div className="favsNum"><i class="fa-solid fa-heart"></i>(#Favs)</div></div>
+            <div className="misc-infobar">By {project.creatorInfo.username} in {project.category}<div className="favsNum"><i id="heart" class="fa-solid fa-heart"></i>{favoritesObj.total}</div></div>
 
             <div className="sub-titlebar">
                 <div>Publish Date</div>
-                <div><button className="fav-button"><i class="fa-solid fa-heart"></i>Favorite</button></div>
+                <div>
+                    {userFaved.length > 0 ? (
+                        <button onClick={async (e) => {
+                            e.preventDefault()
+                            const data = await dispatch(removeFavorite(userFaved[0].id))
+                        }} id="faved" className="fav-button"><i id="heart" class="fa-solid fa-heart"></i>Favorited</button>
+                    ) : (
+                        <button id="unfaved-button" onClick={submitFavorite} className="fav-button"><i id="unfaved-heart" class="fa-solid fa-heart"></i><span className="unfaved-text">Favorite</span></button>
+                    )}
+                    
+                    
+                    </div>
             </div>
 
 

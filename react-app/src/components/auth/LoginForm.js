@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import './auth.css'
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -43,7 +44,19 @@ const LoginForm = () => {
   }
 
   return (
-    <div>
+    <div className="auth-bg">
+      <div className="auth-form-container">
+        <div className="auth-form">
+
+        <div className='form-holder'>
+               <form className='login-form-css' onSubmit={demoLogin}>
+                <div className='login-break'>Sign in as:</div>
+      <button className="form-button" type="submit"><i id="auth-cat" class="fa-solid fa-cat"></i>Demo User</button>
+    </form>
+    <div className='login-break'>OR</div>
+            </div>
+
+            <div className='form-holder'>
     <form onSubmit={onLogin}>
       <div>
         {errors.map((error, ind) => (
@@ -51,8 +64,9 @@ const LoginForm = () => {
         ))}
       </div>
       <div>
-        <label htmlFor='email'>Email</label>
+        {/* <label htmlFor='email'>Email</label> */}
         <input
+        className="auth-input-line"
           name='email'
           type='text'
           placeholder='Email'
@@ -61,28 +75,24 @@ const LoginForm = () => {
         />
       </div>
       <div>
-        <label htmlFor='password'>Password</label>
+        {/* <label htmlFor='password'>Password</label> */}
         <input
+        className="auth-input-line"
           name='password'
           type='password'
           placeholder='Password'
           value={password}
           onChange={updatePassword}
         />
-        <button type='submit'>Login</button>
+        <button id="login-button" className="form-button" type='submit'>Login</button>
 
       </div>
     </form>
+    </div>
 
-
-         <div className='form-holder'>
-               <form className='login-form-css' onSubmit={demoLogin}>
-                <div className='login-break'>or</div>
-      <button className="form-button" type="submit">Sign in as a Demo User</button>
-    </form>
             </div>
 
-    
+            </div>
     </div>
   );
 };

@@ -25,9 +25,9 @@ const editComment = (comment) => ({
     comment
 })
 
-const obliterateComment = (commentId) => ({
+const obliterateComment = (comment) => ({
     type: DELETE_COMMENT,
-    commentId
+    comment
 })
 
 export const getAllComments = (projectId) => async dispatch => {
@@ -74,8 +74,8 @@ export const makeComment = (newComment, projectId) => async dispatch => {
     }
 }
 
-export const modComment = (comment) => async dispatch => {
-    const response = await fetch(`/api/comments/${comment.id}`, {
+export const modComment = (comment, commentId) => async dispatch => {
+    const response = await fetch(`/api/comments/${commentId}`, {
         method: "PUT",
         headers: {
             'Content-Type': 'application/json'
@@ -88,6 +88,7 @@ export const modComment = (comment) => async dispatch => {
         return editedComment
     }
     if (response.status >= 400){
+        console.log(response)
         throw response
     }
 }
@@ -136,8 +137,8 @@ const commentReducer = (state = initialState, action) => {
 
         case DELETE_COMMENT:
             newState = { ...state, allComments: { ...state.allComments }, userComments: { ...state.userComments }}
-            delete newState.allComments[action.commentId]
-            delete newState.userComments[action.commentId]
+            delete newState.allComments[action.comment.id]
+            delete newState.userComments[action.comment.id]
             return newState
 
         default:

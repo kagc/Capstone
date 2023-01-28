@@ -1,27 +1,57 @@
 import './SingleProject.css'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useParams, useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector} from 'react-redux';
 import { getOneProject } from '../../store/project';
 import EditProject from '../EditProject';
-import { getAllComments, makeComment, removeComment } from '../../store/comment';
+import { getAllComments, makeComment, modComment, removeComment } from '../../store/comment';
 let errImage = 'https://previews.123rf.com/images/sonsedskaya/sonsedskaya1902/sonsedskaya190200070/118117055-portrait-of-a-builder-cat-with-tools-in-paws.jpg'
 
 const SingleProject = () => {
     const { projectId } = useParams()
     const dispatch = useDispatch()
+    const ulRef = useRef();
     const currentUser = useSelector(state => state.session.user)
 
     const [ comment, setComment ] = useState("")
     const [newSrc, setNewSrc] = useState('')
 
-    const [errors, setErrors] = useState([]);
-    
+    const [ showEdit, setShowEdit ] = useState(false)
+    const [ thisComment, setThisComment ] = useState("")
     const project = useSelector(state => state.projects.singleProject)
     const commentsObj = useSelector(state => state.comments.allComments)
     const comments = Object.values(commentsObj)
     // console.log(comments)
 
+    
+    const [ editedComment, setEditedComment ] = useState("")
+    const [ editedCommentId, setEditedCommentId ] = useState("")
+    // const openEdit = (e) => {
+    //     e.preventDefault();
+    //     if(showEdit) return
+    //     setEditedComment(comment)
+    //     setShowEdit(true)
+    // };
+    // useEffect(() => {
+    //     if(!showEdit) return
+
+    //     const closeEdit = (e) => {
+    //         if(!ulRef.current.container(e.target)) {
+    //             setShowEdit(false)
+    //         }
+    //     }
+
+    //     document.addEventListener('click', closeEdit);
+    //     return () => document.removeEventListener('click', closeEdit)
+    // }, [showEdit])
+    const closeEdit = (e) => {
+        e.preventDefault();
+        setShowEdit(false)
+    }
+
+
+    const [errors, setErrors] = useState([]);
+    
     useEffect(() => {
         dispatch(getOneProject(projectId))
         dispatch(getAllComments(projectId))
@@ -35,7 +65,7 @@ const SingleProject = () => {
             comment
         }
 
-        console.log(newComment)
+        // console.log(newComment)
 
         const data = await dispatch(makeComment(newComment, projectId))
         .catch(async (res) =>{
@@ -50,11 +80,38 @@ const SingleProject = () => {
         }
     }
 
-    const deleteComment = async (e) => {
-        e.preventDefault()
+    const submitEditedComment = async (e) => {
+        e.preventDefault();
 
-        const data = await dispatch(removeComment())
+        const newEditedComment = {
+            comment: editedComment
+        }
+
+        // return console.log(newEditedComment)
+
+        const data = await dispatch(modComment(newEditedComment, editedCommentId))
+        .catch(async (res) => {
+            const data = await res.json()
+            if (data && data.errors) {
+                setErrors(data.errors)
+            }
+        })
+
+        if (data) {
+            setShowEdit(false)
+        }
     }
+
+    // const deleteComment = async (e) => {
+    //     e.preventDefault()
+
+    //     const data = await dispatch(removeComment())
+    // }
+
+    // const openEditComment = (e) => {
+    //     e.preventDefault()
+
+    // }
 
 
     if (!project || !commentsObj ) return null
@@ -196,7 +253,7 @@ const SingleProject = () => {
                 <div className="comments-list">
                     <div className="num-comments">{comments.length} Comment{comments.length > 1 ? "s" : null}</div>
                     
-                    {comments.map(comment => {
+                    {comments.slice(0).reverse().map(comment => {
                         return (
 
                             <div className="one-comment">
@@ -214,11 +271,18 @@ const SingleProject = () => {
                                         {currentUser && currentUser.id === comment.userId && (
                                             <div>
 
-                                                <button className="ud-comment-buttons">Edit</button>
+                                                <button 
+                                                onClick={(e) => {
+                                                    e.preventDefault()
+                                                    setEditedComment(comment.comment)
+                                                    setThisComment(comment.id)
+                                                    setShowEdit(true)
+                                                }}
+                                                className="ud-comment-buttons">Edit</button>
                                                 <button onClick={async (e) => {
                                                     e.preventDefault()
                                                     const data = await dispatch(removeComment(comment.id))
-    }} className="ud-comment-buttons">Delete</button>
+                                                }} className="ud-comment-buttons">Delete</button>
                                             </div>
                                         )}
                                     </div>
@@ -226,6 +290,43 @@ const SingleProject = () => {
                                 </div>
 
                                 <div className="one-comment-text">{comment.comment}</div>
+
+                                {comment.id === thisComment && showEdit && (
+
+                                <div className="comment-input-box-container">
+                                    <form onSubmit={submitEditedComment} className="comment-input">
+                                    <div className="comment-input-top">
+                        <div className="user-img"><i id="cat" class="fa-solid fa-cat"></i></div>
+                        {/* <div className="comment-input"> */}
+                                <textarea
+                                // placeholder={comment.comment}
+                                className="comment-text-input"
+                                input="textarea"
+                                name="comment"
+                                value={editedComment}
+                                onChange={(e) => {
+                                    setEditedComment(e.target.value)
+                                    setEditedCommentId(comment.id)}}
+                                required
+                                rows="5"
+                                cols="50"
+                                maxlength="1000"></textarea>
+                        {/* </div> */}
+                    </div>
+                    <div className="comment-input-bottom">
+                        <div className="comment-msg">
+                            <div>We have a be nice policy.</div>
+                            <div>Please be positive and constructive.</div>
+                        </div>
+                        <div className="comment-buttons">
+                            <button id="close-edit-button" onClick={closeEdit}>Cancel</button>
+                            <button onSubmit={submitEditedComment} type="submit">Save</button>
+                        </div>
+                        </div>
+
+                                    </form>
+                                </div>
+                                )}
                             </div>
                         )
                     })}

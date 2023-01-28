@@ -12,6 +12,7 @@ import SingleProject from './components/SingleProject';
 import CreateProject from './components/CreateProject';
 import EditProject from './components/EditProject';
 import Navigation from './components/Navigation';
+import HomePage from './components/Home';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -47,7 +48,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <HomePage />
         </Route>
         <Route path='/projects/:projectId' exact={true} >
           <SingleProject />

@@ -21,5 +21,5 @@ class Favorite(db.Model):
             'userId': self.userId,
             'projectId': self.projectId,
             'user': User.query.get(self.userId).to_dict(),
-            'project': Project.query.get(self.projectId).to_dict_project()
+            'project': Project.query.get(self.projectId).to_dict_project_title()
         }

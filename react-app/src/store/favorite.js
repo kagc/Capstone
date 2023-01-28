@@ -102,6 +102,7 @@ const favoriteReducer = (state = initialState, action) => {
             newState =  { ...state, userFavorites: {} }
             action.favorites.Favorites.forEach(favorite => {
                 newState.userFavorites[favorite.id] = favorite
+                newState.userFavorites[favorite.id].title = favorite.project.title
             })
             newState.userFavorites.total = action.favorites.Favorites.length
             return newState
@@ -111,6 +112,7 @@ const favoriteReducer = (state = initialState, action) => {
             newState.allFavorites[action.favorite.id] = action.favorite
             newState.userFavorites[action.favorite.id] = action.favorite
             newState.allFavorites.total += 1
+            newState.userFavorites.total += 1
             return newState
 
         case DELETE_FAVORITE:
@@ -118,6 +120,7 @@ const favoriteReducer = (state = initialState, action) => {
             delete newState.allFavorites[action.favorite.id]
             delete newState.userFavorites[action.favorite.id]
             newState.allFavorites.total -= 1
+            newState.userFavorites.total -= 1
             return newState
 
         default:

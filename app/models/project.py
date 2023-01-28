@@ -33,3 +33,8 @@ class Project(db.Model):
             'creator': User.query.get(self.creatorId).to_dict(),
             'steps': [step.to_dict_step() for step in ProjectStep.query.all() if int(step.projectId) == int(self.id)]
         }
+        
+    def to_dict_project_title(self):
+        return {
+            'title': self.title
+        }

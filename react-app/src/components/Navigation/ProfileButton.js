@@ -6,21 +6,27 @@ import { NavLink, Link, Route, useHistory } from 'react-router-dom'
 import './Navigation.css'
 import LogoutButton from "../auth/LogoutButton";
 import { getUserProjects } from "../../store/project";
+import { getUserFavorites } from "../../store/favorite";
 
 function ProfileButton({ user }) {
     const history = useHistory()
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
+    const [ isLoaded, setIsLoaded ] = useState(false)
     const ulRef = useRef();
 
     useEffect(() => {
       dispatch(getUserProjects())
+      dispatch(getUserFavorites())
+      .then(setIsLoaded(true))
     }, [dispatch])
     // console.log(user)
 
     const userProjectsObj = useSelector(state => state.projects.usersProjects)
     const userProjects = Object.values(userProjectsObj)
-    console.log(userProjects)
+    const userFavoritesObj = useSelector(state => state.favorites.userFavorites)
+    const userFavorites = Object.values(userFavoritesObj)
+    // console.log(userProjects)
   
     const openMenu = () => {
       if (showMenu) return;
@@ -59,7 +65,7 @@ function ProfileButton({ user }) {
 
     if (!userProjectsObj) return null
   
-    return (
+    return isLoaded && (
       <div className='profile-button-div'>
         <button onClick={openMenu} className="profile-button"><i class="fa-solid fa-cat"></i></button>
         <div className={ulClassName} ref={ulRef}>
@@ -68,19 +74,34 @@ function ProfileButton({ user }) {
             <div className='nav-box-user-data'>
 
               
-            <div className="user-section"><div className="user-section-title">User Info</div>
+            <div className="user-section"><div className="user-section-title"><i class="fa-solid fa-shield-cat"></i> User Info</div>
               <div className="user-projects-container">
                 <div className="user-link">Hello, {user.username}!</div>
 
               </div>
               </div>
 
-              <div className="user-section"><div className="user-section-title">Project Directions</div>
+              <div className="user-section"><div className="user-section-title"><i class="fa-solid fa-heart"></i> Favorites ({userFavoritesObj.total})</div>
+              <div className="user-projects-container">
+                {userFavorites.length ? (userFavorites.map(fav => {
+                  return (
+                    <Link key={fav.id} onClick={closeMenu} to={`/projects/${fav.projectId}`}>
+                      <div className="user-link">
+                        {fav.title}
+                      </div>
+                    </Link>
+                  )
+                })): (<div className="none-yet">No Favorites Yet</div>)}
+
+              </div>
+              </div>
+
+              <div className="user-section"><div className="user-section-title"><i class="fa-solid fa-scroll"></i> Project Directions</div>
               <div className="user-projects-container-BOTTOM">
                 {userProjects.length ? (userProjects.map(project => {
                   return (
-                      <Link onClick={closeMenu} to={`/projects/${project.id}`}>
-                    <div className="user-link" key={project.id}>
+                      <Link key={project.id} onClick={closeMenu} to={`/projects/${project.id}`}>
+                    <div className="user-link">
                         
                         {project.title}
                         

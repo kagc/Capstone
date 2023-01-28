@@ -1,4 +1,6 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
+from .project import Project
+from .user import User
 
 class Favorite(db.Model):
     __tablename__ = 'favorites'
@@ -17,5 +19,7 @@ class Favorite(db.Model):
         return {
             'id': self.id,
             'userId': self.userId,
-            'projectId': self.projectId
+            'projectId': self.projectId,
+            'user': User.query.get(self.userId).to_dict(),
+            'project': Project.query.get(self.projectId).to_dict_project()
         }

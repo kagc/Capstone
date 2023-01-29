@@ -83,7 +83,7 @@ const LoginForm = () => {
         <button id="login-button" className="form-button" type='submit'>Login</button>
 
       </div>
-      <div className="error-box">
+      <div className="auth-error-box">
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}

@@ -15,18 +15,21 @@ function ProfileButton({ user }) {
     const [ isLoaded, setIsLoaded ] = useState(false)
     const ulRef = useRef();
 
+    const userProjectsObj = useSelector(state => state.projects.usersProjects)
+    const userProjects = Object.values(userProjectsObj)
+    const userFavoritesObj = useSelector(state => state.favorites.userFavorites)
+    
+    const userFavorites = Object.values(userFavoritesObj)
+    // const userFavorites = useSelector(state => state.favorites.userFavoritesArray)
+    // const filteredFavs = userFavorites.filter(fav => typeof fav.id === 'number')
+    // console.log("AAAAAA",filteredFavs)
+
     useEffect(() => {
       dispatch(getUserProjects())
       dispatch(getUserFavorites())
       .then(setIsLoaded(true))
-    }, [dispatch])
+    }, [dispatch, showMenu])
     // console.log(user)
-
-    const userProjectsObj = useSelector(state => state.projects.usersProjects)
-    const userProjects = Object.values(userProjectsObj)
-    const userFavoritesObj = useSelector(state => state.favorites.userFavorites)
-    const userFavorites = Object.values(userFavoritesObj)
-    // console.log(userProjects)
   
     const openMenu = () => {
       if (showMenu) return;
@@ -83,7 +86,7 @@ function ProfileButton({ user }) {
 
               <div className="user-section"><div className="user-section-title"><i class="fa-solid fa-heart"></i> Favorites ({userFavoritesObj.total})</div>
               <div className="user-projects-container">
-                {userFavorites.length ? (userFavorites.map(fav => {
+                {userFavoritesObj.total > 0 ? (userFavorites.map(fav => {
                   return (
                     <Link key={fav.id} onClick={closeMenu} to={`/projects/${fav.projectId}`}>
                       <div className="user-link">
@@ -91,7 +94,7 @@ function ProfileButton({ user }) {
                       </div>
                     </Link>
                   )
-                })): (<div className="none-yet">No Favorites Yet</div>)}
+                })) : (<div className="none-yet"> No Favorites Yet</div>)}
 
               </div>
               </div>

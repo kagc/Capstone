@@ -193,3 +193,36 @@
     height: 5rem;
     width: auto;
 }
+
+.searchbar-container {
+    width: 35rem;
+    border: solid lightgray 1px;
+    border-radius: 5px;
+    height: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.searchform {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.search-input {
+    width: 90%;
+    padding-left: 0.5rem;
+    border: none;
+}
+
+.search-button {
+    background-color: transparent;
+    border: none;
+    padding-right: 0.5rem;
+}
+
+.search-button:hover {
+    cursor: pointer;
+}

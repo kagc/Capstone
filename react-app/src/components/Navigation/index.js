@@ -34,6 +34,11 @@ function Navigation({ isLoaded }){
 
   const closeMenu = () => setShowMenu(false);
 
+  const submitSearch = async (e) => {
+    e.preventDefault()
+    alert("Sorry, that function hasn't been implemented yet.")
+  }
+
     return (
         <nav className="nav-container">
             <div className="navbar">
@@ -42,7 +47,17 @@ function Navigation({ isLoaded }){
                 </div>
 
                 <div className="mid-nav">
-                    Searchbar
+                    <div className="searchbar-container">
+                        <form className="searchform">
+                        <input
+                        className="search-input"
+                        type="text"
+                        disabled="true"
+                        placeholder="Search Coming Soon!"></input>
+                        
+                        <button onClick={submitSearch} className="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
                 </div>
 
                 {/* <div className="right-nav"> */}

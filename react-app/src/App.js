@@ -54,11 +54,14 @@ function App() {
         <Route path='/projects/:projectId' exact={true} >
           <SingleProject />
         </Route>
-        <Route path='/editor' exact={true} >
+        <ProtectedRoute path='/editor' exact={true} >
           <CreateProject />
-        </Route>
-        <Route path='/editor/:projectId' exact={true} >
+        </ProtectedRoute>
+        <ProtectedRoute path='/editor/:projectId' exact={true} >
           <EditProject />
+        </ProtectedRoute>
+        <Route>
+          <h1>404 ERROR</h1>
         </Route>
       </Switch>
       )}

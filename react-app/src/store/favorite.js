@@ -85,6 +85,7 @@ export const removeFavorite = (favoriteId) => async dispatch => {
     }
 }
 
+// const initialState = { allFavorites: {}, userFavorites: {}, userFavoritesArray:[] }
 const initialState = { allFavorites: {}, userFavorites: {} }
 
 const favoriteReducer = (state = initialState, action) => {
@@ -100,25 +101,33 @@ const favoriteReducer = (state = initialState, action) => {
 
         case USER_FAVORITES:
             newState =  { ...state, userFavorites: {} }
+            // newState =  { ...state, userFavorites: {}, userFavoritesArray: [] }
             action.favorites.Favorites.forEach(favorite => {
                 newState.userFavorites[favorite.id] = favorite
                 newState.userFavorites[favorite.id].title = favorite.project.title
             })
+            // newState.userFavoritesArray = Object.values(newState.userFavorites)
             newState.userFavorites.total = action.favorites.Favorites.length
             return newState
 
         case CREATE_FAVORITE:
-            newState = { ...state, allFavorites: { ...state.allFavorites }, userFavorites: { ...state.userFavorites }}
+            newState = { ...state, allFavorites: { ...state.allFavorites }, userFavorites: { ...state.userFavorites } }
+            // newState = { ...state, allFavorites: { ...state.allFavorites }, userFavorites: { ...state.userFavorites }, userFavoritesArray: [] }
             newState.allFavorites[action.favorite.id] = action.favorite
             newState.userFavorites[action.favorite.id] = action.favorite
+            // newState.userFavoritesArray = Object.values(newState.userFavorites)
+            // console.log("THIS IS THE ARRAY NOW", newState.userFavoritesArray)
             newState.allFavorites.total += 1
             newState.userFavorites.total += 1
             return newState
 
         case DELETE_FAVORITE:
-            newState = { ...state, allFavorites: { ...state.allFavorites }, userFavorites: { ...state.userFavorites }}
+            newState = { ...state, allFavorites: { ...state.allFavorites }, userFavorites: { ...state.userFavorites } }
+            // newState = { ...state, allFavorites: { ...state.allFavorites }, userFavorites: { ...state.userFavorites }, userFavoritesArray: [] }
             delete newState.allFavorites[action.favorite.id]
             delete newState.userFavorites[action.favorite.id]
+            // delete newState.userFavoritesArray.filter(fav => fav.id === action.favorite.id)
+            // newState.userFavoritesArray = Object.values(newState.userFavorites)
             newState.allFavorites.total -= 1
             newState.userFavorites.total -= 1
             return newState

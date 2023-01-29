@@ -69,7 +69,7 @@ const HomePage = () => {
                     <div className="category-title">Circuits<i class="fa-solid fa-greater-than"></i></div>
 
                     <div className="category-card-holder">
-                        {circuits.slice(0).reverse().slice(0, 5).map(project => {
+                        {circuits.slice(0).reverse().slice(0, 4).map(project => {
                             return (
                                 <div key={project.id}  className="card-holder">
                                 <Link to={`/projects/${project.id}`}>
@@ -91,7 +91,7 @@ const HomePage = () => {
                 <div className="category-section">
                     <div className="category-title">Workshop<i class="fa-solid fa-greater-than"></i></div>
                     <div className="category-card-holder">
-                    {workshop.slice(0).reverse().slice(0, 5).map(project => {
+                    {workshop.slice(0).reverse().slice(0, 4).map(project => {
                             return (
                                 <div key={project.id}  className="card-holder">
                                 <Link to={`/projects/${project.id}`}>
@@ -118,7 +118,7 @@ const HomePage = () => {
                 <div className="category-section">
                     <div className="category-title">Craft<i class="fa-solid fa-greater-than"></i></div>
                     <div className="category-card-holder">
-                    {craft.slice(0).reverse().slice(0, 5).map(project => {
+                    {craft.slice(0).reverse().slice(0, 4).map(project => {
                             return (
                                 <div key={project.id}  className="card-holder">
                                 <Link to={`/projects/${project.id}`}>
@@ -145,7 +145,7 @@ const HomePage = () => {
                 <div className="category-section">
                     <div className="category-title">Cooking<i class="fa-solid fa-greater-than"></i></div>
                     <div className="category-card-holder">
-                    {cooking.slice(0).reverse().slice(0, 5).map(project => {
+                    {cooking.slice(0).reverse().slice(0, 4).map(project => {
                             return (
                                 <div key={project.id}  className="card-holder">
                                 <Link to={`/projects/${project.id}`}>
@@ -172,7 +172,7 @@ const HomePage = () => {
                 <div className="category-section">
                     <div className="category-title">Living<i class="fa-solid fa-greater-than"></i></div>
                     <div className="category-card-holder">
-                    {living.slice(0).reverse().slice(0, 5).map(project => {
+                    {living.slice(0).reverse().slice(0, 4).map(project => {
                             return (
                                 <div key={project.id}  className="card-holder">
                                 <Link to={`/projects/${project.id}`}>
@@ -199,7 +199,7 @@ const HomePage = () => {
                 <div className="category-section">
                     <div className="category-title">Outside<i class="fa-solid fa-greater-than"></i></div>
                     <div className="category-card-holder">
-                    {outside.slice(0).reverse().slice(0, 5).map(project => {
+                    {outside.slice(0).reverse().slice(0, 4).map(project => {
                             return (
                                 <div key={project.id}  className="card-holder">
                                 <Link to={`/projects/${project.id}`}>
@@ -226,7 +226,7 @@ const HomePage = () => {
                 <div className="category-section">
                     <div className="category-title">Teachers<i class="fa-solid fa-greater-than"></i></div>
                     <div className="category-card-holder">
-                    {teachers.slice(0).reverse().slice(0, 5).map(project => {
+                    {teachers.slice(0).reverse().slice(0, 4).map(project => {
                             return (
                                 <div key={project.id}  className="card-holder">
                                 <Link to={`/projects/${project.id}`}>

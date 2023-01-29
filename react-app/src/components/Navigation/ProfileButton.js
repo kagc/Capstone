@@ -15,18 +15,22 @@ function ProfileButton({ user }) {
     const [ isLoaded, setIsLoaded ] = useState(false)
     const ulRef = useRef();
 
+    const userProjectsObj = useSelector(state => state.projects.usersProjects)
+    const userProjects = Object.values(userProjectsObj)
+    const userFavoritesObj = useSelector(state => state.favorites.userFavorites)
+    
+    const userFavorites = Object.values(userFavoritesObj)
+    const userFavoritess = userFavorites.filter(fav => typeof fav.id === 'number')
+    // const userFavorites = useSelector(state => state.favorites.userFavoritesArray)
+    // const filteredFavs = userFavorites.filter(fav => typeof fav.id === 'number')
+    // console.log("AAAAAA",filteredFavs)
+
     useEffect(() => {
       dispatch(getUserProjects())
       dispatch(getUserFavorites())
       .then(setIsLoaded(true))
-    }, [dispatch])
+    }, [dispatch, showMenu])
     // console.log(user)
-
-    const userProjectsObj = useSelector(state => state.projects.usersProjects)
-    const userProjects = Object.values(userProjectsObj)
-    const userFavoritesObj = useSelector(state => state.favorites.userFavorites)
-    const userFavorites = Object.values(userFavoritesObj)
-    // console.log(userProjects)
   
     const openMenu = () => {
       if (showMenu) return;
@@ -49,12 +53,12 @@ function ProfileButton({ user }) {
   
     const closeMenu = () => setShowMenu(false);
   
-    const logout = (e) => {
-      e.preventDefault();
-      dispatch(sessionActions.logout());
-      closeMenu();
-      history.push('/')
-    };
+    // const logout = (e) => {
+    //   e.preventDefault();
+    //   dispatch(sessionActions.logout());
+    //   closeMenu();
+    //   history.push('/')
+    // };
   
     // let pClassName = "profile-button-outline"
     let ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
@@ -74,36 +78,36 @@ function ProfileButton({ user }) {
             <div className='nav-box-user-data'>
 
               
-            <div className="user-section"><div className="user-section-title"><i class="fa-solid fa-shield-cat"></i> User Info</div>
+            <div className="user-section"><div className="user-section-title"><i id="nav-icon" class="fa-solid fa-shield-cat"></i>User Info</div>
               <div className="user-projects-container">
                 <div className="user-link">Hello, {user.username}!</div>
 
               </div>
               </div>
 
-              <div className="user-section"><div className="user-section-title"><i class="fa-solid fa-heart"></i> Favorites ({userFavoritesObj.total})</div>
+              <div className="user-section"><div className="user-section-title"><i id="nav-icon" class="fa-solid fa-heart"></i>Favorites ({userFavoritesObj.total})</div>
               <div className="user-projects-container">
-                {userFavorites.length ? (userFavorites.map(fav => {
+                {userFavoritesObj.total > 0 ? (userFavoritess.map(fav => {
                   return (
                     <Link key={fav.id} onClick={closeMenu} to={`/projects/${fav.projectId}`}>
                       <div className="user-link">
-                        {fav.title}
+                      <i class="fa-solid fa-caret-right"></i> {fav.title}
                       </div>
                     </Link>
                   )
-                })): (<div className="none-yet">No Favorites Yet</div>)}
+                })) : (<div className="none-yet"> No Favorites Yet</div>)}
 
               </div>
               </div>
 
-              <div className="user-section"><div className="user-section-title"><i class="fa-solid fa-scroll"></i> Project Directions</div>
+              <div className="user-section"><div className="user-section-title"><i id="nav-icon" class="fa-solid fa-scroll"></i>Project Directions</div>
               <div className="user-projects-container-BOTTOM">
                 {userProjects.length ? (userProjects.map(project => {
                   return (
                       <Link key={project.id} onClick={closeMenu} to={`/projects/${project.id}`}>
                     <div className="user-link">
                         
-                        {project.title}
+                    <i class="fa-solid fa-caret-right"></i> {project.title}
                         
                         </div>
                         </Link>

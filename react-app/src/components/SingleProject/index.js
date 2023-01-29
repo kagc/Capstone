@@ -5,7 +5,7 @@ import { useDispatch, useSelector} from 'react-redux';
 import { getOneProject } from '../../store/project';
 import EditProject from '../EditProject';
 import { getAllComments, makeComment, modComment, removeComment } from '../../store/comment';
-import { getAllFavorites, makeFavorite, removeFavorite } from '../../store/favorite';
+import { getAllFavorites, makeFavorite, removeFavorite, getUserFavorites } from '../../store/favorite';
 let errImage = 'https://previews.123rf.com/images/sonsedskaya/sonsedskaya1902/sonsedskaya190200070/118117055-portrait-of-a-builder-cat-with-tools-in-paws.jpg'
 
 const SingleProject = () => {
@@ -40,6 +40,7 @@ const SingleProject = () => {
         dispatch(getOneProject(projectId))
         dispatch(getAllComments(projectId))
         dispatch(getAllFavorites(projectId))
+        dispatch(getUserFavorites())
         .then(setIsLoaded(true))
     }, [dispatch, projectId])
     // console.log("anything?",project.stepsList)
@@ -185,7 +186,7 @@ const SingleProject = () => {
 
             {project.stepsList.map(step => {
                 return (
-                    <div>
+                    <div key={step.id}>
                         <div className="single-step-title">Step {step.stepNum}: {step.stepTitle}</div>
                     <div className="single-proj-section">
                         <div>{step.stepDescription}</div>

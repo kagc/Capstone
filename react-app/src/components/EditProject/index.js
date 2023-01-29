@@ -27,6 +27,17 @@ const EditProject = () => {
     let tempIntro = project.intro
     let tempSupplies = project.supplies
     // console.log("!!!!!!!!!!!!!!!!!deletedSteps ",deletedSteps)
+    
+        useEffect(() => {
+            dispatch(getOneProject(projectId))
+            dispatch(getAllProjects())
+
+            // setTitle(tempTitle)
+            // setCategory(tempCat)
+            // setSupplies(tempSupplies)
+            // setCoverImageUrl(tempCover)
+            // setIntro(tempIntro)
+        }, [dispatch])
 
     const [ title, setTitle ] = useState(tempTitle)
     const [category, setCategory ] = useState(tempCat)
@@ -35,11 +46,6 @@ const EditProject = () => {
     const [ supplies, setSupplies ] = useState(tempSupplies)
     const [ stepInputFields, setStepInputFields ] = useState(steps)
     // console.log(title)
-
-    useEffect(() => {
-        dispatch(getOneProject(projectId))
-        dispatch(getAllProjects())
-    }, [dispatch])
 
     // const [ title, setTitle ] = useState("")
     // const [category, setCategory ] = useState("")
@@ -150,10 +156,10 @@ const EditProject = () => {
     }
 
     if( !project || !steps ) return null;
-    if(title === undefined){
-        history.push(`/projects/${projectId}`)
-        alert("Whoops, there was an issue with your request, returning to directions page.")
-    }
+    // if(title === undefined){
+    //     history.push(`/projects/${projectId}`)
+    //     alert("Whoops, there was an issue with your request, returning to directions page.")
+    // }
 
     return (
         <div className="wholething">

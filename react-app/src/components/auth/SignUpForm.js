@@ -19,7 +19,7 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data)
       }
-    }
+    } else setErrors(["The password entries do not match."])
   };
 
   const updateUsername = (e) => {
@@ -48,7 +48,8 @@ const SignUpForm = () => {
         <div className="auth-form">
 
         <div className='form-holder'></div>
-    <form 
+        <div className='login-break'>Sign up:</div>
+    <form className='signup-form'
     // className='login-form-css' 
     onSubmit={onSignUp}>
       
@@ -61,6 +62,7 @@ const SignUpForm = () => {
           placeholder='Username'
           onChange={updateUsername}
           value={username}
+          required={true}
         ></input>
       </div>
       <div>
@@ -72,6 +74,7 @@ const SignUpForm = () => {
           placeholder='Email'
           onChange={updateEmail}
           value={email}
+          required={true}
         ></input>
       </div>
       <div>
@@ -83,6 +86,7 @@ const SignUpForm = () => {
           placeholder='Password'
           onChange={updatePassword}
           value={password}
+          required={true}
         ></input>
       </div>
       <div>
@@ -97,9 +101,9 @@ const SignUpForm = () => {
           required={true}
         ></input>
       </div>
-      <button id="login-button" className="form-button"  type='submit'>Sign Up</button>
+      <button id="login-button" className="form-button"  type='submit'>Sign Me Up !</button>
 
-      <div className="error-box">
+      <div className="auth-error-box">
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}

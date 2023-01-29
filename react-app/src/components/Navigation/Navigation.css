@@ -156,7 +156,8 @@
 }
 
 .user-section-title {
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    font-weight: bold;
     padding-bottom: 0.5rem;
 }
 
@@ -225,4 +226,8 @@
 
 .search-button:hover {
     cursor: pointer;
+}
+
+#nav-icon {
+    margin-right: 0.5rem;
 }

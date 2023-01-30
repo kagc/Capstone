@@ -14,6 +14,7 @@ import EditProject from './components/EditProject';
 import Navigation from './components/Navigation';
 import HomePage from './components/Home';
 import Footer from './components/Footer';
+import NotFound from './components/404';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -61,7 +62,7 @@ function App() {
           <EditProject />
         </ProtectedRoute>
         <Route>
-          <h1>404 ERROR</h1>
+          <NotFound />
         </Route>
       </Switch>
       )}

@@ -4,6 +4,7 @@ import { useParams, useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector} from 'react-redux';
 import { getOneProject } from '../../store/project';
 import EditProject from '../EditProject';
+import NotFound from '../404';
 import { getAllComments, makeComment, modComment, removeComment } from '../../store/comment';
 import { getAllFavorites, makeFavorite, removeFavorite, getUserFavorites } from '../../store/favorite';
 let errImage = 'https://previews.123rf.com/images/sonsedskaya/sonsedskaya1902/sonsedskaya190200070/118117055-portrait-of-a-builder-cat-with-tools-in-paws.jpg'
@@ -24,7 +25,7 @@ const SingleProject = () => {
     const project = useSelector(state => state.projects.singleProject)
     const commentsObj = useSelector(state => state.comments.allComments)
     const favoritesObj = useSelector(state => state.favorites.allFavorites)
-    // console.log(favoritesObj)
+    console.log(project)
     
     const [ editedComment, setEditedComment ] = useState("")
     const [ editedCommentId, setEditedCommentId ] = useState("")
@@ -111,6 +112,7 @@ const SingleProject = () => {
     }
 
     if (!project || !commentsObj || !favoritesObj ) return null
+    if (project.stepsList.length > 0 && commentsObj && favoritesObj ) {
 
     return isLoaded && (
         <div className="wholething">
@@ -358,6 +360,12 @@ const SingleProject = () => {
         </div>
         // </div>
     )
+
+                } else {
+                    return (
+                        <div><NotFound /></div>
+                    )
+                }
 }
 
 export default SingleProject

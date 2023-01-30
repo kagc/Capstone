@@ -108,7 +108,7 @@
 }
 
 .category-section {
-    width: 30rem;
+    /* width: 30rem; */
     /* border: solid red 1px; */
     display: flex;
     flex-direction: column;
@@ -127,8 +127,8 @@
     flex-direction: column;
     border: solid lightgray 1px;
     height: 20rem;
-    min-width: 18rem;
-    max-width: 18rem;
+    min-width: 19rem;
+    max-width: 19rem;
     margin-bottom: 2rem;
     overflow: hidden;
     border-radius: 5px;
@@ -189,7 +189,10 @@
 .category-card-holder {
     display: flex;
     flex-direction: row;
-    max-width: 99%;
+    width: 100%;
+    overflow: hidden;
+    flex-flow: row wrap;
+    max-height: 22rem;
 }
 
 .fa-greater-than {

@@ -68,7 +68,7 @@ function Footer() {
             <div className="footer-legal-links">
                 <div>2023 App Academy</div>
                 <div>Placeholder Links | To Hold this Space | Hi Hope You're Having a Good Day</div>
-                <div className="footer-bottom-right">AUTOCAT</div>
+                <div className="footer-bottom-right"><i class="fa-brands fa-xing"></i> AUTOCAT</div>
             </div>
         </div>
         </div>

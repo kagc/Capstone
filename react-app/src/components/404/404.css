@@ -1,0 +1,14 @@
+.error-page-container {
+    height: 40rem;
+    width: 100%;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.oops-cat {
+    height: 20rem;
+    width: auto;
+}

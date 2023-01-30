@@ -175,6 +175,7 @@
     /* max-height: 20rem; */
     /* border-radius: 20px; */
     /* object-fit: cover; */
+    border-radius: 5px;
 }
 
 .comment-section {

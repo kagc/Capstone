@@ -70,11 +70,25 @@ const HomePage = () => {
 
                     <div className="category-card-holder">
                         {circuits.slice(0).reverse().slice(0, 5).map(project => {
+
                             return (
                                 <div key={project.id}  className="card-holder">
                                 <Link to={`/projects/${project.id}`}>
-                                <div className="preview-image"
-                                        style={{ backgroundImage: `url('${project.coverImageUrl}'` }}></div>
+                                <div 
+                                className="preview-image-container"
+                                //         style={{ backgroundImage: `url('${project.coverImageUrl}'` }}
+                                        >
+
+                                        <img 
+                                        className="preview-image" 
+                                        onError={(e)=>{
+                                            if(e.target.src !== errImage) {
+                                            setNewSrc(errImage)
+                                            e.target.src = errImage
+                                            }
+                                        }}
+                                    src={`${project.coverImageUrl}`}></img>
+                                        </div>
                                 </Link>
 
                                 <div className="card-details">
@@ -95,14 +109,21 @@ const HomePage = () => {
                             return (
                                 <div key={project.id}  className="card-holder">
                                 <Link to={`/projects/${project.id}`}>
-                                <div className="preview-image"
-                                onError={(e)=>{
-                                    if(e.target.src !== errImage) {
-                                    setNewSrc(errImage)
-                                    e.target.src = errImage
-                                    }
-                                }}
-                                        style={{ backgroundImage: `url('${project.coverImageUrl}'` }}></div>
+                                <div 
+                                className="preview-image-container"
+                                //         style={{ backgroundImage: `url('${project.coverImageUrl}'` }}
+                                        >
+
+                                        <img 
+                                        className="preview-image" 
+                                        onError={(e)=>{
+                                            if(e.target.src !== errImage) {
+                                            setNewSrc(errImage)
+                                            e.target.src = errImage
+                                            }
+                                        }}
+                                    src={`${project.coverImageUrl}`}></img>
+                                        </div>
                                 </Link>
 
                                 <div className="card-details">
@@ -122,14 +143,21 @@ const HomePage = () => {
                             return (
                                 <div key={project.id}  className="card-holder">
                                 <Link to={`/projects/${project.id}`}>
-                                <div className="preview-image"
-                                onError={(e)=>{
-                                    if(e.target.src !== errImage) {
-                                    setNewSrc(errImage)
-                                    e.target.src = errImage
-                                    }
-                                }}
-                                        style={{ backgroundImage: `url('${project.coverImageUrl}'` }}></div>
+                                <div 
+                                className="preview-image-container"
+                                //         style={{ backgroundImage: `url('${project.coverImageUrl}'` }}
+                                        >
+
+                                        <img 
+                                        className="preview-image" 
+                                        onError={(e)=>{
+                                            if(e.target.src !== errImage) {
+                                            setNewSrc(errImage)
+                                            e.target.src = errImage
+                                            }
+                                        }}
+                                    src={`${project.coverImageUrl}`}></img>
+                                        </div>
                                 </Link>
 
                                 <div className="card-details">
@@ -149,14 +177,21 @@ const HomePage = () => {
                             return (
                                 <div key={project.id}  className="card-holder">
                                 <Link to={`/projects/${project.id}`}>
-                                <div className="preview-image"
-                                onError={(e)=>{
-                                    if(e.target.src !== errImage) {
-                                    setNewSrc(errImage)
-                                    e.target.src = errImage
-                                    }
-                                }}
-                                        style={{ backgroundImage: `url('${project.coverImageUrl}'` }}></div>
+                                <div 
+                                className="preview-image-container"
+                                //         style={{ backgroundImage: `url('${project.coverImageUrl}'` }}
+                                        >
+
+                                        <img 
+                                        className="preview-image" 
+                                        onError={(e)=>{
+                                            if(e.target.src !== errImage) {
+                                            setNewSrc(errImage)
+                                            e.target.src = errImage
+                                            }
+                                        }}
+                                    src={`${project.coverImageUrl}`}></img>
+                                        </div>
                                 </Link>
 
                                 <div className="card-details">
@@ -176,14 +211,21 @@ const HomePage = () => {
                             return (
                                 <div key={project.id}  className="card-holder">
                                 <Link to={`/projects/${project.id}`}>
-                                <div className="preview-image"
-                                onError={(e)=>{
-                                    if(e.target.src !== errImage) {
-                                    setNewSrc(errImage)
-                                    e.target.src = errImage
-                                    }
-                                }}
-                                        style={{ backgroundImage: `url('${project.coverImageUrl}'` }}></div>
+                                <div 
+                                className="preview-image-container"
+                                //         style={{ backgroundImage: `url('${project.coverImageUrl}'` }}
+                                        >
+
+                                        <img 
+                                        className="preview-image" 
+                                        onError={(e)=>{
+                                            if(e.target.src !== errImage) {
+                                            setNewSrc(errImage)
+                                            e.target.src = errImage
+                                            }
+                                        }}
+                                    src={`${project.coverImageUrl}`}></img>
+                                        </div>
                                 </Link>
 
                                 <div className="card-details">
@@ -203,14 +245,21 @@ const HomePage = () => {
                             return (
                                 <div key={project.id}  className="card-holder">
                                 <Link to={`/projects/${project.id}`}>
-                                <div className="preview-image"
-                                onError={(e)=>{
-                                    if(e.target.src !== errImage) {
-                                    setNewSrc(errImage)
-                                    e.target.src = errImage
-                                    }
-                                }}
-                                        style={{ backgroundImage: `url('${project.coverImageUrl}'` }}></div>
+                                <div 
+                                className="preview-image-container"
+                                //         style={{ backgroundImage: `url('${project.coverImageUrl}'` }}
+                                        >
+
+                                        <img 
+                                        className="preview-image" 
+                                        onError={(e)=>{
+                                            if(e.target.src !== errImage) {
+                                            setNewSrc(errImage)
+                                            e.target.src = errImage
+                                            }
+                                        }}
+                                    src={`${project.coverImageUrl}`}></img>
+                                        </div>
                                 </Link>
 
                                 <div className="card-details">
@@ -230,14 +279,21 @@ const HomePage = () => {
                             return (
                                 <div key={project.id}  className="card-holder">
                                 <Link to={`/projects/${project.id}`}>
-                                <div className="preview-image"
-                                onError={(e)=>{
-                                    if(e.target.src !== errImage) {
-                                    setNewSrc(errImage)
-                                    e.target.src = errImage
-                                    }
-                                }}
-                                        style={{ backgroundImage: `url('${project.coverImageUrl}'` }}></div>
+                                <div 
+                                className="preview-image-container"
+                                //         style={{ backgroundImage: `url('${project.coverImageUrl}'` }}
+                                        >
+
+                                        <img 
+                                        className="preview-image" 
+                                        onError={(e)=>{
+                                            if(e.target.src !== errImage) {
+                                            setNewSrc(errImage)
+                                            e.target.src = errImage
+                                            }
+                                        }}
+                                    src={`${project.coverImageUrl}`}></img>
+                                        </div>
                                 </Link>
 
                                 <div className="card-details">

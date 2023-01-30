@@ -40,10 +40,10 @@
     margin-top: 4rem;
     /* margin-left: 4rem;
     margin-right: 4rem; */
-    margin-left: 5%;
-    margin-right: 5%;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    margin-left: 3%;
+    margin-right: 3%;
+    padding-left: 4rem;
+    padding-right: 4rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -77,10 +77,10 @@
     margin-top: 2.5rem;
     /* margin-left: 4rem;
     margin-right: 4rem; */
-    margin-left: 5%;
-    margin-right: 5%;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    margin-left: 3%;
+    margin-right: 3%;
+    padding-left: 4rem;
+    padding-right: 4rem;
     padding-top: 3rem;
     display: flex;
     flex-direction: column;
@@ -139,14 +139,32 @@
     border: solid 1px gray;
 }
 
+.card-holder> a {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.preview-image-container {
+    min-height: 15rem;
+    max-height: 15rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
 .preview-image {
     background-repeat: no-repeat;
     background-position: center center;
-    height: 12rem;
-    margin-bottom: 1em;
-    width: 16rem;
-    padding: 25px;
+    height: 15rem;
+    /* margin-bottom: 1em; */
+    width: 100%;
+    /* height: auto%; */
+    /* width: 16rem; */
+    /* padding: 25px; */
     object-fit: cover;
+    overflow: hidden;
 }
 
 .card-details {
@@ -160,6 +178,8 @@
     flex-direction: row;
     justify-content: flex-start;
     text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 99%;
 }
 
 .card-title:hover {
@@ -169,6 +189,7 @@
 .category-card-holder {
     display: flex;
     flex-direction: row;
+    max-width: 99%;
 }
 
 .fa-greater-than {

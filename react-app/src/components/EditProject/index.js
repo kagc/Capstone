@@ -23,7 +23,7 @@ const EditProject = () => {
     steps.forEach(step => deletedSteps.push(step))
     let tempTitle = project.title
     let tempCat = project.category
-    let tempCover = project.setCoverImageUrl
+    let tempCover = project.coverImageUrl
     let tempIntro = project.intro
     let tempSupplies = project.supplies
     // console.log("!!!!!!!!!!!!!!!!!deletedSteps ",deletedSteps)
@@ -63,6 +63,7 @@ const EditProject = () => {
     // setStepInputFields(steps)
     
     const [errors, setErrors] = useState([]);
+    const [stepErrors, setStepErrors] = useState([])
     
     const allCategories = ["Circuits", "Workshop", "Craft", "Cooking", "Living", "Outside", "Teachers"]
     
@@ -128,7 +129,7 @@ const EditProject = () => {
         stepInputFields.forEach(step => {
             if (step.stepTitle === "" || step.stepDescription === ""){
                 canCreateProject = false
-                return setErrors(["Steps cannot be left blank. Please fill in or remove that step."])
+                return setStepErrors(["Steps cannot be left blank. Please fill in or remove any unneeded steps."])
             }
         })
         
@@ -175,7 +176,7 @@ const EditProject = () => {
                     </div>
                     <div>
                         <button className="unpublish-button" onClick={unpublish}>Unpublish</button>
-                        <button className="signup-button" onClick={submit} type="submit">Publish</button>
+                        <button className="publish-button" type="submit">Publish</button>
                     </div>
                 </div>
 
@@ -184,6 +185,9 @@ const EditProject = () => {
     {errors.map((error, ind) => (
         <div key={ind}>{error}</div>
     ))}
+    {stepErrors.map((error, ind) => (
+                        <div key={ind}>{error}</div>
+                    ))}
 </div>
 
 <div className="section-container">
@@ -194,7 +198,7 @@ const EditProject = () => {
 className='input-line'
 type="text"
 name="title"
-placeholder={title}
+placeholder='What did you make?'
 value={title}
 onChange={(e) => setTitle(e.target.value)}
 required
@@ -207,7 +211,7 @@ maxlength="150"
 <select
 // className='input-line'
 name="category"
-placeholder={category}
+placeholder="Select category"
 value={category}
 onChange={(e) => setCategory(e.target.value)}
 required>
@@ -225,7 +229,7 @@ required>
 <input
 className='input-line'
 type="text"
-name="coverImageUrl"
+name='https://...'
 placeholder={coverImageUrl}
 value={coverImageUrl}
 onChange={(e) => setCoverImageUrl(e.target.value)}
@@ -236,7 +240,7 @@ required ></input>
                 className='input-line-big'
                 type="textarea"
 name="intro"
-placeholder={intro}
+placeholder='Briefly describe what you made and why. Include a photo of your finished project.'
 value={intro}
 onChange={(e) => setIntro(e.target.value)}
 required
@@ -252,7 +256,7 @@ maxlength="1000"
                 className='input-line-big'
                 type="textarea"
 name="supplies"
-placeholder={supplies}
+placeholder='List any tools or materials used'
 value={supplies}
 onChange={(e) => setSupplies(e.target.value)}
 required
@@ -271,20 +275,23 @@ rows="5"
             maxlength="40"
             type="text"
             name='stepTitle'
-            placeholder='Step Title'
+            placeholder='Enter Step Title'
             value={input.stepTitle} 
             onChange={e => handleFormChange(index, e)}
             required ></input>
             </div>
 
-            <div className="remove-step-button"><button onClick={(e) => removeFields(index, e)}>Remove</button></div>
+            {/* <div className="remove-step-button"><button onClick={(e) => removeFields(index, e)}>Remove</button></div> */}
+            {index !== 0 && (
+                                <div className="remove-step-button"><button onClick={(e) => removeFields(index, e)}><i class="fa-solid fa-xmark"></i></button></div>
+                            )}
                             </div>
 
                             <textarea
                 className='input-line-big'
                 type="textarea"
             name='stepDescription'
-            placeholder='Step Description'
+            placeholder='Write a detailed description of this step.'
             value={input.stepDescription} 
             onChange={e => handleFormChange(index, e)}
             required 

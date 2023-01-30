@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     /* padding-left: 5%; */
-    margin-left: 5%;
+    margin-left: 4%;
     margin-right: 0px;
     padding-bottom: 5em;
     margin-top: 2rem;
@@ -19,6 +19,10 @@
     width: 60%
 }
 
+.project-form {
+    width: 100%;
+}
+
 .draft-text {
     margin-left: 5rem;
 }
@@ -28,6 +32,7 @@
     flex-direction: column;
     text-align: center;
     margin-bottom: 1rem;
+    width: 105%;
 }
 
 .topbar {
@@ -35,6 +40,22 @@
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 1rem;
+    width: 103%;
+}
+
+.publish-button {
+    height: 2.5rem;
+    width: 5rem;
+    font-size: 1.1rem;
+    background-color: rgb(255, 213, 73);
+    border: 1px solid rgb(255, 213, 73) !important;
+    border-radius: 5px;
+    /* margin-right: 1rem; */
+}
+
+.publish-button:hover {
+    background-color: rgb(255, 201, 52);
+    cursor: pointer;
 }
 
 .section-container {
@@ -91,6 +112,9 @@
     /* border-bottom: 1px solid gray; */
     border-radius: 5px;
     height: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 11rem;
 }
 
 .input-line-steptitle:hover {
@@ -132,9 +156,24 @@ select {
 }
 
 .remove-step-button {
-    width: 5%;
+    width: 1%;
     display: flex;
     justify-content: flex-end;
+}
+
+.remove-step-button> button {
+    height: 1.5rem;
+    width: 1.5rem;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+}
+
+.remove-step-button> button:hover {
+    background-color: gray;
+    border: solid 2px gray;
+    color: black;
+    cursor: pointer;
 }
 
 .bottombar {
@@ -143,6 +182,7 @@ select {
     flex-direction: row;
     justify-content: center;
     margin-bottom: 1rem;
+    width: 105%;
 }
 
 .steps-button {

@@ -23,6 +23,7 @@ const CreateProject = () => {
     ])
 
     const [errors, setErrors] = useState([]);
+    const [stepErrors, setStepErrors] = useState([])
 
     const allCategories = ["Circuits", "Workshop", "Craft", "Cooking", "Living", "Outside", "Teachers"]
 
@@ -76,7 +77,7 @@ const CreateProject = () => {
         stepInputFields.forEach(step => {
             if (step.stepTitle === "" || step.stepDescription === ""){
                 canCreateProject = false
-                return setErrors(["Steps title and description cannot be left blank. Please fill in or remove that step."])
+                return setStepErrors(["Steps cannot be left blank. Please fill in or remove any unneeded steps."])
             }
         })
         // return console.log(stepInputFields)
@@ -130,7 +131,7 @@ const CreateProject = () => {
     return (
         <div className="wholething">
             <div className="content">
-            <form onSubmit={submit}>
+            <form className="project-form" onSubmit={submit}>
                 <div className="topbar">
                     <div>
                         <button onClick={returnToPage} className="login-button">Cancel</button>
@@ -139,7 +140,9 @@ const CreateProject = () => {
                         Draft
                     </div>
                     <div>
-                        <button className="signup-button" onClick={submit} type="submit">Publish</button>
+                        <button className="publish-button" 
+                        // onClick={submit} 
+                        type="submit">Publish</button>
                     </div>
                 </div>
 
@@ -150,6 +153,9 @@ const CreateProject = () => {
                 </ul> */}
                 <div className="error-box">
                     {errors.map((error, ind) => (
+                        <div key={ind}>{error}</div>
+                    ))}
+                    {stepErrors.map((error, ind) => (
                         <div key={ind}>{error}</div>
                     ))}
                 </div>
@@ -164,7 +170,7 @@ const CreateProject = () => {
                 placeholder='What did you make?'
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                required
+                required={true}
                 maxlength="150"
                 ></input>
                 <div className='input-counter'>{title.length} / 150</div>
@@ -201,7 +207,7 @@ const CreateProject = () => {
                 className='input-line'
                 type="text"
                 name="coverImageUrl"
-                placeholder='Cover Image Url'
+                placeholder='https://...'
                 value={coverImageUrl}
                 onChange={(e) => setCoverImageUrl(e.target.value)}
                 required ></input>
@@ -257,7 +263,11 @@ const CreateProject = () => {
                             </div>
                             
                             {index !== 0 && (
-                                <div className="remove-step-button"><button onClick={(e) => removeFields(index, e)}>Remove</button></div>
+                                <div className="remove-step-button">
+                                    <button onClick={(e) => removeFields(index, e)}>
+                                    <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                        </div>
                             )}
                             {/* <div className="remove-step-button"><button onClick={(e) => removeFields(index, e)}>Remove</button></div> */}
                             </div>

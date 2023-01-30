@@ -156,10 +156,10 @@ const EditProject = () => {
     }
 
     if( !project || !steps ) return null;
-    // if(title === undefined){
-    //     history.push(`/projects/${projectId}`)
-    //     alert("Whoops, there was an issue with your request, returning to directions page.")
-    // }
+    if(title === undefined){
+        history.push(`/projects/${projectId}`)
+        alert("Whoops, there was an issue with your request, returning to project's directions page.")
+    }
 
     return (
         <div className="wholething">

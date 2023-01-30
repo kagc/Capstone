@@ -183,12 +183,14 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 1.5rem;
+    overflow: hidden;
 }
 
 .comment-input-top {
     display: flex;
     flex-direction: row;
-    width: 100%
+    width: 98%;
+    overflow: hidden;
 }
 
 .comment-input {
@@ -200,8 +202,8 @@
     border: solid 1px gray;
     background-color: white;
     padding: 1rem;
-    width: 84%;
-    margin-right: 0px !important;
+    width: 100%;
+    /* margin-right: 1rem !important; */
     margin-bottom: 1rem;
 }
 
@@ -212,6 +214,8 @@
 .comment-input-bottom {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 }
 
 #cat {
@@ -243,6 +247,20 @@
 }
 
 .comment-buttons> button:hover {
+    background-color: rgb(255, 201, 52);
+    cursor: pointer;
+}
+
+.main-comment-buttons> button {
+    height: 2rem;
+    width: 4rem;
+    background-color: rgb(255, 213, 73);
+    border: 1px solid rgb(255, 213, 73) !important;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.main-comment-buttons> button:hover {
     background-color: rgb(255, 201, 52);
     cursor: pointer;
 }
@@ -356,4 +374,17 @@
 #loggedout-comment-button:hover {
     cursor: not-allowed;
     background-color: rgb(255, 213, 73);
+}
+
+.interact-bar-button {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+#not-implemented {
+    color: gray;
+}
+
+#not-implemented:hover {
+    cursor: not-allowed;
 }

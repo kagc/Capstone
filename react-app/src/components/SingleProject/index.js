@@ -166,9 +166,9 @@ const SingleProject = () => {
             <div className="interaction-section">
                 <div className="interact-bar">
 
-                    <div><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
+                    <div id="not-implemented" title="Feature coming soon." className="interact-bar-button"><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
 
-                <div>
+                <div className="interact-bar-button">
                     <a href="#comments"><i class="fa-solid fa-comments"></i> Comment</a>
                     
                     </div>
@@ -184,9 +184,9 @@ const SingleProject = () => {
                 <div className="interaction-section">
                 <div className="interact-bar">
 
-                    <div><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
+                    <div id="not-implemented" title="Feature coming soon." className="interact-bar-button"><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
 
-                <div>
+                <div className="interact-bar-button">
                     <a href="#comments"><i class="fa-solid fa-comments"></i> Comment</a>
                     
                     </div>
@@ -207,9 +207,9 @@ const SingleProject = () => {
                     <div className="interaction-section">
                     <div className="interact-bar">
 
-                    <div><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
+                    <div id="not-implemented" title="Feature coming soon." className="interact-bar-button"><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
 
-                    <div>
+                    <div className="interact-bar-button">
                     <a href="#comments"><i class="fa-solid fa-comments"></i> Comment</a>
 
                     </div>
@@ -258,7 +258,7 @@ const SingleProject = () => {
                             <div>We have a be nice policy.</div>
                             <div>Please be positive and constructive.</div>
                         </div>
-                        <div className="comment-buttons">
+                        <div className="main-comment-buttons">
                             <button disabled={currentUser === null ? true : null } onSubmit={submitComment} id={currentUser === null ? `loggedout-comment-button` : null} title={currentUser === null ? `Must be logged in to leave a comment` : null} type="submit">Post</button>
                         </div>
                         </div>

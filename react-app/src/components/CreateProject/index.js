@@ -184,7 +184,7 @@ const CreateProject = () => {
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 required>
-                    <option>Select category</option>
+                    <option value="" disabled>Select category</option>
                     {/* <option value="1">{allCategories[0]}</option>
                     <option value="2">{allCategories[1]}</option>
                     <option value="3">{allCategories[2]}</option>

@@ -78,6 +78,28 @@
     /* margin-right: 1rem; */
 }
 
+.loggedout-fav-button {
+    height: 2.5rem;
+    width: 8rem;
+    font-size: 1rem;
+    background-color: rgb(219, 219, 219);
+    border: 1px solid rgb(209, 209, 209) !important;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+}
+
+.loggedout-fav-button:hover {
+    cursor: not-allowed
+}
+
+.loggedout-fav-text {
+    color: gray;
+}
+
 .single-proj-section {
     /* width: 100%; */
     /* min-width: 25rem; */
@@ -305,6 +327,10 @@
     color: gray !important;
 }
 
+#loggedout-fave-button {
+    color: gray !important;
+}
+
 #unfaved-button:hover {
     color: rgb(187, 31, 114) !important;
 }
@@ -325,4 +351,9 @@
 .fav-button:hover {
     cursor: pointer;
     background-color: rgb(230, 230, 230);
+}
+
+#loggedout-comment-button:hover {
+    cursor: not-allowed;
+    background-color: rgb(255, 213, 73);
 }

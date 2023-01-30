@@ -123,14 +123,24 @@ const SingleProject = () => {
             <div className="sub-titlebar">
                 <div>Publish Date</div>
                 <div>
-                    {userFaved.length > 0 ? (
+                    {currentUser === null ? (<button id="loggedout-fave-button" disabled={true} className="loggedout-fav-button"  title="Must be logged in to add to Favorites"><i id="unfaved-heart" class="fa-solid fa-heart"></i><span className="loggedout-fav-text">Favorite</span></button>) : 
+                    
+                    (userFaved.length > 0 ? (
                         <button onClick={async (e) => {
                             e.preventDefault()
                             const data = await dispatch(removeFavorite(userFaved[0].id))
                         }} id="faved" className="fav-button"><i id="heart" class="fa-solid fa-heart"></i>Favorited</button>
                     ) : (
                         <button id="unfaved-button" onClick={submitFavorite} className="fav-button"><i id="unfaved-heart" class="fa-solid fa-heart"></i><span className="unfaved-text">Favorite</span></button>
-                    )}
+                    ))}
+                    {/* {userFaved.length > 0 ? (
+                        <button onClick={async (e) => {
+                            e.preventDefault()
+                            const data = await dispatch(removeFavorite(userFaved[0].id))
+                        }} id="faved" className="fav-button"><i id="heart" class="fa-solid fa-heart"></i>Favorited</button>
+                    ) : (
+                        <button id="unfaved-button" onClick={submitFavorite} className="fav-button"><i id="unfaved-heart" class="fa-solid fa-heart"></i><span className="unfaved-text">Favorite</span></button>
+                    )} */}
                     
                     
                     </div>
@@ -249,7 +259,7 @@ const SingleProject = () => {
                             <div>Please be positive and constructive.</div>
                         </div>
                         <div className="comment-buttons">
-                            <button disabled={currentUser === null ? true : null } onSubmit={submitComment} type="submit">Post</button>
+                            <button disabled={currentUser === null ? true : null } onSubmit={submitComment} id={currentUser === null ? `loggedout-comment-button` : null} title={currentUser === null ? `Must be logged in to leave a comment` : null} type="submit">Post</button>
                         </div>
                         </div>
                             </form>

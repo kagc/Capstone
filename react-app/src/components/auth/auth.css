@@ -1,12 +1,19 @@
-.auth-bg {
+/* .auth-bg {
     background-image: url("https://i.redd.it/v6z0pp4rovk91.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position-y: -10rem;
     height: 100%;
-    /* width: 100%; */
-}
+} */
+
+.auth-bg { 
+    background: url(https://i.redd.it/v6z0pp4rovk91.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
 
 .auth-form-container {
     height: 55rem;

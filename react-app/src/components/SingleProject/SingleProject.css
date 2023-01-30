@@ -5,6 +5,10 @@
     font-size: 1.8rem;
     font-weight: bold;
     margin-bottom: 1rem;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    /* white-space: nowrap; */
+    text-overflow: ellipsis;
 }
 
 .misc-infobar {
@@ -78,6 +82,28 @@
     /* margin-right: 1rem; */
 }
 
+.loggedout-fav-button {
+    height: 2.5rem;
+    width: 8rem;
+    font-size: 1rem;
+    background-color: rgb(219, 219, 219);
+    border: 1px solid rgb(209, 209, 209) !important;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+}
+
+.loggedout-fav-button:hover {
+    cursor: not-allowed
+}
+
+.loggedout-fav-text {
+    color: gray;
+}
+
 .single-proj-section {
     /* width: 100%; */
     /* min-width: 25rem; */
@@ -86,6 +112,10 @@
     padding-right: 3rem;
     font-size: 1.1rem;
     line-height: 1.5rem;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    /* white-space: nowrap; */
+    text-overflow: ellipsis;
 }
 
 .single-proj-content {
@@ -145,6 +175,7 @@
     /* max-height: 20rem; */
     /* border-radius: 20px; */
     /* object-fit: cover; */
+    border-radius: 5px;
 }
 
 .comment-section {
@@ -161,12 +192,14 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 1.5rem;
+    overflow: hidden;
 }
 
 .comment-input-top {
     display: flex;
     flex-direction: row;
-    width: 100%
+    width: 98%;
+    overflow: hidden;
 }
 
 .comment-input {
@@ -178,8 +211,8 @@
     border: solid 1px gray;
     background-color: white;
     padding: 1rem;
-    width: 84%;
-    margin-right: 0px !important;
+    width: 100%;
+    /* margin-right: 1rem !important; */
     margin-bottom: 1rem;
 }
 
@@ -190,6 +223,8 @@
 .comment-input-bottom {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 }
 
 #cat {
@@ -221,6 +256,20 @@
 }
 
 .comment-buttons> button:hover {
+    background-color: rgb(255, 201, 52);
+    cursor: pointer;
+}
+
+.main-comment-buttons> button {
+    height: 2rem;
+    width: 4rem;
+    background-color: rgb(255, 213, 73);
+    border: 1px solid rgb(255, 213, 73) !important;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.main-comment-buttons> button:hover {
     background-color: rgb(255, 201, 52);
     cursor: pointer;
 }
@@ -305,6 +354,10 @@
     color: gray !important;
 }
 
+#loggedout-fave-button {
+    color: gray !important;
+}
+
 #unfaved-button:hover {
     color: rgb(187, 31, 114) !important;
 }
@@ -325,4 +378,22 @@
 .fav-button:hover {
     cursor: pointer;
     background-color: rgb(230, 230, 230);
+}
+
+#loggedout-comment-button:hover {
+    cursor: not-allowed;
+    background-color: rgb(255, 213, 73);
+}
+
+.interact-bar-button {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+#not-implemented {
+    color: gray;
+}
+
+#not-implemented:hover {
+    cursor: not-allowed;
 }

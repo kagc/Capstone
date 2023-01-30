@@ -20,7 +20,9 @@
     flex-direction: row;
     justify-content: space-between;
     min-width: 50%;
-    width: 80%;
+    max-width: 70%;
+    /* margin-right: 5rem;
+    margin-left: 5rem; */
 }
 
 .footer-links-labels {
@@ -71,6 +73,7 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.5rem;
     font-weight: bolder;
+    color: white;
 }
 
 .footer-logo {

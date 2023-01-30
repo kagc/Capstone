@@ -12,7 +12,7 @@ html, input, textarea, select, a {
   position: relative;
   right: 0;
   top: 0;
-  color: rgb(31, 31, 31)
+  color: rgb(31, 31, 31);
 }
 
 h1, h2, h3 {
@@ -27,6 +27,13 @@ body {
   /* border: red solid 1px; */
   margin: 0px;
 }
+
+/* div {
+  overflow-wrap: break-word;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+} */
 
 .hidden {
   display: none

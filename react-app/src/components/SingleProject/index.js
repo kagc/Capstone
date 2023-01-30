@@ -4,6 +4,7 @@ import { useParams, useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector} from 'react-redux';
 import { getOneProject } from '../../store/project';
 import EditProject from '../EditProject';
+import NotFound from '../404';
 import { getAllComments, makeComment, modComment, removeComment } from '../../store/comment';
 import { getAllFavorites, makeFavorite, removeFavorite, getUserFavorites } from '../../store/favorite';
 let errImage = 'https://previews.123rf.com/images/sonsedskaya/sonsedskaya1902/sonsedskaya190200070/118117055-portrait-of-a-builder-cat-with-tools-in-paws.jpg'
@@ -24,7 +25,7 @@ const SingleProject = () => {
     const project = useSelector(state => state.projects.singleProject)
     const commentsObj = useSelector(state => state.comments.allComments)
     const favoritesObj = useSelector(state => state.favorites.allFavorites)
-    // console.log(favoritesObj)
+    console.log(project)
     
     const [ editedComment, setEditedComment ] = useState("")
     const [ editedCommentId, setEditedCommentId ] = useState("")
@@ -111,6 +112,7 @@ const SingleProject = () => {
     }
 
     if (!project || !commentsObj || !favoritesObj ) return null
+    if (project.stepsList.length > 0 && commentsObj && favoritesObj ) {
 
     return isLoaded && (
         <div className="wholething">
@@ -123,14 +125,24 @@ const SingleProject = () => {
             <div className="sub-titlebar">
                 <div>Publish Date</div>
                 <div>
-                    {userFaved.length > 0 ? (
+                    {currentUser === null ? (<button id="loggedout-fave-button" disabled={true} className="loggedout-fav-button"  title="Must be logged in to add to Favorites"><i id="unfaved-heart" class="fa-solid fa-heart"></i><span className="loggedout-fav-text">Favorite</span></button>) : 
+                    
+                    (userFaved.length > 0 ? (
                         <button onClick={async (e) => {
                             e.preventDefault()
                             const data = await dispatch(removeFavorite(userFaved[0].id))
                         }} id="faved" className="fav-button"><i id="heart" class="fa-solid fa-heart"></i>Favorited</button>
                     ) : (
                         <button id="unfaved-button" onClick={submitFavorite} className="fav-button"><i id="unfaved-heart" class="fa-solid fa-heart"></i><span className="unfaved-text">Favorite</span></button>
-                    )}
+                    ))}
+                    {/* {userFaved.length > 0 ? (
+                        <button onClick={async (e) => {
+                            e.preventDefault()
+                            const data = await dispatch(removeFavorite(userFaved[0].id))
+                        }} id="faved" className="fav-button"><i id="heart" class="fa-solid fa-heart"></i>Favorited</button>
+                    ) : (
+                        <button id="unfaved-button" onClick={submitFavorite} className="fav-button"><i id="unfaved-heart" class="fa-solid fa-heart"></i><span className="unfaved-text">Favorite</span></button>
+                    )} */}
                     
                     
                     </div>
@@ -156,9 +168,9 @@ const SingleProject = () => {
             <div className="interaction-section">
                 <div className="interact-bar">
 
-                    <div><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
+                    <div id="not-implemented" title="Feature coming soon." className="interact-bar-button"><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
 
-                <div>
+                <div className="interact-bar-button">
                     <a href="#comments"><i class="fa-solid fa-comments"></i> Comment</a>
                     
                     </div>
@@ -174,9 +186,9 @@ const SingleProject = () => {
                 <div className="interaction-section">
                 <div className="interact-bar">
 
-                    <div><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
+                    <div id="not-implemented" title="Feature coming soon." className="interact-bar-button"><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
 
-                <div>
+                <div className="interact-bar-button">
                     <a href="#comments"><i class="fa-solid fa-comments"></i> Comment</a>
                     
                     </div>
@@ -197,9 +209,9 @@ const SingleProject = () => {
                     <div className="interaction-section">
                     <div className="interact-bar">
 
-                    <div><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
+                    <div id="not-implemented" title="Feature coming soon." className="interact-bar-button"><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
 
-                    <div>
+                    <div className="interact-bar-button">
                     <a href="#comments"><i class="fa-solid fa-comments"></i> Comment</a>
 
                     </div>
@@ -248,8 +260,8 @@ const SingleProject = () => {
                             <div>We have a be nice policy.</div>
                             <div>Please be positive and constructive.</div>
                         </div>
-                        <div className="comment-buttons">
-                            <button disabled={currentUser === null ? true : null } onSubmit={submitComment} type="submit">Post</button>
+                        <div className="main-comment-buttons">
+                            <button disabled={currentUser === null ? true : null } onSubmit={submitComment} id={currentUser === null ? `loggedout-comment-button` : null} title={currentUser === null ? `Must be logged in to leave a comment` : null} type="submit">Post</button>
                         </div>
                         </div>
                             </form>
@@ -348,6 +360,12 @@ const SingleProject = () => {
         </div>
         // </div>
     )
+
+                } else {
+                    return (
+                        <div><NotFound /></div>
+                    )
+                }
 }
 
 export default SingleProject

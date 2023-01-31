@@ -31,7 +31,7 @@ const SingleProject = () => {
     let creatorProjects
     if(allProjectsObj) {
         allProjects = Object.values(allProjectsObj)
-        creatorProjects = allProjects.filter(eProject => project.creatorId === eProject.creatorId)
+        creatorProjects = allProjects.filter(eProject => project.creatorId === eProject.creatorId && eProject.id !== project.id)
     }
     console.log(creatorProjects)
     // let date
@@ -183,17 +183,27 @@ const SingleProject = () => {
                     <div className="creator-top">
                         <div className="creator-left">
                             <div className="creator-img"><i id="creator-cat" class="fa-solid fa-cat"></i></div>
-                            <div className="creator-name">By {project.creatorInfo.username}</div>
+                            <div className="creator-name">By <span>{project.creatorInfo.username}</span></div>
                         </div>
                         <div className="creator-right">
-                            More by the author: 
-                            {creatorProjects.slice(0).reverse().slice(0, 3).map(project => {
+                            {creatorProjects.length > 0 ? (<div className="creator-right">More by the author: 
+                                {creatorProjects.slice(0).reverse().slice(0, 3).map(project => {
                                 return (
                                     <Link key={project.id} to={`/projects/${project.id}`}>
                                         <img className="creator-cover-img" src={project.coverImageUrl}></img>
                                     </Link>
                                 )
-                            })}
+                            })}</div>) 
+                            
+                            : (<div></div>)}
+                            {/* More by the author: 
+                             {creatorProjects.slice(0).reverse().slice(0, 3).map(project => {
+                                return (
+                                    <Link key={project.id} to={`/projects/${project.id}`}>
+                                        <img className="creator-cover-img" src={project.coverImageUrl}></img>
+                                    </Link>
+                                )
+                            })} */}
                         </div>
                     </div>
                     <div className="creator-bottom"></div>Creator Info For Future Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>

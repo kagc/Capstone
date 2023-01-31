@@ -476,6 +476,11 @@
     align-items: center;
 }
 
+.creator-name> span {
+    font-weight: bold;
+    color: black;
+}
+
 .creator-cover-img {
     height: 5rem;
     width: 5rem;

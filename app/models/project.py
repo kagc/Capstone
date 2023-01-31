@@ -14,8 +14,8 @@ class Project(db.Model):
     title = db.Column(db.String(255), nullable=False)
     category = db.Column(db.String(255), nullable=False)
     coverImageUrl = db.Column(db.String(1000), nullable=False)
-    intro = db.Column(db.String(1000), nullable=False)
-    supplies = db.Column(db.String(1000), nullable=False)
+    intro = db.Column(db.String(2000), nullable=False)
+    supplies = db.Column(db.String(2000), nullable=False)
     
     created_at = db.Column(db.DateTime, default=datetime.now())
     

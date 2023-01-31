@@ -19,6 +19,7 @@ const SingleProject = () => {
 
     const [ comment, setComment ] = useState("")
     const [newSrc, setNewSrc] = useState('')
+    const [newCreatorSrc, setNewCreatorSrc ] = useState("")
 
     const [ showEdit, setShowEdit ] = useState(false)
     const [ thisComment, setThisComment ] = useState("")
@@ -190,7 +191,14 @@ const SingleProject = () => {
                                 {creatorProjects.slice(0).reverse().slice(0, 3).map(project => {
                                 return (
                                     <Link key={project.id} to={`/projects/${project.id}`}>
-                                        <img className="creator-cover-img" src={project.coverImageUrl}></img>
+                                        <img className="creator-cover-img"
+                                        onError={(e)=>{
+                                            if(e.target.src !== errImage) {
+                                            setNewCreatorSrc(errImage)
+                                            e.target.src = errImage
+                                            }
+                                        }}
+                                         src={project.coverImageUrl}></img>
                                     </Link>
                                 )
                             })}</div>) 

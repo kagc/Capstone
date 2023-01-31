@@ -53,7 +53,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('projectId', sa.Integer(), nullable=False),
     sa.Column('stepNum', sa.Integer(), nullable=False),
-    sa.Column('stepTitle', sa.String(length=40), nullable=False),
+    sa.Column('stepTitle', sa.String(length=255), nullable=False),
     sa.Column('stepDescription', sa.String(length=2000), nullable=False),
     sa.Column('stepImageUrl', sa.String(length=2000), nullable=True),
     sa.ForeignKeyConstraint(['projectId'], ['projects.id'], ),

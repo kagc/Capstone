@@ -138,6 +138,196 @@ def seed_project_steps():
         stepDescription = "I believe in you. Believe in yourself."
     )
     
+    p9step1 = ProjectStep(
+        projectId = 9,
+        stepNum = 1,
+        stepTitle = "Build a play on words from your first name",
+        stepDescription = "Consider trying things like rhymes, such as 'dennisthemenace' or 'SillyLily.' Or, use alliteration like 'meticulousmathilda' or 'PensivePenny.'"
+    )
+    
+    p9step2 = ProjectStep(
+        projectId = 9,
+        stepNum = 2,
+        stepTitle = "Combine two or more of your favorite things",
+        stepDescription = "Simply brainstorm a list of your favorite things, then smash two or three of them together into a username. You can create absurd, nonsensical usernames in this way, which increases the chances of having a one-of-a-kind username. For example, if you like pandas and orcas, you might make your username 'PandaWhale.' Or, if you’d like a more edgy username, you might try 'KillerPanda.' Try using two favorites from different categories. For instance, if you love ice hockey and creating art out of scrap metal, you might become 'IceWelder.'"
+    )
+    
+    p9step3 = ProjectStep(
+        projectId = 9,
+        stepNum = 3,
+        stepTitle = "Add a memorable number to your favorite pastime",
+        stepDescription = " Making a username out of what you love to do will not only make it easy to remember, it will make it uniquely personal. You’ll probably have to tack on a number, though, since there are a lot of usernames with things like “swimmer” or “beautyguru” in them."
+    )
+    
+    p9step4 = ProjectStep(
+        projectId = 9,
+        stepNum = 4,
+        stepTitle = "Highlight an odd habit or interest that sets you apart",
+        stepDescription = "Consider trying things like rhymes, such as 'dennisthemenace' or 'SillyLily.' Or, use alliteration like 'meticulousmathilda' or 'PensivePenny.'"
+    )
+    
+    p10step1 = ProjectStep(
+        projectId = 10,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    
+    p11step1 = ProjectStep(
+        projectId = 11,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    p12step1 = ProjectStep(
+        projectId = 12,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    p13step1 = ProjectStep(
+        projectId = 13,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    p14step1 = ProjectStep(
+        projectId = 14,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    p15step1 = ProjectStep(
+        projectId = 15,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    p16step1 = ProjectStep(
+        projectId = 16,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    p17step1 = ProjectStep(
+        projectId = 17,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    p18step1 = ProjectStep(
+        projectId = 18,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    p19step1 = ProjectStep(
+        projectId = 19,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    p20step1 = ProjectStep(
+        projectId = 20,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    p21step1 = ProjectStep(
+        projectId = 21,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    p22step1 = ProjectStep(
+        projectId = 22,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    p23step1 = ProjectStep(
+        projectId = 23,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    p24step1 = ProjectStep(
+        projectId = 24,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    p25step1 = ProjectStep(
+        projectId = 25,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    p26step1 = ProjectStep(
+        projectId = 26,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    p27step1 = ProjectStep(
+        projectId = 27,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    p28step1 = ProjectStep(
+        projectId = 28,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    p29step1 = ProjectStep(
+        projectId = 29,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    p30step1 = ProjectStep(
+        projectId = 30,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    
+    p31step1 = ProjectStep(
+        projectId = 31,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    p32step1 = ProjectStep(
+        projectId = 32,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    
+    p33step1 = ProjectStep(
+        projectId = 33,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    
+    p34step1 = ProjectStep(
+        projectId = 34,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    
+    p35step1 = ProjectStep(
+        projectId = 35,
+        stepNum = 1,
+        stepTitle = "Lay down your origami paper color-side-up",
+        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+    )
+    
     
     
     
@@ -163,6 +353,37 @@ def seed_project_steps():
     db.session.add(p7step1)
     db.session.add(p7step2)
     db.session.add(p8step1)
+    
+    db.session.add(p9step1)
+    db.session.add(p9step2)
+    db.session.add(p9step3)
+    db.session.add(p9step4)
+    db.session.add(p10step1)
+    db.session.add(p11step1)
+    db.session.add(p12step1)
+    db.session.add(p13step1)
+    db.session.add(p14step1)
+    db.session.add(p15step1)
+    db.session.add(p16step1)
+    db.session.add(p17step1)
+    db.session.add(p18step1)
+    db.session.add(p19step1)
+    db.session.add(p20step1)
+    db.session.add(p21step1)
+    db.session.add(p22step1)
+    db.session.add(p23step1)
+    db.session.add(p24step1)
+    db.session.add(p25step1)
+    db.session.add(p26step1)
+    db.session.add(p27step1)
+    db.session.add(p28step1)
+    db.session.add(p29step1)
+    db.session.add(p30step1)
+    db.session.add(p31step1)
+    db.session.add(p32step1)
+    db.session.add(p33step1)
+    db.session.add(p34step1)
+    db.session.add(p35step1)
     
     db.session.commit()
     

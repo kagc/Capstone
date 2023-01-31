@@ -40,8 +40,8 @@ def upgrade():
     sa.Column('title', sa.String(length=255), nullable=False),
     sa.Column('category', sa.String(length=255), nullable=False),
     sa.Column('coverImageUrl', sa.String(length=1000), nullable=False),
-    sa.Column('intro', sa.String(length=1000), nullable=False),
-    sa.Column('supplies', sa.String(length=1000), nullable=False),
+    sa.Column('intro', sa.String(length=2000), nullable=False),
+    sa.Column('supplies', sa.String(length=2000), nullable=False),
     sa.ForeignKeyConstraint(['creatorId'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
@@ -54,8 +54,8 @@ def upgrade():
     sa.Column('projectId', sa.Integer(), nullable=False),
     sa.Column('stepNum', sa.Integer(), nullable=False),
     sa.Column('stepTitle', sa.String(length=40), nullable=False),
-    sa.Column('stepDescription', sa.String(length=1000), nullable=False),
-    sa.Column('stepImageUrl', sa.String(length=1000), nullable=True),
+    sa.Column('stepDescription', sa.String(length=2000), nullable=False),
+    sa.Column('stepImageUrl', sa.String(length=2000), nullable=True),
     sa.ForeignKeyConstraint(['projectId'], ['projects.id'], ),
     sa.PrimaryKeyConstraint('id')
     )

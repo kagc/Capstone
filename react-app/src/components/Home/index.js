@@ -28,7 +28,7 @@ const HomePage = () => {
     const living = allProjects.filter(project => project.category === "Living")
     const outside = allProjects.filter(project => project.category === "Outside")
     const teachers = allProjects.filter(project => project.category === "Teachers")
-    console.log(circuits)
+    // console.log(circuits)
 
     return isLoaded && (
         <div>

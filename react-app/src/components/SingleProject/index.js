@@ -34,7 +34,8 @@ const SingleProject = () => {
         allProjects = Object.values(allProjectsObj)
         creatorProjects = allProjects.filter(eProject => project.creatorId === eProject.creatorId && eProject.id !== project.id)
     }
-    console.log(creatorProjects)
+    // console.log(creatorProjects)
+
     // let date
     // console.log(new Date(project.created_at).toLocaleDateString('en-US'))
     // if (project.create_at !== undefined){
@@ -54,6 +55,7 @@ const SingleProject = () => {
     }
     
     const [errors, setErrors] = useState([]);
+    const [editErrors, setEditErrors] = useState([])
     
     useEffect(() => {
         dispatch(getOneProject(projectId))
@@ -104,7 +106,7 @@ const SingleProject = () => {
         .catch(async (res) => {
             const data = await res.json()
             if (data && data.errors) {
-                setErrors(data.errors)
+                setEditErrors(data.errors)
             }
         })
 
@@ -310,6 +312,13 @@ const SingleProject = () => {
                                 maxlength="1000"></textarea>
                         {/* </div> */}
                     </div>
+
+                    <div className="error-box">
+                    {errors.map((error, ind) => (
+                        <div key={ind}>{error}</div>
+                    ))}
+                </div>
+
                     <div className="comment-input-bottom">
                         <div className="comment-msg">
                             <div>We have a <span className="be-nice">be nice</span> policy.</div>
@@ -392,6 +401,13 @@ const SingleProject = () => {
                                 maxlength="1000"></textarea>
                         {/* </div> */}
                     </div>
+
+                    <div className="error-box">
+                    {editErrors.map((error, ind) => (
+                        <div key={ind}>{error}</div>
+                    ))}
+                    </div>
+
                     <div className="comment-input-bottom">
                         <div className="comment-msg">
                             <div>We have a <span className="be-nice">be nice</span> policy.</div>

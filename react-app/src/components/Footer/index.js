@@ -36,7 +36,7 @@ function Footer() {
                 <div className="footer-link-section">
                     <span className="footer-links-labels">About Us</span>
                     <div className="footer-link-box">
-                        Link
+                        Not a Link
                     </div>
                 </div>
                 <div className="footer-link-section">
@@ -48,13 +48,13 @@ function Footer() {
                 <div className="footer-link-section">
                     <span className="footer-links-labels">Find Us</span>
                     <div className="footer-git-link">
-                            <a href="https://github.com/kagc">
+                            <a title="Github" href="https://github.com/kagc">
                         <i class="fa-brands fa-github-alt">
 
                             </i>
                             </a>
 
-                            <a href="https://www.linkedin.com/in/kirin-agcaoili-a84a10187/">
+                            <a title="LinkedIn" href="https://www.linkedin.com/in/kirin-agcaoili-a84a10187/">
                             <i class="fa-brands fa-linkedin-in"></i>
                             </a>
                             </div>
@@ -71,7 +71,7 @@ function Footer() {
             <div className="footer-break"></div>
             <div className="footer-legal-links">
                 <div>2023 App Academy</div>
-                <div>Placeholder Links | To Hold this Space | Hi Hope You're Having a Good Day</div>
+                <div>Placeholder not-Links | To Hold this Space | Hi Hope You're Having a Good Day</div>
                 <div className="footer-bottom-right"><i class="fa-solid fa-dragon"></i> AUTOCAT</div>
             </div>
         </div>

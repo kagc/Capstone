@@ -397,3 +397,21 @@
 #not-implemented:hover {
     cursor: not-allowed;
 }
+
+.interact-bar-button> a> span:hover {
+    text-decoration: underline;
+    color: gray;
+}
+
+.interact-bar-button> a:hover {
+    color: rgb(154, 190, 99) !important;
+}
+
+/* .fa-comments:hover {
+    color: greenyellow;
+} */
+
+.project-published {
+    color: gray;
+    font-size: 0.9rem;
+}

@@ -61,6 +61,10 @@
   right: 10px;
 }
 
+.edit-tab-holder {
+    border: solid red 1px;
+}
+
 .sub-titlebar {
     display: flex;
     flex-direction: row;

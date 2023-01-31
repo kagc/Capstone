@@ -19,6 +19,7 @@ const SingleProject = () => {
 
     const [ comment, setComment ] = useState("")
     const [newSrc, setNewSrc] = useState('')
+    const [newCreatorSrc, setNewCreatorSrc ] = useState("")
 
     const [ showEdit, setShowEdit ] = useState(false)
     const [ thisComment, setThisComment ] = useState("")
@@ -33,7 +34,8 @@ const SingleProject = () => {
         allProjects = Object.values(allProjectsObj)
         creatorProjects = allProjects.filter(eProject => project.creatorId === eProject.creatorId && eProject.id !== project.id)
     }
-    console.log(creatorProjects)
+    // console.log(creatorProjects)
+
     // let date
     // console.log(new Date(project.created_at).toLocaleDateString('en-US'))
     // if (project.create_at !== undefined){
@@ -53,6 +55,7 @@ const SingleProject = () => {
     }
     
     const [errors, setErrors] = useState([]);
+    const [editErrors, setEditErrors] = useState([])
     
     useEffect(() => {
         dispatch(getOneProject(projectId))
@@ -103,7 +106,7 @@ const SingleProject = () => {
         .catch(async (res) => {
             const data = await res.json()
             if (data && data.errors) {
-                setErrors(data.errors)
+                setEditErrors(data.errors)
             }
         })
 
@@ -165,7 +168,7 @@ const SingleProject = () => {
                     
                     </div>
             </div>
-
+{/* -------------------------- IMAGE  --------------------------------------- */}
 
             <div className="image-container">
                 <img 
@@ -178,6 +181,7 @@ const SingleProject = () => {
                 }}
             src={`${project.coverImageUrl}`}></img></div>
 
+{/* -------------------------- CREATOR BOX -------------------------------- */}
             <div className="single-proj-section">
                 <div className="creator-box">
                     <div className="creator-top">
@@ -190,7 +194,14 @@ const SingleProject = () => {
                                 {creatorProjects.slice(0).reverse().slice(0, 3).map(project => {
                                 return (
                                     <Link key={project.id} to={`/projects/${project.id}`}>
-                                        <img className="creator-cover-img" src={project.coverImageUrl}></img>
+                                        <img className="creator-cover-img"
+                                        onError={(e)=>{
+                                            if(e.target.src !== errImage) {
+                                            setNewCreatorSrc(errImage)
+                                            e.target.src = errImage
+                                            }
+                                        }}
+                                         src={project.coverImageUrl}></img>
                                     </Link>
                                 )
                             })}</div>) 
@@ -209,7 +220,7 @@ const SingleProject = () => {
                     <div className="creator-bottom">About: Creator Info For Future. This is just placeholder text for now, hello, hi. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div></div>
                 </div>
 
-
+{/* -------------------------- INTRO SECTION -------------------------------- */}
             <div className="single-proj-section">{project.intro}</div>
 
             <div className="interaction-section">
@@ -224,7 +235,7 @@ const SingleProject = () => {
                     </div>
 
                 <div className="line-break"></div></div>
-
+{/* -------------------------- SUPPLIES SECTION -------------------------------- */}
                 <div className="single-step-title">Supplies</div>
                 <div className="single-proj-section">{project.supplies}</div>
 
@@ -242,7 +253,7 @@ const SingleProject = () => {
                     </div>
 
                 <div className="line-break"></div></div>
-
+{/* -------------------------- STEPS SECTION -------------------------------- */}
             {project.stepsList.map(step => {
                 return (
                     <div key={step.id}>
@@ -270,7 +281,7 @@ const SingleProject = () => {
                     </div>
                 )
             })}
-
+{/* -------------------------- EDIT PROJECT BUTTON-------------------------------- */}
             {currentUser && currentUser.id === project.creatorInfo.id && (<div id="edit-float">
                 <div className="admin-corner">Admin
                     <Link to={`/editor/${project.id}`} >
@@ -281,7 +292,7 @@ const SingleProject = () => {
                 
             </div>)}
 
-
+{/* -------------------------- COMMENT INPUT BOX -------------------------------- */}
             <div id="comments" className="comment-section">
                 <div className="comment-input-box-container">
                             <form onSubmit={submitComment} className="comment-input">
@@ -302,6 +313,13 @@ const SingleProject = () => {
                                 maxlength="1000"></textarea>
                         {/* </div> */}
                     </div>
+
+                    <div className="error-box">
+                    {errors.map((error, ind) => (
+                        <div key={ind}>{error}</div>
+                    ))}
+                </div>
+
                     <div className="comment-input-bottom">
                         <div className="comment-msg">
                             <div>We have a <span className="be-nice">be nice</span> policy.</div>
@@ -314,7 +332,7 @@ const SingleProject = () => {
                             </form>
                     </div>
                 </div>
-
+{/* -------------------------- COMMENT SECTION -------------------------------- */}
             {comments.length > 0 && (
                 <div className="comments-list">
                     <div className="num-comments">{comments.length} Comment{comments.length > 1 ? "s" : null}</div>
@@ -384,6 +402,13 @@ const SingleProject = () => {
                                 maxlength="1000"></textarea>
                         {/* </div> */}
                     </div>
+
+                    <div className="error-box">
+                    {editErrors.map((error, ind) => (
+                        <div key={ind}>{error}</div>
+                    ))}
+                    </div>
+
                     <div className="comment-input-bottom">
                         <div className="comment-msg">
                             <div>We have a <span className="be-nice">be nice</span> policy.</div>
@@ -412,7 +437,7 @@ const SingleProject = () => {
         </div>
         // </div>
     )
-
+{/* -------------------------- 404 -------------------------------- */}
                 } else {
                     return (
                         <div><NotFound /></div>

@@ -61,6 +61,10 @@
   right: 10px;
 }
 
+.edit-tab-holder {
+    border: solid red 1px;
+}
+
 .sub-titlebar {
     display: flex;
     flex-direction: row;
@@ -498,3 +502,7 @@
            line-clamp: 2;
    -webkit-box-orient: vertical;
 }
+
+/* .footer-cat-column> span {
+    
+} */

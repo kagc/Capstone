@@ -96,23 +96,29 @@
 .fa-github-alt {
     font-size: 2.5rem;
     border: solid lightgray 2px;
+    background-color: lightgray;
     border-radius: 5px;
 }
 
 .footer-git-link {
     width: 8rem;
-}
-
-.footer-git-link> a {
-    color: lightgray;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
 }
 
-.footer-git-link> a:hover {
-    color: gray;
-    /* border: solid gray 2px; */
+.footer-git-link> a {
+    color: rgb(91, 91, 91);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-right: 1rem;
+}
+
+.footer-git-link> a> i:hover {
+    background-color: gray;
+    border: solid gray 2px;
+    color: rgb(91, 91, 91);
 }
 
 .footer-link-box {
@@ -125,8 +131,22 @@
     flex-direction: row;
     justify-content: flex-start;
     font-size: 0.9rem;
+    width: 8rem;
 }
 
 .footer-link-box> a:hover {
-    color: gray;
+    color: white;
 }
+
+.fa-linkedin-in {
+    font-size: 2.5rem;
+    border: solid lightgray 2px;
+    background-color: lightgray;
+    border-radius: 5px;
+}
+
+/* .fa-linkedin-in:hover {
+    border: solid lightgray 2px;
+    background-color: lightgray;
+    border-radius: 5px;
+} */

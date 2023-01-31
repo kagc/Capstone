@@ -7,6 +7,7 @@ import { getAllProjects, getOneProject, modProject, nukeProject } from '../../st
 const EditProject = () => {
     const { projectId } = useParams()
     // console.log("did it pass", oneProject)
+    const [ isLoaded, setIsLoaded ] = useState(false)
 
     // .push the deleted step IDs to bulk delete on submit
     const deletedSteps = []
@@ -21,30 +22,39 @@ const EditProject = () => {
     // console.log(thisProject)
     
     steps.forEach(step => deletedSteps.push(step))
-    let tempTitle = project.title
-    let tempCat = project.category
-    let tempCover = project.coverImageUrl
-    let tempIntro = project.intro
-    let tempSupplies = project.supplies
+    let tempTitle
+    let tempCat
+    let tempCover
+    let tempIntro
+    let tempSupplies
+    if(project) {
+        tempTitle = project.title
+        tempCat = project.category
+        tempCover = project.coverImageUrl
+        tempIntro = project.intro
+        tempSupplies = project.supplies
+    }
     // console.log("!!!!!!!!!!!!!!!!!deletedSteps ",deletedSteps)
     
         useEffect(() => {
-            dispatch(getOneProject(projectId))
             dispatch(getAllProjects())
-
-            // setTitle(tempTitle)
-            // setCategory(tempCat)
-            // setSupplies(tempSupplies)
-            // setCoverImageUrl(tempCover)
-            // setIntro(tempIntro)
+            dispatch(getOneProject(projectId))
+            // .then(setTitle(tempTitle))
+            // .then(setCategory(tempCat))
+            // .then(setSupplies(tempSupplies))
+            // .then(setCoverImageUrl(tempCover))
+            // .then(setIntro(tempIntro))
+            .then(setIsLoaded(true))
+            // console.log('hello')
         }, [dispatch])
-
+    
     const [ title, setTitle ] = useState(tempTitle)
     const [category, setCategory ] = useState(tempCat)
     const [ coverImageUrl, setCoverImageUrl ] = useState(tempCover)
     const [ intro, setIntro ] = useState(tempIntro)
     const [ supplies, setSupplies ] = useState(tempSupplies)
     const [ stepInputFields, setStepInputFields ] = useState(steps)
+
     // console.log(title)
 
     // const [ title, setTitle ] = useState("")
@@ -61,6 +71,8 @@ const EditProject = () => {
 
     // console.log("!!!!!!!!!!!!stepinputfield",stepInputFields)
     // setStepInputFields(steps)
+
+
     
     const [errors, setErrors] = useState([]);
     const [stepErrors, setStepErrors] = useState([])
@@ -158,11 +170,12 @@ const EditProject = () => {
 
     if( !project || !steps ) return null;
     if(title === undefined){
+        // return null
+        // alert("Whoops, there was an issue with your request, returning to project's directions page.")
         history.push(`/projects/${projectId}`)
-        alert("Whoops, there was an issue with your request, returning to project's directions page.")
     }
 
-    return (
+    return isLoaded && (
         <div className="wholething">
             <div className="content">
             <form onSubmit={submit}>
@@ -202,7 +215,7 @@ placeholder='What did you make?'
 value={title}
 onChange={(e) => setTitle(e.target.value)}
 required
-maxlength="150"
+maxLength="150"
 ></input>
 {title !== undefined && (<div className='input-counter'>{title.length} / 150</div>)}
 

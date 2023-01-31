@@ -10,7 +10,7 @@ class ProjectStep(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     projectId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("projects.id")), nullable=False)
     stepNum = db.Column(db.Integer, nullable=False)
-    stepTitle = db.Column(db.String(40), nullable=False)
+    stepTitle = db.Column(db.String(255), nullable=False)
     stepDescription = db.Column(db.String(2000), nullable=False)
     
     stepImageUrl = db.Column(db.String(2000))

@@ -9,10 +9,39 @@ def seed_users():
         username='marnie', email='marnie@aa.io', password='password')
     bobbie = User(
         username='bobbie', email='bobbie@aa.io', password='password')
+    
+    bean = User(
+        username='bean', email='bean@bean.com', password='password')
+    
+    bbcat = User(
+        username='bbcat', email='bb@cat.com', password='password')
+    
+    a_cat = User(
+        username='a_cat', email='a@cat.com', password='password')
+    
+    not_a_cat = User(
+        username = 'not_a_cat', email = 'not@cat.com', password='password'
+    )
+    
+    a_dog = User(
+        username='a_dog', email='a@dog.com', password='password')
+    
+    idk = User(
+        username='xXc001_p3r50nXx', email='1@1.com', password='password')
+    
+    miss_match = User(
+        username='miss_match', email='match@miss.com', password='password')
 
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
+    db.session.add(bean)
+    db.session.add(bbcat)
+    db.session.add(a_cat)
+    db.session.add(not_a_cat)
+    db.session.add(a_dog)
+    db.session.add(idk)
+    db.session.add(miss_match)
     db.session.commit()
 
 

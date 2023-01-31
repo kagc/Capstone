@@ -266,7 +266,7 @@ const SingleProject = () => {
                     </div>
                     <div className="comment-input-bottom">
                         <div className="comment-msg">
-                            <div>We have a be nice policy.</div>
+                            <div>We have a <span className="be-nice">be nice</span> policy.</div>
                             <div>Please be positive and constructive.</div>
                         </div>
                         <div className="main-comment-buttons">
@@ -291,10 +291,10 @@ const SingleProject = () => {
                                     <div className="one-comment-top-left">
                                         <div className="user-img"><i id="cat" class="fa-solid fa-cat"></i></div>
                                         <div className="commenter-info">{comment.userInfo.username} {comment.userId === project.creatorId && (
-                                            <div> (Author)</div>
+                                            <div className="author-tag"> (author)</div>
                                         )}</div>
 
-                                        <div>
+                                        <div className="comments-posted-time">
                                             {day > 1 ? (<>{day} Day{day > 1 ? 's' : null} ago</>) : ('Today')}
                                              {/* {day} Day{day > 1 ? 's' : null} ago */}
                                             </div>
@@ -348,7 +348,7 @@ const SingleProject = () => {
                     </div>
                     <div className="comment-input-bottom">
                         <div className="comment-msg">
-                            <div>We have a be nice policy.</div>
+                            <div>We have a <span className="be-nice">be nice</span> policy.</div>
                             <div>Please be positive and constructive.</div>
                         </div>
                         <div className="comment-buttons">

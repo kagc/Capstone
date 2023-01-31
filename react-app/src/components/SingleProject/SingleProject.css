@@ -239,6 +239,13 @@
     flex-direction: column;
     justify-content: flex-start;
     width: 90%;
+    font-size: 0.8rem;
+    color: gray;
+}
+
+.be-nice {
+    font-weight: bold;
+    color: black;
 }
 
 .comment-buttons {
@@ -318,8 +325,9 @@
 .commenter-info {
     display: flex; 
     flex-direction: row;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    color: rgb(221, 59, 0);
 }
 
 .one-comment-top-right {
@@ -414,4 +422,13 @@
 .project-published {
     color: gray;
     font-size: 0.9rem;
+}
+
+.comments-posted-time {
+    color: gray;
+}
+
+.author-tag {
+    color: gray;
+    margin-left: 0.5rem;
 }

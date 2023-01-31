@@ -25,7 +25,16 @@ const SingleProject = () => {
     const project = useSelector(state => state.projects.singleProject)
     const commentsObj = useSelector(state => state.comments.allComments)
     const favoritesObj = useSelector(state => state.favorites.allFavorites)
-    console.log(project)
+    // console.log(project)
+    // let date
+    // console.log(new Date(project.created_at).toLocaleDateString('en-US'))
+    // if (project.create_at !== undefined){
+    //     date = new Date(project.created_at)
+    //     console.log("hellooooo")
+    // }
+    // console.log("aaaaa",date)
+
+    const month = ["January", "February", "March", "April", "May", "June", "July", "Augst", "September", "October", "November", "December"]
     
     const [ editedComment, setEditedComment ] = useState("")
     const [ editedCommentId, setEditedCommentId ] = useState("")
@@ -123,7 +132,7 @@ const SingleProject = () => {
             <div className="misc-infobar">By {project.creatorInfo.username} in {project.category}<div className="favsNum"><i id="heart" class="fa-solid fa-heart"></i>{favoritesObj.total}</div></div>
 
             <div className="sub-titlebar">
-                <div>Publish Date</div>
+                <div className="project-published">Published {month[new Date(project.created_at).getMonth()]} {new Date(project.created_at).getDate()}, {new Date(project.created_at).getFullYear()}</div>
                 <div>
                     {currentUser === null ? (<button id="loggedout-fave-button" disabled={true} className="loggedout-fav-button"  title="Must be logged in to add to Favorites"><i id="unfaved-heart" class="fa-solid fa-heart"></i><span className="loggedout-fav-text">Favorite</span></button>) : 
                     
@@ -171,7 +180,7 @@ const SingleProject = () => {
                     <div id="not-implemented" title="Feature coming soon." className="interact-bar-button"><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
 
                 <div className="interact-bar-button">
-                    <a href="#comments"><i class="fa-solid fa-comments"></i> Comment</a>
+                    <a href="#comments"><i class="fa-solid fa-comments"></i> <span>Comment</span></a>
                     
                     </div>
                     </div>
@@ -189,7 +198,7 @@ const SingleProject = () => {
                     <div id="not-implemented" title="Feature coming soon." className="interact-bar-button"><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
 
                 <div className="interact-bar-button">
-                    <a href="#comments"><i class="fa-solid fa-comments"></i> Comment</a>
+                    <a href="#comments"><i class="fa-solid fa-comments"></i><span>Comment</span></a>
                     
                     </div>
                     </div>
@@ -212,7 +221,7 @@ const SingleProject = () => {
                     <div id="not-implemented" title="Feature coming soon." className="interact-bar-button"><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
 
                     <div className="interact-bar-button">
-                    <a href="#comments"><i class="fa-solid fa-comments"></i> Comment</a>
+                    <a href="#comments"><i class="fa-solid fa-comments"></i><span>Comment</span></a>
 
                     </div>
                     </div>
@@ -273,6 +282,8 @@ const SingleProject = () => {
                     <div className="num-comments">{comments.length} Comment{comments.length > 1 ? "s" : null}</div>
                     
                     {comments.slice(0).reverse().map(comment => {
+                        let day = Math.ceil(Math.abs(new Date() - new Date(comment.created_at))/ (1000 * 60 * 60 * 24))
+                        console.log(day)
                         return (
 
                             <div className="one-comment">
@@ -283,7 +294,10 @@ const SingleProject = () => {
                                             <div> (Author)</div>
                                         )}</div>
 
-                                        <div>X Days ago</div>
+                                        <div>
+                                            {day > 1 ? (<>{day} Day{day > 1 ? 's' : null} ago</>) : ('Today')}
+                                             {/* {day} Day{day > 1 ? 's' : null} ago */}
+                                            </div>
                                         </div>
 
                                     <div className="one-comment-top-right">

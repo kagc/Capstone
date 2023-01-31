@@ -1,6 +1,7 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from .user import User
 from .project_step import ProjectStep
+from datetime import datetime
 
 class Project(db.Model):
     __tablename__ = 'projects'
@@ -16,6 +17,8 @@ class Project(db.Model):
     intro = db.Column(db.String(1000), nullable=False)
     supplies = db.Column(db.String(1000), nullable=False)
     
+    created_at = db.Column(db.DateTime, default=datetime.now())
+    
     user = db.relationship("User", back_populates="projects")
     steps = db.relationship("ProjectStep", back_populates="project", cascade="all, delete")
     favorites = db.relationship("Favorite", back_populates="project", cascade="all, delete")
@@ -30,6 +33,7 @@ class Project(db.Model):
             'coverImageUrl': self.coverImageUrl,
             'intro': self.intro,
             'supplies': self.supplies,
+            'created_at': self.created_at,
             'creator': User.query.get(self.creatorId).to_dict(),
             'steps': [step.to_dict_step() for step in ProjectStep.query.all() if int(step.projectId) == int(self.id)]
         }

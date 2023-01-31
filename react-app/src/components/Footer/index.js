@@ -53,6 +53,10 @@ function Footer() {
 
                             </i>
                             </a>
+
+                            <a href="https://www.linkedin.com/in/kirin-agcaoili-a84a10187/">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
                             </div>
                 </div>
             </div>

@@ -95,12 +95,16 @@
 
 .fa-github-alt {
     font-size: 2.5rem;
-    border: solid lightgray 2px;
+    border: solid gray 2px;
+    background-color: gray;
     border-radius: 5px;
 }
 
 .footer-git-link {
     width: 8rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
 }
 
 .footer-git-link> a {
@@ -108,11 +112,11 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    padding-right: 1rem;
 }
 
 .footer-git-link> a:hover {
-    color: gray;
-    /* border: solid gray 2px; */
+    color: black;
 }
 
 .footer-link-box {
@@ -129,4 +133,11 @@
 
 .footer-link-box> a:hover {
     color: gray;
+}
+
+.fa-linkedin-in {
+    font-size: 2.5rem;
+    border: solid gray 2px;
+    background-color: gray;
+    border-radius: 5px;
 }

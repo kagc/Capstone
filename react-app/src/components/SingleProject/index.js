@@ -206,7 +206,7 @@ const SingleProject = () => {
                             })} */}
                         </div>
                     </div>
-                    <div className="creator-bottom"></div>Creator Info For Future Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                    <div className="creator-bottom">About: Creator Info For Future. This is just placeholder text for now, hello, hi. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div></div>
                 </div>
 
 

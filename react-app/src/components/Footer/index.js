@@ -42,19 +42,19 @@ function Footer() {
                 <div className="footer-link-section">
                     <span className="footer-links-labels">Resources</span>
                     <div className="footer-link-box">
-                        <a href="https://appacademy.io">App Academy</a>
+                        <a target="_blank" href="https://appacademy.io">App Academy</a>
                     </div>
                 </div>
                 <div className="footer-link-section">
                     <span className="footer-links-labels">Find Us</span>
                     <div className="footer-git-link">
-                            <a title="Github" href="https://github.com/kagc">
+                            <a target="_blank" title="Github" href="https://github.com/kagc">
                         <i class="fa-brands fa-github-alt">
 
                             </i>
                             </a>
 
-                            <a title="LinkedIn" href="https://www.linkedin.com/in/kirin-agcaoili-a84a10187/">
+                            <a target="_blank" title="LinkedIn" href="https://www.linkedin.com/in/kirin-agcaoili-a84a10187/">
                             <i class="fa-brands fa-linkedin-in"></i>
                             </a>
                             </div>

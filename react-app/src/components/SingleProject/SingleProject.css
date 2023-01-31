@@ -228,10 +228,24 @@
 }
 
 #cat {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 0.5rem;
     border-radius: 50%;
-    background-color: lightgray;
+    /* background-color: lightgray; */
+    background: rgb(255,255,255);
+    background: linear-gradient(175deg, rgba(255,255,255,1) 0%, rgba(232,232,232,1) 36%, rgba(154,154,154,1) 100%);
+    color: white !important;
+}
+
+#creator-cat {
+    padding: 1rem;
+    margin-right: 1rem;
+    font-size: 3rem;
+    border-radius: 50%;
+    /* background-color: lightgray; */
+    background: rgb(255,255,255);
+    background: linear-gradient(175deg, rgba(255,255,255,1) 0%, rgba(232,232,232,1) 36%, rgba(154,154,154,1) 100%);
+    color: white !important;
 }
 
 .comment-msg{
@@ -239,6 +253,13 @@
     flex-direction: column;
     justify-content: flex-start;
     width: 90%;
+    font-size: 0.8rem;
+    color: gray;
+}
+
+.be-nice {
+    font-weight: bold;
+    color: black;
 }
 
 .comment-buttons {
@@ -318,8 +339,9 @@
 .commenter-info {
     display: flex; 
     flex-direction: row;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    color: rgb(221, 59, 0);
 }
 
 .one-comment-top-right {
@@ -414,4 +436,55 @@
 .project-published {
     color: gray;
     font-size: 0.9rem;
+}
+
+.comments-posted-time {
+    color: gray;
+}
+
+.author-tag {
+    color: gray;
+    margin-left: 0.5rem;
+}
+
+.creator-box {
+    border: solid rgb(179, 179, 179) 1px;
+    background-color: rgb(233, 233, 233);
+    border-radius: 5px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    color: gray;
+    font-size: 0.9rem;
+}
+
+.creator-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.creator-left {
+    display: flex;
+    flex-direction: row;
+}
+
+.creator-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.creator-name> span {
+    font-weight: bold;
+    color: black;
+}
+
+.creator-cover-img {
+    height: 5rem;
+    width: 5rem;
+    margin-left: 0.5rem;
+    background-position: center center;
+    object-fit: cover;
 }

@@ -83,7 +83,9 @@
     border: none;
     text-align: start;
     font-size: 2em;
-    color: gray !important;
+    background: rgb(255,255,255);
+    background: linear-gradient(175deg, rgba(255,255,255,1) 0%, rgba(232,232,232,1) 36%, rgba(154,154,154,1) 100%);
+    color: white !important;
     font-stretch: 100%;
     /* position: relative;
     vertical-align: middle; */

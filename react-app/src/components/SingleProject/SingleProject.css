@@ -61,10 +61,6 @@
   right: 10px;
 }
 
-.edit-tab-holder {
-    border: solid red 1px;
-}
-
 .sub-titlebar {
     display: flex;
     flex-direction: row;
@@ -115,7 +111,7 @@
     padding-left: 3rem;
     padding-right: 3rem;
     font-size: 1.1rem;
-    line-height: 1.5rem;
+    line-height: 1.8rem;
     overflow-wrap: break-word;
     overflow: hidden;
     /* white-space: nowrap; */
@@ -494,15 +490,20 @@
 }
 
 .creator-bottom {
-    height: 3rem;
+    height: 2.5rem;
     overflow: hidden;
    text-overflow: ellipsis;
    display: -webkit-box;
    -webkit-line-clamp: 2; /* number of lines to show */
            line-clamp: 2;
    -webkit-box-orient: vertical;
+   line-height: 1.2rem;
 }
 
-/* .footer-cat-column> span {
-    
-} */
+.more-by-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    line-height: 1rem;
+}

@@ -190,7 +190,8 @@ const SingleProject = () => {
                             <div className="creator-name">By <span>{project.creatorInfo.username}</span></div>
                         </div>
                         <div className="creator-right">
-                            {creatorProjects.length > 0 ? (<div className="creator-right">More by the author: 
+                            {creatorProjects.length > 0 ? (<div className="creator-right">
+                                <div className="more-by-text">More by <span>the author:</span> </div>
                                 {creatorProjects.slice(0).reverse().slice(0, 3).map(project => {
                                 return (
                                     <Link key={project.id} to={`/projects/${project.id}`}>

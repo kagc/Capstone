@@ -2,7 +2,7 @@ import './SingleProject.css'
 import React, { useEffect, useState, useRef } from 'react'
 import { useParams, useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector} from 'react-redux';
-import { getOneProject } from '../../store/project';
+import { getAllProjects, getOneProject, getUserProjects } from '../../store/project';
 import EditProject from '../EditProject';
 import NotFound from '../404';
 import { getAllComments, makeComment, modComment, removeComment } from '../../store/comment';
@@ -23,9 +23,17 @@ const SingleProject = () => {
     const [ showEdit, setShowEdit ] = useState(false)
     const [ thisComment, setThisComment ] = useState("")
     const project = useSelector(state => state.projects.singleProject)
+    const allProjectsObj = useSelector(state => state.projects.allProjects)
     const commentsObj = useSelector(state => state.comments.allComments)
     const favoritesObj = useSelector(state => state.favorites.allFavorites)
-    // console.log(project)
+
+    let allProjects
+    let creatorProjects
+    if(allProjectsObj) {
+        allProjects = Object.values(allProjectsObj)
+        creatorProjects = allProjects.filter(eProject => project.creatorId === eProject.creatorId)
+    }
+    console.log(creatorProjects)
     // let date
     // console.log(new Date(project.created_at).toLocaleDateString('en-US'))
     // if (project.create_at !== undefined){
@@ -51,6 +59,7 @@ const SingleProject = () => {
         dispatch(getAllComments(projectId))
         dispatch(getAllFavorites(projectId))
         dispatch(getUserFavorites())
+        dispatch(getAllProjects())
         .then(setIsLoaded(true))
     }, [dispatch, projectId])
     // console.log("anything?",project.stepsList)
@@ -120,7 +129,7 @@ const SingleProject = () => {
         })
     }
 
-    if (!project || !commentsObj || !favoritesObj ) return null
+    if (!project || !commentsObj || !favoritesObj || !allProjectsObj ) return null
     if (project.stepsList.length > 0 && commentsObj && favoritesObj ) {
 
     return isLoaded && (
@@ -169,7 +178,26 @@ const SingleProject = () => {
                 }}
             src={`${project.coverImageUrl}`}></img></div>
 
-            {/* <div className="single-proj-section">Creator Info For Future</div> */}
+            <div className="single-proj-section">
+                <div className="creator-box">
+                    <div className="creator-top">
+                        <div className="creator-left">
+                            <div className="creator-img"><i id="creator-cat" class="fa-solid fa-cat"></i></div>
+                            <div className="creator-name">By {project.creatorInfo.username}</div>
+                        </div>
+                        <div className="creator-right">
+                            More by the author: 
+                            {creatorProjects.slice(0).reverse().slice(0, 3).map(project => {
+                                return (
+                                    <Link key={project.id} to={`/projects/${project.id}`}>
+                                        <img className="creator-cover-img" src={project.coverImageUrl}></img>
+                                    </Link>
+                                )
+                            })}
+                        </div>
+                    </div>
+                    <div className="creator-bottom"></div>Creator Info For Future Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                </div>
 
 
             <div className="single-proj-section">{project.intro}</div>

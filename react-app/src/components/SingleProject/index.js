@@ -7,6 +7,7 @@ import EditProject from '../EditProject';
 import NotFound from '../404';
 import { getAllComments, makeComment, modComment, removeComment } from '../../store/comment';
 import { getAllFavorites, makeFavorite, removeFavorite, getUserFavorites } from '../../store/favorite';
+import Questions from '../Questions';
 let errImage = 'https://previews.123rf.com/images/sonsedskaya/sonsedskaya1902/sonsedskaya190200070/118117055-portrait-of-a-builder-cat-with-tools-in-paws.jpg'
 
 const SingleProject = () => {
@@ -322,145 +323,151 @@ const SingleProject = () => {
            </div>
 
 {/* -------------------------- COMMENT INPUT BOX -------------------------------- */}
-            <div id="comments" className="comment-section">
-                <div className="comment-input-box-container">
-                            <form onSubmit={submitComment} className="comment-input">
-                    <div className="comment-input-top">
-                        <div className="user-img"><i id="cat" class="fa-solid fa-cat"></i></div>
-                        {/* <div className="comment-input"> */}
-                                <textarea
-                                readOnly={currentUser === null ? true : false}
-                                placeholder={currentUser === null ? "Must be logged in to leave a comment." : null }
-                                className="comment-text-input"
-                                input="textarea"
-                                name="comment"
-                                value={comment}
-                                onChange={(e) => setComment(e.target.value)}
-                                required
-                                rows="5"
-                                cols="50"
-                                maxlength="1000"></textarea>
-                        {/* </div> */}
-                    </div>
+{activeSection === "comments" ? (
+<div className="whole-active-section">
+    <div id="comments" className="comment-section">
+    <div className="comment-input-box-container">
+                <form onSubmit={submitComment} className="comment-input">
+        <div className="comment-input-top">
+            <div className="user-img"><i id="cat" class="fa-solid fa-cat"></i></div>
+            {/* <div className="comment-input"> */}
+                    <textarea
+                    readOnly={currentUser === null ? true : false}
+                    placeholder={currentUser === null ? "Must be logged in to leave a comment." : "Post a comment" }
+                    className="comment-text-input"
+                    input="textarea"
+                    name="comment"
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)}
+                    required
+                    rows="5"
+                    cols="50"
+                    maxlength="1000"></textarea>
+            {/* </div> */}
+        </div>
 
-                    <div className="error-box">
-                    {errors.map((error, ind) => (
-                        <div key={ind}>{error}</div>
-                    ))}
-                </div>
+        <div className="error-box">
+        {errors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+        ))}
+    </div>
 
-                    <div className="comment-input-bottom">
-                        <div className="comment-msg">
-                            <div>We have a <span className="be-nice">be nice</span> policy.</div>
-                            <div>Please be positive and constructive.</div>
-                        </div>
-                        <div className="main-comment-buttons">
-                            <button disabled={currentUser === null ? true : null } onSubmit={submitComment} id={currentUser === null ? `loggedout-comment-button` : null} title={currentUser === null ? `Must be logged in to leave a comment` : null} type="submit">Post</button>
-                        </div>
-                        </div>
-                            </form>
-                    </div>
-                </div>
-{/* -------------------------- COMMENT SECTION -------------------------------- */}
-            {comments.length > 0 && (
-                <div className="comments-list">
-                    <div className="num-comments">{comments.length} Comment{comments.length > 1 ? "s" : null}</div>
-                    
-                    {comments.slice(0).reverse().map(comment => {
-                        let day = Math.ceil(Math.abs(new Date() - new Date(comment.created_at))/ (1000 * 60 * 60 * 24))
-                        console.log(day)
-                        return (
+        <div className="comment-input-bottom">
+            <div className="comment-msg">
+                <div>We have a <span className="be-nice">be nice</span> policy.</div>
+                <div>Please be positive and constructive.</div>
+            </div>
+            <div className="main-comment-buttons">
+                <button disabled={currentUser === null ? true : null } onSubmit={submitComment} id={currentUser === null ? `loggedout-comment-button` : null} title={currentUser === null ? `Must be logged in to leave a comment` : null} type="submit">Post</button>
+            </div>
+            </div>
+                </form>
+        </div>
+    </div>
+{/* -------------------------- COMMENTS SECTION -------------------------------- */}
+{comments.length > 0 && (
+    <div className="comments-list">
+        <div className="num-comments">{comments.length} Comment{comments.length > 1 ? "s" : null}</div>
+        
+        {comments.slice(0).reverse().map(comment => {
+            let day = Math.ceil(Math.abs(new Date() - new Date(comment.created_at))/ (1000 * 60 * 60 * 24))
+            console.log(day)
+            return (
 
-                            <div className="one-comment">
-                                <div className="one-comment-top">
-                                    <div className="one-comment-top-left">
-                                        <div className="user-img"><i id="cat" class="fa-solid fa-cat"></i></div>
-                                        <div className="commenter-info">{comment.userInfo.username} {comment.userId === project.creatorId && (
-                                            <div className="author-tag"> (author)</div>
-                                        )}</div>
+                <div className="one-comment">
+                    <div className="one-comment-top">
+                        <div className="one-comment-top-left">
+                            <div className="user-img"><i id="cat" class="fa-solid fa-cat"></i></div>
+                            <div className="commenter-info">{comment.userInfo.username} {comment.userId === project.creatorId && (
+                                <div className="author-tag"> (author)</div>
+                            )}</div>
 
-                                        <div className="comments-posted-time">
-                                            {day > 1 ? (<>{day} Day{day > 1 ? 's' : null} ago</>) : ('Today')}
-                                             {/* {day} Day{day > 1 ? 's' : null} ago */}
-                                            </div>
-                                        </div>
-
-                                    <div className="one-comment-top-right">
-                                        {currentUser && currentUser.id === comment.userId && (
-                                            <div>
-
-                                                <button 
-                                                onClick={(e) => {
-                                                    e.preventDefault()
-                                                    setEditedComment(comment.comment)
-                                                    setThisComment(comment.id)
-                                                    setShowEdit(true)
-                                                }}
-                                                className="ud-comment-buttons">Edit</button>
-                                                <button onClick={async (e) => {
-                                                    e.preventDefault()
-                                                    const data = await dispatch(removeComment(comment.id))
-                                                }} className="ud-comment-buttons">Delete</button>
-                                            </div>
-                                        )}
-                                    </div>
-                                    
+                            <div className="comments-posted-time">
+                                {day > 1 ? (<>{day} Day{day > 1 ? 's' : null} ago</>) : ('Today')}
+                                 {/* {day} Day{day > 1 ? 's' : null} ago */}
                                 </div>
-
-                                <div className="one-comment-text">{comment.comment}</div>
-
-                                {comment.id === thisComment && showEdit && (
-
-                                <div className="comment-input-box-container">
-                                    <form onSubmit={submitEditedComment} className="comment-input">
-                                    <div className="comment-input-top">
-                        <div className="user-img"><i id="cat" class="fa-solid fa-cat"></i></div>
-                        {/* <div className="comment-input"> */}
-                                <textarea
-                                // placeholder={comment.comment}
-                                className="comment-text-input"
-                                input="textarea"
-                                name="comment"
-                                value={editedComment}
-                                onChange={(e) => {
-                                    setEditedComment(e.target.value)
-                                    setEditedCommentId(comment.id)}}
-                                required
-                                rows="5"
-                                cols="50"
-                                maxlength="1000"></textarea>
-                        {/* </div> */}
-                    </div>
-
-                    <div className="error-box">
-                    {editErrors.map((error, ind) => (
-                        <div key={ind}>{error}</div>
-                    ))}
-                    </div>
-
-                    <div className="comment-input-bottom">
-                        <div className="comment-msg">
-                            <div>We have a <span className="be-nice">be nice</span> policy.</div>
-                            <div>Please be positive and constructive.</div>
-                        </div>
-                        <div className="comment-buttons">
-                            <button id="close-edit-button" onClick={closeEdit}>Cancel</button>
-                            <button onSubmit={submitEditedComment} type="submit">Save</button>
-                        </div>
-                        </div>
-
-                                    </form>
-                                </div>
-                                )}
                             </div>
-                        )
-                    })}
-               
-                    
-                    
-                    </div>
-                   ) }
 
+                        <div className="one-comment-top-right">
+                            {currentUser && currentUser.id === comment.userId && (
+                                <div>
+
+                                    <button 
+                                    onClick={(e) => {
+                                        e.preventDefault()
+                                        setEditedComment(comment.comment)
+                                        setThisComment(comment.id)
+                                        setShowEdit(true)
+                                    }}
+                                    className="ud-comment-buttons">Edit</button>
+                                    <button onClick={async (e) => {
+                                        e.preventDefault()
+                                        const data = await dispatch(removeComment(comment.id))
+                                    }} className="ud-comment-buttons">Delete</button>
+                                </div>
+                            )}
+                        </div>
+                        
+                    </div>
+
+                    <div className="one-comment-text">{comment.comment}</div>
+
+                    {comment.id === thisComment && showEdit && (
+
+                    <div className="comment-input-box-container">
+                        <form onSubmit={submitEditedComment} className="comment-input">
+                        <div className="comment-input-top">
+            <div className="user-img"><i id="cat" class="fa-solid fa-cat"></i></div>
+            {/* <div className="comment-input"> */}
+                    <textarea
+                    // placeholder={comment.comment}
+                    className="comment-text-input"
+                    input="textarea"
+                    name="comment"
+                    value={editedComment}
+                    onChange={(e) => {
+                        setEditedComment(e.target.value)
+                        setEditedCommentId(comment.id)}}
+                    required
+                    rows="5"
+                    cols="50"
+                    maxlength="1000"></textarea>
+            {/* </div> */}
+        </div>
+
+        <div className="error-box">
+        {editErrors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+        ))}
+        </div>
+
+        <div className="comment-input-bottom">
+            <div className="comment-msg">
+                <div>We have a <span className="be-nice">be nice</span> policy.</div>
+                <div>Please be positive and constructive.</div>
+            </div>
+            <div className="comment-buttons">
+                <button id="close-edit-button" onClick={closeEdit}>Cancel</button>
+                <button onSubmit={submitEditedComment} type="submit">Save</button>
+            </div>
+            </div>
+
+                        </form>
+                    </div>
+                    )}
+                </div>
+            )
+        })}
+   
+        
+        
+        </div>
+       ) }
+
+</div>
+    ) : (<Questions project={project}/>)}
+
+            
 
 
             </div>

@@ -89,11 +89,13 @@ function ProfileButton({ user }) {
               <div className="user-projects-container">
                 {userFavoritesObj.total > 0 ? (userFavoritess.map(fav => {
                   return (
-                    <Link key={fav.id} onClick={closeMenu} to={`/projects/${fav.projectId}`}>
+                    // <Link key={fav.id} onClick={closeMenu} to={`/projects/${fav.projectId}`}>
+                    <a key={fav.id} onClick={closeMenu} href={`/projects/${fav.projectId}`}>
                       <div className="user-link">
                       <i class="fa-solid fa-caret-right"></i> {fav.title}
                       </div>
-                    </Link>
+                    </a>
+                    // </Link>
                   )
                 })) : (<div className="none-yet"> No Favorites Yet</div>)}
 
@@ -104,13 +106,14 @@ function ProfileButton({ user }) {
               <div className="user-projects-container-BOTTOM">
                 {userProjects.length ? (userProjects.map(project => {
                   return (
-                      <Link key={project.id} onClick={closeMenu} to={`/projects/${project.id}`}>
+                      // <Link key={project.id} onClick={closeMenu} to={`/projects/${project.id}`}>
+                      <a key={project.id} onClick={closeMenu} href={`/projects/${project.id}`}>
                     <div className="user-link">
                         
                     <i class="fa-solid fa-caret-right"></i> {project.title}
-                        
                         </div>
-                        </Link>
+                        </a>
+                        // </Link>
                   )
                 })): (<div className="none-yet">No Directions Yet</div>)}
 

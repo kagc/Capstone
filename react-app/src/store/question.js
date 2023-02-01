@@ -137,6 +137,7 @@ const questionReducer = (state = initialState, action) => {
             newState = { ...state, allQuestions: { ...state.allQuestions }, userQuestions: { ...state.userQuestions } }
             delete newState.allQuestions[action.question.id]
             delete newState.userQuestions[action.question.id]
+            return newState
 
         default:
             return state

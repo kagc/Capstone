@@ -358,7 +358,9 @@ const SingleProject = () => {
                 <div>Please be positive and constructive.</div>
             </div>
             <div className="main-comment-buttons">
-                <button disabled={currentUser === null ? true : null } onSubmit={submitComment} id={currentUser === null ? `loggedout-comment-button` : null} title={currentUser === null ? `Must be logged in to leave a comment` : null} type="submit">Post</button>
+                <button disabled={currentUser === null ? true : null } 
+                onSubmit={submitComment} 
+                id={currentUser === null ? `loggedout-comment-button` : null} title={currentUser === null ? `Must be logged in to leave a comment` : null} type="submit">Post</button>
             </div>
             </div>
                 </form>
@@ -371,7 +373,7 @@ const SingleProject = () => {
         
         {comments.slice(0).reverse().map(comment => {
             let day = Math.ceil(Math.abs(new Date() - new Date(comment.created_at))/ (1000 * 60 * 60 * 24))
-            console.log(day)
+            // console.log(day)
             return (
 
                 <div className="one-comment">

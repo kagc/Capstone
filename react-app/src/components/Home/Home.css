@@ -4,6 +4,7 @@
     display: flex;
     margin-bottom: 4rem;
     animation: fade 7s ease-in-out infinite alternate; 
+    -webkit-animation: fade 7s ease-in-out infinite alternate; 
 }
 
 @keyframes fade {
@@ -11,6 +12,13 @@
   10% {opacity: 1;}
   90% {opacity: 1;}
   100% {opacity: 0;}
+}
+
+@-webkit-keyframes fade {
+    0% {opacity: 0;}
+    10% {opacity: 1;}
+    90% {opacity: 1;}
+    100% {opacity: 0;}
 }
 
 .banner-text {

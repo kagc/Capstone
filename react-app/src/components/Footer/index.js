@@ -11,7 +11,7 @@ function Footer() {
         <div className="footer-container">
             <div className="footer-links">
 
-            <div className="footer-link-section">
+            <div className="footer-link-section1">
                     {/* <span className="footer-links-labels">ABOUT</span> */}
                     <img className="footer-logo" src={logo}></img>
                 </div>
@@ -36,7 +36,9 @@ function Footer() {
                 <div className="footer-link-section">
                     <span className="footer-links-labels">About Us</span>
                     <div id="not-implemented" className="footer-link-box">
-                        Not a Link
+                        <span>Not a Link Yet</span>
+                        <span>Also not a Link</span>
+                        <span>I think cats are neat</span>
                     </div>
                 </div>
                 <div className="footer-link-section">

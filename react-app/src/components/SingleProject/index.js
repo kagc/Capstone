@@ -7,6 +7,7 @@ import EditProject from '../EditProject';
 import NotFound from '../404';
 import { getAllComments, makeComment, modComment, removeComment } from '../../store/comment';
 import { getAllFavorites, makeFavorite, removeFavorite, getUserFavorites } from '../../store/favorite';
+import Questions from '../Questions';
 let errImage = 'https://previews.123rf.com/images/sonsedskaya/sonsedskaya1902/sonsedskaya190200070/118117055-portrait-of-a-builder-cat-with-tools-in-paws.jpg'
 
 const SingleProject = () => {
@@ -16,6 +17,7 @@ const SingleProject = () => {
     const currentUser = useSelector(state => state.session.user)
 
     const [ isLoaded, setIsLoaded ] = useState(false)
+    const [ activeSection, setActiveSection ] = useState("comments")
 
     const [ comment, setComment ] = useState("")
     const [newSrc, setNewSrc] = useState('')
@@ -146,7 +148,11 @@ const SingleProject = () => {
             <div className="sub-titlebar">
                 <div className="project-published">Published {month[new Date(project.created_at).getMonth()]} {new Date(project.created_at).getDate()}, {new Date(project.created_at).getFullYear()}</div>
                 <div>
-                    {currentUser === null ? (<button id="loggedout-fave-button" disabled={true} className="loggedout-fav-button"  title="Must be logged in to add to Favorites"><i id="unfaved-heart" class="fa-solid fa-heart"></i><span className="loggedout-fav-text">Favorite</span></button>) : 
+
+{/* ----------------------- FAVORITES BUTTON ---------------------------- */}  
+                    {currentUser === null ? (<button id="loggedout-fave-button" disabled={true} className="loggedout-fav-button"  title="Must be logged in to add to Favorites">
+                        <i id="unfaved-heart" class="fa-solid fa-heart"></i>
+                        <span className="loggedout-fav-text">Favorite</span></button>) : 
                     
                     (userFaved.length > 0 ? (
                         <button onClick={async (e) => {
@@ -154,7 +160,8 @@ const SingleProject = () => {
                             const data = await dispatch(removeFavorite(userFaved[0].id))
                         }} id="faved" className="fav-button"><i id="heart" class="fa-solid fa-heart"></i>Favorited</button>
                     ) : (
-                        <button id="unfaved-button" onClick={submitFavorite} className="fav-button"><i id="unfaved-heart" class="fa-solid fa-heart"></i><span className="unfaved-text">Favorite</span></button>
+                        <button id="unfaved-button" onClick={submitFavorite} className="fav-button">
+                            <i id="unfaved-heart" class="fa-solid fa-heart"></i><span className="unfaved-text">Favorite</span></button>
                     ))}
                     {/* {userFaved.length > 0 ? (
                         <button onClick={async (e) => {
@@ -190,7 +197,8 @@ const SingleProject = () => {
                             <div className="creator-name">By <span>{project.creatorInfo.username}</span></div>
                         </div>
                         <div className="creator-right">
-                            {creatorProjects.length > 0 ? (<div className="creator-right">More by the author: 
+                            {creatorProjects.length > 0 ? (<div className="creator-right">
+                                <div className="more-by-text">More by <span>the author:</span> </div>
                                 {creatorProjects.slice(0).reverse().slice(0, 3).map(project => {
                                 return (
                                     <Link key={project.id} to={`/projects/${project.id}`}>
@@ -226,10 +234,21 @@ const SingleProject = () => {
             <div className="interaction-section">
                 <div className="interact-bar">
 
-                    <div id="not-implemented" title="Feature coming soon." className="interact-bar-button"><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
+                <div className="interact-bar-button">
+                    <a href="#interact"
+                    id="q-link"
+                    onClick={(e) => {
+                        // e.preventDefault()
+                        setActiveSection("questions")}}
+                    >
+                        <i id="q-icon" class="fa-solid fa-circle-question"></i><span className="comm-text">Ask Question</span></a></div> 
 
                 <div className="interact-bar-button">
-                    <a href="#comments"><i class="fa-solid fa-comments"></i> <span>Comment</span></a>
+                    <a id="comm-link" href="#interact"
+                    onClick={(e) => {
+                        // e.preventDefault()
+                        setActiveSection("comments")}}
+                    ><i id="comment-icon" class="fa-solid fa-comments"></i> <span className="comm-text">Comment</span></a>
                     
                     </div>
                     </div>
@@ -244,10 +263,21 @@ const SingleProject = () => {
                 <div className="interaction-section">
                 <div className="interact-bar">
 
-                    <div id="not-implemented" title="Feature coming soon." className="interact-bar-button"><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
+                <div className="interact-bar-button">
+                    <a href="#interact"
+                    id="q-link"
+                    onClick={(e) => {
+                        // e.preventDefault()
+                        setActiveSection("questions")}}
+                    >
+                        <i id="q-icon" class="fa-solid fa-circle-question"></i><span className="comm-text">Ask Question</span></a></div> 
 
                 <div className="interact-bar-button">
-                    <a href="#comments"><i class="fa-solid fa-comments"></i><span>Comment</span></a>
+                    <a id="comm-link" href="#interact"
+                    onClick={(e) => {
+                        // e.preventDefault()
+                        setActiveSection("comments")}}
+                    ><i id="comment-icon" class="fa-solid fa-comments"></i> <span className="comm-text">Comment</span></a>
                     
                     </div>
                     </div>
@@ -267,11 +297,22 @@ const SingleProject = () => {
                     <div className="interaction-section">
                     <div className="interact-bar">
 
-                    <div id="not-implemented" title="Feature coming soon." className="interact-bar-button"><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
-
                     <div className="interact-bar-button">
-                    <a href="#comments"><i class="fa-solid fa-comments"></i><span>Comment</span></a>
+                    <a href="#interact"
+                    id="q-link"
+                    onClick={(e) => {
+                        // e.preventDefault()
+                        setActiveSection("questions")}}
+                    >
+                        <i id="q-icon" class="fa-solid fa-circle-question"></i><span className="comm-text">Ask Question</span></a></div> 
 
+                <div className="interact-bar-button">
+                    <a id="comm-link" href="#interact"
+                    onClick={(e) => {
+                        // e.preventDefault()
+                        setActiveSection("comments")}}
+                    ><i id="comment-icon" class="fa-solid fa-comments"></i> <span className="comm-text">Comment</span></a>
+                    
                     </div>
                     </div>
 
@@ -291,149 +332,173 @@ const SingleProject = () => {
                 </div>
                 
             </div>)}
+{/* -------------------------- ACTIVE SECTION -------------------------------- */}
+           <div className="active-buttons-holder">
+                <button onClick={(e) => {
+                    e.preventDefault()
+                    setActiveSection("questions")}}
+                    id={activeSection === "questions" ? "active-section" : null}
+                    ><i class="fa-solid fa-circle-question"></i>Questions</button>
+                <button onClick={(e) => {
+                    e.preventDefault()
+                    setActiveSection("comments")}}
+                    id={activeSection === "comments" ? "active-section" : null}
+                    ><i class="fa-solid fa-comments"></i>Comments</button>
+           </div>
 
 {/* -------------------------- COMMENT INPUT BOX -------------------------------- */}
-            <div id="comments" className="comment-section">
-                <div className="comment-input-box-container">
-                            <form onSubmit={submitComment} className="comment-input">
-                    <div className="comment-input-top">
-                        <div className="user-img"><i id="cat" class="fa-solid fa-cat"></i></div>
-                        {/* <div className="comment-input"> */}
-                                <textarea
-                                readOnly={currentUser === null ? true : false}
-                                placeholder={currentUser === null ? "Must be logged in to leave a comment." : null }
-                                className="comment-text-input"
-                                input="textarea"
-                                name="comment"
-                                value={comment}
-                                onChange={(e) => setComment(e.target.value)}
-                                required
-                                rows="5"
-                                cols="50"
-                                maxlength="1000"></textarea>
-                        {/* </div> */}
-                    </div>
+<div id="interact">
+{activeSection === "comments" ? (
+<div className="whole-active-section">
+    <div className="comment-section">
+    <div className="comment-input-box-container">
+                <form onSubmit={submitComment} className="comment-input">
+        <div className="comment-input-top">
+            <div className="user-img"><i id="cat" class="fa-solid fa-cat"></i></div>
+            {/* <div className="comment-input"> */}
+                    <textarea
+                    readOnly={currentUser === null ? true : false}
+                    placeholder={currentUser === null ? "Must be logged in to leave a comment." : "Post a comment" }
+                    className="comment-text-input"
+                    input="textarea"
+                    name="comment"
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)}
+                    required
+                    rows="5"
+                    cols="50"
+                    maxlength="1000"></textarea>
+            {/* </div> */}
+        </div>
 
-                    <div className="error-box">
-                    {errors.map((error, ind) => (
-                        <div key={ind}>{error}</div>
-                    ))}
-                </div>
+        <div className="error-box">
+        {errors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+        ))}
+    </div>
 
-                    <div className="comment-input-bottom">
-                        <div className="comment-msg">
-                            <div>We have a <span className="be-nice">be nice</span> policy.</div>
-                            <div>Please be positive and constructive.</div>
-                        </div>
-                        <div className="main-comment-buttons">
-                            <button disabled={currentUser === null ? true : null } onSubmit={submitComment} id={currentUser === null ? `loggedout-comment-button` : null} title={currentUser === null ? `Must be logged in to leave a comment` : null} type="submit">Post</button>
-                        </div>
-                        </div>
-                            </form>
-                    </div>
-                </div>
-{/* -------------------------- COMMENT SECTION -------------------------------- */}
-            {comments.length > 0 && (
-                <div className="comments-list">
-                    <div className="num-comments">{comments.length} Comment{comments.length > 1 ? "s" : null}</div>
-                    
-                    {comments.slice(0).reverse().map(comment => {
-                        let day = Math.ceil(Math.abs(new Date() - new Date(comment.created_at))/ (1000 * 60 * 60 * 24))
-                        console.log(day)
-                        return (
+        <div className="comment-input-bottom">
+            <div className="comment-msg">
+                <div>We have a <span className="be-nice">be nice</span> policy.</div>
+                <div>Please be positive and constructive.</div>
+            </div>
+            <div className="main-comment-buttons">
+                <button disabled={currentUser === null ? true : null } 
+                onSubmit={submitComment} 
+                id={currentUser === null ? `loggedout-comment-button` : null} title={currentUser === null ? `Must be logged in to leave a comment` : null} type="submit">Post</button>
+            </div>
+            </div>
+                </form>
+        </div>
+    </div>
+{/* -------------------------- COMMENTS SECTION -------------------------------- */}
+{comments.length > 0 && (
+    <div className="comments-list">
+        <div className="num-comments">{comments.length} Comment{comments.length > 1 ? "s" : null}</div>
+        
+        {comments.slice(0).reverse().map(comment => {
+            let day = Math.ceil(Math.abs(new Date() - new Date(comment.created_at))/ (1000 * 60 * 60 * 24))
+            // console.log(day)
+            return (
 
-                            <div className="one-comment">
-                                <div className="one-comment-top">
-                                    <div className="one-comment-top-left">
-                                        <div className="user-img"><i id="cat" class="fa-solid fa-cat"></i></div>
-                                        <div className="commenter-info">{comment.userInfo.username} {comment.userId === project.creatorId && (
-                                            <div className="author-tag"> (author)</div>
-                                        )}</div>
+                <div className="one-comment">
+                    <div className="one-comment-top">
+                        <div className="one-comment-top-left">
+                            <div className="user-img"><i id="cat" class="fa-solid fa-cat"></i></div>
+                            <div className="commenter-info">{comment.userInfo.username} {comment.userId === project.creatorId && (
+                                <div className="author-tag"> (author)</div>
+                            )}</div>
 
-                                        <div className="comments-posted-time">
-                                            {day > 1 ? (<>{day} Day{day > 1 ? 's' : null} ago</>) : ('Today')}
-                                             {/* {day} Day{day > 1 ? 's' : null} ago */}
-                                            </div>
-                                        </div>
-
-                                    <div className="one-comment-top-right">
-                                        {currentUser && currentUser.id === comment.userId && (
-                                            <div>
-
-                                                <button 
-                                                onClick={(e) => {
-                                                    e.preventDefault()
-                                                    setEditedComment(comment.comment)
-                                                    setThisComment(comment.id)
-                                                    setShowEdit(true)
-                                                }}
-                                                className="ud-comment-buttons">Edit</button>
-                                                <button onClick={async (e) => {
-                                                    e.preventDefault()
-                                                    const data = await dispatch(removeComment(comment.id))
-                                                }} className="ud-comment-buttons">Delete</button>
-                                            </div>
-                                        )}
-                                    </div>
-                                    
+                            <div className="comments-posted-time">
+                                {day > 1 ? (<>{day} Day{day > 1 ? 's' : null} ago</>) : ('Today')}
+                                 {/* {day} Day{day > 1 ? 's' : null} ago */}
                                 </div>
-
-                                <div className="one-comment-text">{comment.comment}</div>
-
-                                {comment.id === thisComment && showEdit && (
-
-                                <div className="comment-input-box-container">
-                                    <form onSubmit={submitEditedComment} className="comment-input">
-                                    <div className="comment-input-top">
-                        <div className="user-img"><i id="cat" class="fa-solid fa-cat"></i></div>
-                        {/* <div className="comment-input"> */}
-                                <textarea
-                                // placeholder={comment.comment}
-                                className="comment-text-input"
-                                input="textarea"
-                                name="comment"
-                                value={editedComment}
-                                onChange={(e) => {
-                                    setEditedComment(e.target.value)
-                                    setEditedCommentId(comment.id)}}
-                                required
-                                rows="5"
-                                cols="50"
-                                maxlength="1000"></textarea>
-                        {/* </div> */}
-                    </div>
-
-                    <div className="error-box">
-                    {editErrors.map((error, ind) => (
-                        <div key={ind}>{error}</div>
-                    ))}
-                    </div>
-
-                    <div className="comment-input-bottom">
-                        <div className="comment-msg">
-                            <div>We have a <span className="be-nice">be nice</span> policy.</div>
-                            <div>Please be positive and constructive.</div>
-                        </div>
-                        <div className="comment-buttons">
-                            <button id="close-edit-button" onClick={closeEdit}>Cancel</button>
-                            <button onSubmit={submitEditedComment} type="submit">Save</button>
-                        </div>
-                        </div>
-
-                                    </form>
-                                </div>
-                                )}
                             </div>
-                        )
-                    })}
-               
-                    
-                    
-                    </div>
-                   ) }
 
+                        <div className="one-comment-top-right">
+                            {currentUser && currentUser.id === comment.userId && (
+                                <div>
+
+                                    <button 
+                                    onClick={(e) => {
+                                        e.preventDefault()
+                                        setEditedComment(comment.comment)
+                                        setThisComment(comment.id)
+                                        setShowEdit(true)
+                                    }}
+                                    className="ud-comment-buttons">Edit</button>
+                                    <button onClick={async (e) => {
+                                        e.preventDefault()
+                                        const data = await dispatch(removeComment(comment.id))
+                                    }} className="ud-comment-buttons">Delete</button>
+                                </div>
+                            )}
+                        </div>
+                        
+                    </div>
+
+                    <div className="one-comment-text">{comment.comment}</div>
+
+                    {comment.id === thisComment && showEdit && (
+
+                    <div className="comment-input-box-container">
+                        <form onSubmit={submitEditedComment} className="comment-input">
+                        <div className="comment-input-top">
+            <div className="user-img"><i id="cat" class="fa-solid fa-cat"></i></div>
+            {/* <div className="comment-input"> */}
+                    <textarea
+                    // placeholder={comment.comment}
+                    className="comment-text-input"
+                    input="textarea"
+                    name="comment"
+                    value={editedComment}
+                    onChange={(e) => {
+                        setEditedComment(e.target.value)
+                        setEditedCommentId(comment.id)}}
+                    required
+                    rows="5"
+                    cols="50"
+                    maxlength="1000"></textarea>
+            {/* </div> */}
+        </div>
+
+        <div className="error-box">
+        {editErrors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+        ))}
+        </div>
+
+        <div className="comment-input-bottom">
+            <div className="comment-msg">
+                <div>We have a <span className="be-nice">be nice</span> policy.</div>
+                <div>Please be positive and constructive.</div>
+            </div>
+            <div className="comment-buttons">
+                <button id="close-edit-button" onClick={closeEdit}>Cancel</button>
+                <button onSubmit={submitEditedComment} type="submit">Save</button>
+            </div>
             </div>
 
+                        </form>
+                    </div>
+                    )}
+                </div>
+            )
+        })}
+   
+        
+        
+        </div>
+       ) }
+
+</div>
+    ) : (<Questions project={project}/>)}
+    </div>
+
+            
+
+
+            </div>
         </div>
         // </div>
     )

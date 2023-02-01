@@ -1,0 +1,19 @@
+.question-answer-button {
+    height: 2rem;
+    background-color: white;
+    border: solid lightgray 1px;
+    border-radius: 5px;
+}
+
+.question-answer-button:hover {
+    cursor: not-allowed;
+}
+
+.question-tag {
+    color: white;
+    background-color: gray;
+    font-size: 0.7rem;
+    padding: 0.2rem;
+    border-radius: 3px;
+    margin-right: 0.5rem;
+}

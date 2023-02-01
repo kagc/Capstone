@@ -4,4 +4,5 @@ from .project import Project
 from .project_step import ProjectStep
 from .comment import Comment
 from .favorite import Favorite
+from. question import Question
 from .db import environment, SCHEMA

@@ -61,10 +61,6 @@
   right: 10px;
 }
 
-.edit-tab-holder {
-    border: solid red 1px;
-}
-
 .sub-titlebar {
     display: flex;
     flex-direction: row;
@@ -115,7 +111,7 @@
     padding-left: 3rem;
     padding-right: 3rem;
     font-size: 1.1rem;
-    line-height: 1.5rem;
+    line-height: 1.8rem;
     overflow-wrap: break-word;
     overflow: hidden;
     /* white-space: nowrap; */
@@ -429,7 +425,7 @@
     color: gray;
 }
 
-.interact-bar-button> a:hover {
+.interact-bar-button> a>.fa-comments:hover {
     color: rgb(154, 190, 99) !important;
 }
 
@@ -494,15 +490,93 @@
 }
 
 .creator-bottom {
-    height: 3rem;
+    height: 2.5rem;
     overflow: hidden;
    text-overflow: ellipsis;
    display: -webkit-box;
    -webkit-line-clamp: 2; /* number of lines to show */
            line-clamp: 2;
    -webkit-box-orient: vertical;
+   line-height: 1.2rem;
 }
 
-/* .footer-cat-column> span {
+.more-by-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    line-height: 1rem;
+}
+
+.active-buttons-holder {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.active-buttons-holder> button {
+    height: 5rem;
+    width: 7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgb(190, 190, 190);
+    background-color: white;
+    border: solid lightgray 1px;
+    border-radius: 5px;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.active-buttons-holder> button:hover {
+    cursor: pointer;
+    background-color: rgb(238, 238, 238);
+}
+
+#active-section {
+    box-shadow: inset 0px 2px 5px rgba(115, 115, 115, 0.9);
+    color: gray;
+    font-weight: bold;
+    background-color: rgb(238, 238, 238);
     
+}
+
+#active-section:hover {
+    background-color: rgb(238, 238, 238);
+    cursor: auto;
+}
+
+
+/* #comment-link {
+    color: gray !important;
 } */
+
+#comm-link {
+    color: black!important;
+}
+
+/* #comm-link> span:hover {
+    color: gray;
+    text-decoration: underline;
+} */
+
+#comm-link:hover {
+    color: rgb(154, 190, 99) !important;
+}
+
+#q-link:hover {
+    color: rgb(0, 100, 231) !important;
+}
+
+.comm-text {
+    color: black;
+}
+
+#q-icon, #comment-icon {
+    margin-right: 0.3rem;
+}

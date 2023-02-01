@@ -3,8 +3,8 @@
     background-position-y: -11rem;
     display: flex;
     margin-bottom: 4rem;
-    animation: fade 7s ease-in-out infinite alternate; 
-    -webkit-animation: fade 7s ease-in-out infinite alternate; 
+    animation: fade 5s ease-in-out infinite alternate; 
+    -webkit-animation: fade 5s ease-in-out infinite alternate; 
 }
 
 @keyframes fade {

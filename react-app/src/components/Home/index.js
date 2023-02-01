@@ -21,7 +21,7 @@ const HomePage = () => {
     useEffect(() => {
         const timerId = setInterval(() => {
         setCount((count) => count + 1);
-        }, 7000);
+        }, 5000);
 
         return () => clearInterval(timerId);
     }, []);

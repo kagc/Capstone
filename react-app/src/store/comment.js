@@ -88,7 +88,7 @@ export const modComment = (comment, commentId) => async dispatch => {
         return editedComment
     }
     if (response.status >= 400){
-        console.log(response)
+        // console.log(response)
         throw response
     }
 }

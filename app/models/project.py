@@ -23,6 +23,7 @@ class Project(db.Model):
     steps = db.relationship("ProjectStep", back_populates="project", cascade="all, delete")
     favorites = db.relationship("Favorite", back_populates="project", cascade="all, delete")
     comments = db.relationship("Comment", back_populates="project", cascade="all, delete")
+    questions = db.relationship("Question", back_populates='project', cascade="all, delete")
     
     def to_dict_project(self):
         return {

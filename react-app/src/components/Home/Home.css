@@ -4,7 +4,7 @@
     display: flex;
     margin-bottom: 4rem;
     /* animation: fade 5s ease-in-out infinite alternate;  */
-    -webkit-animation: fade 5s ease-in-out infinite alternate; 
+    /* -webkit-animation: fade 5s ease-in-out infinite alternate;  */
 }
 
 /* @keyframes fade {
@@ -37,12 +37,12 @@
   z-index: -3;
 } */
 
-@-webkit-keyframes fade {
+/* @-webkit-keyframes fade {
     0% {opacity: 0;}
     10% {opacity: 1;}
     90% {opacity: 1;}
     100% {opacity: 0;}
-}
+} */
 
 .banner-text {
     display: flex;

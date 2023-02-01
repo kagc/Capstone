@@ -17,6 +17,7 @@ const SingleProject = () => {
     const currentUser = useSelector(state => state.session.user)
 
     const [ isLoaded, setIsLoaded ] = useState(false)
+    
     const [ activeSection, setActiveSection ] = useState("comments")
 
     const [ comment, setComment ] = useState("")
@@ -29,6 +30,21 @@ const SingleProject = () => {
     const allProjectsObj = useSelector(state => state.projects.allProjects)
     const commentsObj = useSelector(state => state.comments.allComments)
     const favoritesObj = useSelector(state => state.favorites.allFavorites)
+    console.log(isLoaded)
+
+    useEffect(async () => {
+        dispatch(getOneProject(projectId))
+        .then(() => setIsLoaded(true))
+        dispatch(getAllComments(projectId))
+        dispatch(getAllFavorites(projectId))
+        dispatch(getUserFavorites())
+        dispatch(getAllProjects())
+        
+    }, [dispatch, projectId])
+
+    // useEffect(() => {
+    //     setIsLoaded(false)
+    // }, [projectId])
 
     let allProjects
     let creatorProjects
@@ -59,14 +75,6 @@ const SingleProject = () => {
     const [errors, setErrors] = useState([]);
     const [editErrors, setEditErrors] = useState([])
     
-    useEffect(() => {
-        dispatch(getOneProject(projectId))
-        dispatch(getAllComments(projectId))
-        dispatch(getAllFavorites(projectId))
-        dispatch(getUserFavorites())
-        dispatch(getAllProjects())
-        .then(setIsLoaded(true))
-    }, [dispatch, projectId])
     // console.log("anything?",project.stepsList)
     const comments = Object.values(commentsObj)
     const favorites = Object.values(favoritesObj)
@@ -135,10 +143,18 @@ const SingleProject = () => {
     }
 
     if (!project || !commentsObj || !favoritesObj || !allProjectsObj ) return null
-    if (project.stepsList.length > 0 && commentsObj && favoritesObj ) {
+
+    // if (project.id === undefined) return (<div><NotFound /></div>)
+    // if (project.stepsList.length > 0 && commentsObj && favoritesObj ) {
+    if(isLoaded === false) {
+        return (
+            <div className="load"><img className="loading" src="https://miro.medium.com/max/1400/1*pN5YHNX03fem8HWxnInQ3g.gif"></img></div>
+        )
+    }
 
     return isLoaded && (
-        <div className="wholething">
+        (project.id !== undefined ? (
+            <div className="wholething">
             <div className="single-proj-content">
 
             
@@ -500,14 +516,16 @@ const SingleProject = () => {
 
             </div>
         </div>
+        ) : (<div><NotFound /></div>))
+        
         // </div>
     )
 {/* -------------------------- 404 -------------------------------- */}
-                } else {
-                    return (
-                        <div><NotFound /></div>
-                    )
-                }
+                // } else {
+                //     return (
+                //         <div><NotFound /></div>
+                //     )
+                // }
 }
 
 export default SingleProject

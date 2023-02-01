@@ -44,7 +44,7 @@ const EditProject = () => {
             // .then(setSupplies(tempSupplies))
             // .then(setCoverImageUrl(tempCover))
             // .then(setIntro(tempIntro))
-            .then(setIsLoaded(true))
+            .then(() => setIsLoaded(true))
             // console.log('hello')
         }, [dispatch])
     
@@ -169,6 +169,7 @@ const EditProject = () => {
     }
 
     if( !project || !steps ) return null;
+    
     if(title === undefined){
         // return null
         // alert("Whoops, there was an issue with your request, returning to project's directions page.")

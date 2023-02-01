@@ -30,7 +30,7 @@ const HomePage = () => {
 
     useEffect(() => {
         dispatch(getAllProjects())
-        .then(setIsLoaded(true))
+        .then(() => setIsLoaded(true))
     }, [dispatch])
 
     const allProjects = Object.values(projectsObj)
@@ -46,6 +46,12 @@ const HomePage = () => {
     const teachers = allProjects.filter(project => project.category === "Teachers")
     // console.log(circuits)
 
+    if(isLoaded === false) {
+        return (
+            <div className="load"><img className="loading" src="https://miro.medium.com/max/1400/1*pN5YHNX03fem8HWxnInQ3g.gif"></img></div>
+        )
+    }
+    
     return isLoaded && (
         <div>
             <div className="splash-banner" style={{backgroundImage: `url('${image}')`, backgroundRepeat  : 'no-repeat', backgroundSize: 'cover',

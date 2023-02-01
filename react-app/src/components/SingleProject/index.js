@@ -150,7 +150,9 @@ const SingleProject = () => {
                 <div>
 
 {/* ----------------------- FAVORITES BUTTON ---------------------------- */}  
-                    {currentUser === null ? (<button id="loggedout-fave-button" disabled={true} className="loggedout-fav-button"  title="Must be logged in to add to Favorites"><i id="unfaved-heart" class="fa-solid fa-heart"></i><span className="loggedout-fav-text">Favorite</span></button>) : 
+                    {currentUser === null ? (<button id="loggedout-fave-button" disabled={true} className="loggedout-fav-button"  title="Must be logged in to add to Favorites">
+                        <i id="unfaved-heart" class="fa-solid fa-heart"></i>
+                        <span className="loggedout-fav-text">Favorite</span></button>) : 
                     
                     (userFaved.length > 0 ? (
                         <button onClick={async (e) => {
@@ -158,7 +160,8 @@ const SingleProject = () => {
                             const data = await dispatch(removeFavorite(userFaved[0].id))
                         }} id="faved" className="fav-button"><i id="heart" class="fa-solid fa-heart"></i>Favorited</button>
                     ) : (
-                        <button id="unfaved-button" onClick={submitFavorite} className="fav-button"><i id="unfaved-heart" class="fa-solid fa-heart"></i><span className="unfaved-text">Favorite</span></button>
+                        <button id="unfaved-button" onClick={submitFavorite} className="fav-button">
+                            <i id="unfaved-heart" class="fa-solid fa-heart"></i><span className="unfaved-text">Favorite</span></button>
                     ))}
                     {/* {userFaved.length > 0 ? (
                         <button onClick={async (e) => {
@@ -233,18 +236,19 @@ const SingleProject = () => {
 
                 <div className="interact-bar-button">
                     <a href="#interact"
+                    id="q-link"
                     onClick={(e) => {
                         // e.preventDefault()
                         setActiveSection("questions")}}
                     >
-                        <i class="fa-solid fa-circle-question"></i><span>Ask Question</span></a></div> 
+                        <i id="q-icon" class="fa-solid fa-circle-question"></i><span className="comm-text">Ask Question</span></a></div> 
 
                 <div className="interact-bar-button">
-                    <a href="#interact"
+                    <a id="comm-link" href="#interact"
                     onClick={(e) => {
                         // e.preventDefault()
                         setActiveSection("comments")}}
-                    ><i class="fa-solid fa-comments"></i> <span>Comment</span></a>
+                    ><i id="comment-icon" class="fa-solid fa-comments"></i> <span className="comm-text">Comment</span></a>
                     
                     </div>
                     </div>
@@ -261,18 +265,19 @@ const SingleProject = () => {
 
                 <div className="interact-bar-button">
                     <a href="#interact"
+                    id="q-link"
                     onClick={(e) => {
                         // e.preventDefault()
                         setActiveSection("questions")}}
                     >
-                        <i class="fa-solid fa-circle-question"></i><span>Ask Question</span></a></div> 
+                        <i id="q-icon" class="fa-solid fa-circle-question"></i><span className="comm-text">Ask Question</span></a></div> 
 
                 <div className="interact-bar-button">
-                    <a href="#interact"
+                    <a id="comm-link" href="#interact"
                     onClick={(e) => {
                         // e.preventDefault()
                         setActiveSection("comments")}}
-                    ><i class="fa-solid fa-comments"></i><span>Comment</span></a>
+                    ><i id="comment-icon" class="fa-solid fa-comments"></i> <span className="comm-text">Comment</span></a>
                     
                     </div>
                     </div>
@@ -294,19 +299,20 @@ const SingleProject = () => {
 
                     <div className="interact-bar-button">
                     <a href="#interact"
+                    id="q-link"
                     onClick={(e) => {
                         // e.preventDefault()
                         setActiveSection("questions")}}
                     >
-                        <i class="fa-solid fa-circle-question"></i><span>Ask Question</span></a></div> 
+                        <i id="q-icon" class="fa-solid fa-circle-question"></i><span className="comm-text">Ask Question</span></a></div> 
 
-                    <div className="interact-bar-button">
-                    <a href="#interact"
+                <div className="interact-bar-button">
+                    <a id="comm-link" href="#interact"
                     onClick={(e) => {
                         // e.preventDefault()
                         setActiveSection("comments")}}
-                    ><i class="fa-solid fa-comments"></i><span>Comment</span></a>
-
+                    ><i id="comment-icon" class="fa-solid fa-comments"></i> <span className="comm-text">Comment</span></a>
+                    
                     </div>
                     </div>
 

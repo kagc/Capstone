@@ -425,7 +425,7 @@
     color: gray;
 }
 
-.interact-bar-button> a:hover {
+.interact-bar-button> a>.fa-comments:hover {
     color: rgb(154, 190, 99) !important;
 }
 
@@ -549,4 +549,34 @@
 #active-section:hover {
     background-color: rgb(238, 238, 238);
     cursor: auto;
+}
+
+
+/* #comment-link {
+    color: gray !important;
+} */
+
+#comm-link {
+    color: black!important;
+}
+
+/* #comm-link> span:hover {
+    color: gray;
+    text-decoration: underline;
+} */
+
+#comm-link:hover {
+    color: rgb(154, 190, 99) !important;
+}
+
+#q-link:hover {
+    color: rgb(0, 100, 231) !important;
+}
+
+.comm-text {
+    color: black;
+}
+
+#q-icon, #comment-icon {
+    margin-right: 0.3rem;
 }

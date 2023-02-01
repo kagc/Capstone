@@ -11,7 +11,7 @@ function Footer() {
         <div className="footer-container">
             <div className="footer-links">
 
-            <div className="footer-link-section">
+            <div className="footer-link-section1">
                     {/* <span className="footer-links-labels">ABOUT</span> */}
                     <img className="footer-logo" src={logo}></img>
                 </div>

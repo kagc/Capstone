@@ -123,6 +123,8 @@
 
 .footer-link-box {
     width: 8rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .footer-link-box> a {

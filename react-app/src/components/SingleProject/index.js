@@ -16,6 +16,7 @@ const SingleProject = () => {
     const currentUser = useSelector(state => state.session.user)
 
     const [ isLoaded, setIsLoaded ] = useState(false)
+    const [ activeSection, setActiveSection ] = useState("comments")
 
     const [ comment, setComment ] = useState("")
     const [newSrc, setNewSrc] = useState('')
@@ -146,6 +147,8 @@ const SingleProject = () => {
             <div className="sub-titlebar">
                 <div className="project-published">Published {month[new Date(project.created_at).getMonth()]} {new Date(project.created_at).getDate()}, {new Date(project.created_at).getFullYear()}</div>
                 <div>
+
+{/* ----------------------- FAVORITES BUTTON ---------------------------- */}  
                     {currentUser === null ? (<button id="loggedout-fave-button" disabled={true} className="loggedout-fav-button"  title="Must be logged in to add to Favorites"><i id="unfaved-heart" class="fa-solid fa-heart"></i><span className="loggedout-fav-text">Favorite</span></button>) : 
                     
                     (userFaved.length > 0 ? (
@@ -230,7 +233,11 @@ const SingleProject = () => {
                     <div id="not-implemented" title="Feature coming soon." className="interact-bar-button"><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
 
                 <div className="interact-bar-button">
-                    <a href="#comments"><i class="fa-solid fa-comments"></i> <span>Comment</span></a>
+                    <a href="#comments"
+                    onClick={(e) => {
+                        e.preventDefault()
+                        setActiveSection("comments")}}
+                    ><i class="fa-solid fa-comments"></i> <span>Comment</span></a>
                     
                     </div>
                     </div>
@@ -248,7 +255,11 @@ const SingleProject = () => {
                     <div id="not-implemented" title="Feature coming soon." className="interact-bar-button"><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
 
                 <div className="interact-bar-button">
-                    <a href="#comments"><i class="fa-solid fa-comments"></i><span>Comment</span></a>
+                    <a href="#comments"
+                    onClick={(e) => {
+                        e.preventDefault()
+                        setActiveSection("comments")}}
+                    ><i class="fa-solid fa-comments"></i><span>Comment</span></a>
                     
                     </div>
                     </div>
@@ -271,7 +282,11 @@ const SingleProject = () => {
                     <div id="not-implemented" title="Feature coming soon." className="interact-bar-button"><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
 
                     <div className="interact-bar-button">
-                    <a href="#comments"><i class="fa-solid fa-comments"></i><span>Comment</span></a>
+                    <a href="#comments"
+                    onClick={(e) => {
+                        e.preventDefault()
+                        setActiveSection("comments")}}
+                    ><i class="fa-solid fa-comments"></i><span>Comment</span></a>
 
                     </div>
                     </div>
@@ -292,6 +307,19 @@ const SingleProject = () => {
                 </div>
                 
             </div>)}
+{/* -------------------------- ACTIVE SECTION -------------------------------- */}
+           <div className="active-buttons-holder">
+                <button onClick={(e) => {
+                    e.preventDefault()
+                    setActiveSection("questions")}}
+                    id={activeSection === "questions" ? "active-section" : null}
+                    ><i class="fa-solid fa-circle-question"></i>Questions</button>
+                <button onClick={(e) => {
+                    e.preventDefault()
+                    setActiveSection("comments")}}
+                    id={activeSection === "comments" ? "active-section" : null}
+                    ><i class="fa-solid fa-comments"></i>Comments</button>
+           </div>
 
 {/* -------------------------- COMMENT INPUT BOX -------------------------------- */}
             <div id="comments" className="comment-section">
@@ -433,8 +461,9 @@ const SingleProject = () => {
                     </div>
                    ) }
 
-            </div>
 
+
+            </div>
         </div>
         // </div>
     )

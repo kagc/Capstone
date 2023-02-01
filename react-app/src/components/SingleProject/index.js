@@ -12,6 +12,7 @@ let errImage = 'https://previews.123rf.com/images/sonsedskaya/sonsedskaya1902/so
 
 const SingleProject = () => {
     const { projectId } = useParams()
+    console.log(projectId)
     const dispatch = useDispatch()
     const ulRef = useRef();
     const currentUser = useSelector(state => state.session.user)
@@ -30,7 +31,7 @@ const SingleProject = () => {
     const allProjectsObj = useSelector(state => state.projects.allProjects)
     const commentsObj = useSelector(state => state.comments.allComments)
     const favoritesObj = useSelector(state => state.favorites.allFavorites)
-    console.log(isLoaded)
+    // console.log(isLoaded)
 
     useEffect(async () => {
         dispatch(getOneProject(projectId))
@@ -153,7 +154,7 @@ const SingleProject = () => {
     }
 
     return isLoaded && (
-        (project.id !== undefined ? (
+        (typeof projectId !== 'number' && project.id !== undefined ? (
             <div className="wholething">
             <div className="single-proj-content">
 

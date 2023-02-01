@@ -231,12 +231,18 @@ const SingleProject = () => {
             <div className="interaction-section">
                 <div className="interact-bar">
 
-                    <div id="not-implemented" title="Feature coming soon." className="interact-bar-button"><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
+                <div className="interact-bar-button">
+                    <a href="#interact"
+                    onClick={(e) => {
+                        // e.preventDefault()
+                        setActiveSection("questions")}}
+                    >
+                        <i class="fa-solid fa-circle-question"></i><span>Ask Question</span></a></div> 
 
                 <div className="interact-bar-button">
-                    <a href="#comments"
+                    <a href="#interact"
                     onClick={(e) => {
-                        e.preventDefault()
+                        // e.preventDefault()
                         setActiveSection("comments")}}
                     ><i class="fa-solid fa-comments"></i> <span>Comment</span></a>
                     
@@ -253,12 +259,18 @@ const SingleProject = () => {
                 <div className="interaction-section">
                 <div className="interact-bar">
 
-                    <div id="not-implemented" title="Feature coming soon." className="interact-bar-button"><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
+                <div className="interact-bar-button">
+                    <a href="#interact"
+                    onClick={(e) => {
+                        // e.preventDefault()
+                        setActiveSection("questions")}}
+                    >
+                        <i class="fa-solid fa-circle-question"></i><span>Ask Question</span></a></div> 
 
                 <div className="interact-bar-button">
-                    <a href="#comments"
+                    <a href="#interact"
                     onClick={(e) => {
-                        e.preventDefault()
+                        // e.preventDefault()
                         setActiveSection("comments")}}
                     ><i class="fa-solid fa-comments"></i><span>Comment</span></a>
                     
@@ -280,12 +292,18 @@ const SingleProject = () => {
                     <div className="interaction-section">
                     <div className="interact-bar">
 
-                    <div id="not-implemented" title="Feature coming soon." className="interact-bar-button"><i class="fa-solid fa-circle-question"></i>Ask Question</div> 
+                    <div className="interact-bar-button">
+                    <a href="#interact"
+                    onClick={(e) => {
+                        // e.preventDefault()
+                        setActiveSection("questions")}}
+                    >
+                        <i class="fa-solid fa-circle-question"></i><span>Ask Question</span></a></div> 
 
                     <div className="interact-bar-button">
-                    <a href="#comments"
+                    <a href="#interact"
                     onClick={(e) => {
-                        e.preventDefault()
+                        // e.preventDefault()
                         setActiveSection("comments")}}
                     ><i class="fa-solid fa-comments"></i><span>Comment</span></a>
 
@@ -323,9 +341,10 @@ const SingleProject = () => {
            </div>
 
 {/* -------------------------- COMMENT INPUT BOX -------------------------------- */}
+<div id="interact">
 {activeSection === "comments" ? (
 <div className="whole-active-section">
-    <div id="comments" className="comment-section">
+    <div className="comment-section">
     <div className="comment-input-box-container">
                 <form onSubmit={submitComment} className="comment-input">
         <div className="comment-input-top">
@@ -468,6 +487,7 @@ const SingleProject = () => {
 
 </div>
     ) : (<Questions project={project}/>)}
+    </div>
 
             
 

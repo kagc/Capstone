@@ -34,7 +34,7 @@ const Questions = ({project}) => {
         dispatch(getAllQuestions(project.id))
         .then(setIsLoaded(true))
         // setDeletedQ(false)
-    }, [dispatch
+    }, [dispatch, project.id
         // , deletedQ
     ])
 
@@ -84,7 +84,7 @@ const Questions = ({project}) => {
 
     return isLoaded && (
         <div className="whole-active-section">
-            <div id="questions" className="comment-section">
+            <div className="comment-section">
                 <div className="comment-input-box-container">
                     <form onSubmit={submitQuestion} className="comment-input">
                         <div className="comment-input-top">
@@ -142,13 +142,15 @@ const Questions = ({project}) => {
                                         <div className="author-tag"> (author)</div>
                                     )}</div>
 
+                                    <div className="question-tag">Question</div>
+
                                     <div className="comments-posted-time">
                                     {day > 1 ? (<>{day} Day{day > 1 ? 's' : null} ago</>) : ('Today')}
                                     </div>
                                     </div>
 
                                     <div className="one-comment-top-right">
-                                        {currentUser && currentUser.id === question.userId && (
+                                        {currentUser && currentUser.id === question.userId ? (
                                             <div>
 
                                                 <button
@@ -169,7 +171,13 @@ const Questions = ({project}) => {
                                                 }} className="ud-comment-buttons">Delete</button>
 
                                             </div>
-                                        )}
+                                        ) : (<div>
+                                            <button
+                                            className="question-answer-button"
+                                            disabled
+                                            title="Answer feature coming soon"
+                                            >Answer</button>
+                                        </div>)}
                                     </div>
                                 </div>
 

@@ -30,7 +30,7 @@ const expungeQuestion = (question) => ({
 })
 
 export const getAllQuestions = (projectId) => async dispatch => {
-    const response = await fetch(`api/projects/${projectId}/questions`)
+    const response = await fetch(`/api/projects/${projectId}/questions`)
 
     if(response.ok){
         const questions = await response.json()

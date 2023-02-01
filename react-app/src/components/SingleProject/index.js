@@ -12,7 +12,8 @@ let errImage = 'https://previews.123rf.com/images/sonsedskaya/sonsedskaya1902/so
 
 const SingleProject = () => {
     const { projectId } = useParams()
-    console.log("ooooooo", projectId, typeof projectId, +projectId)
+    // console.log("ooooooo", projectId, typeof +projectId, /^\d+$/.test(projectId))
+
     const dispatch = useDispatch()
     const ulRef = useRef();
     const currentUser = useSelector(state => state.session.user)
@@ -147,14 +148,19 @@ const SingleProject = () => {
 
     // if (project.id === undefined) return (<div><NotFound /></div>)
     // if (project.stepsList.length > 0 && commentsObj && favoritesObj ) {
-    if(isLoaded === false && +projectId !== NaN) {
+    
+    if(isLoaded === false) {
+
+        if(!/^\d+$/.test(projectId)){
+        return (<div><NotFound /></div>)
+    }
         return (
             <div className="load"><img className="loading" src="https://miro.medium.com/max/1400/1*pN5YHNX03fem8HWxnInQ3g.gif"></img></div>
         )
     }
 
     return isLoaded && (
-        (+projectId !== NaN && project.id !== undefined ? (
+        (project.id !== undefined ? (
             <div className="wholething">
             <div className="single-proj-content">
 

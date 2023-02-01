@@ -64,6 +64,10 @@ export const getOneProject = (projectId) => async dispatch => {
         const project = await response.json()
         dispatch(oneProject(project))
     }
+    // if (response.status >= 400){
+    //     console.log(response)
+    //     throw response
+    // }
 }
 
 export const getUserProjects = () => async dispatch => {

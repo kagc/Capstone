@@ -3,14 +3,30 @@ import React, { useEffect, useState, useRef } from 'react'
 import { useParams, useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector} from 'react-redux';
 import banner from '../../images/splash_banner.jpg'
+import banner2 from '../../images/catputer.jpg'
+import banner3 from '../../images/cooking.jpg'
 import { getAllProjects } from '../../store/project';
 let errImage = 'https://previews.123rf.com/images/sonsedskaya/sonsedskaya1902/sonsedskaya190200070/118117055-portrait-of-a-builder-cat-with-tools-in-paws.jpg'
+
+const imageArray = [banner, banner2, banner3];
 
 const HomePage = () => {
     const dispatch = useDispatch()
     const [ isLoaded, setIsLoaded ] = useState(false)
     const [newSrc, setNewSrc] = useState('')
     const projectsObj = useSelector(state => state.projects.allProjects)
+
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        const timerId = setInterval(() => {
+        setCount((count) => count + 1);
+        }, 7000);
+
+        return () => clearInterval(timerId);
+    }, []);
+
+  const image = imageArray[count % imageArray.length];
 
     useEffect(() => {
         dispatch(getAllProjects())
@@ -32,7 +48,7 @@ const HomePage = () => {
 
     return isLoaded && (
         <div>
-            <div className="splash-banner" style={{backgroundImage: `url('${banner}')`, backgroundRepeat  : 'no-repeat', backgroundSize: 'cover',
+            <div className="splash-banner" style={{backgroundImage: `url('${image}')`, backgroundRepeat  : 'no-repeat', backgroundSize: 'cover',
         width: '100%'}}>
                 <div className="banner-text">
                     <div className='banner-top-text'>YOURS FOR THE MAKING</div>

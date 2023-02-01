@@ -9,7 +9,7 @@ def user_exists(form, field):
     email = field.data
     
     if '@' not in email or '.' not in email:
-        raise ValidationError('Please enter a valid email address.')
+        raise ValidationError('Email address is not valid. It must have exactly one @-sign.')
     
     user = User.query.filter(User.email == email).first()
     if user:

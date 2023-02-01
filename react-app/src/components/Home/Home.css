@@ -3,23 +3,46 @@
     background-position-y: -11rem;
     display: flex;
     margin-bottom: 4rem;
-    animation: fade 5s ease-in-out infinite alternate; 
-    -webkit-animation: fade 5s ease-in-out infinite alternate; 
+    /* animation: fade 5s ease-in-out infinite alternate; 
+    -webkit-animation: fade 5s ease-in-out infinite alternate;  */
 }
 
-@keyframes fade {
+/* @keyframes fade {
   0% {opacity: 0;}
   10% {opacity: 1;}
   90% {opacity: 1;}
   100% {opacity: 0;}
+} */
+
+/* .background-image {
+    height: 34rem;;
+    width: 100%;
+    background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transition: 2s;
 }
 
-@-webkit-keyframes fade {
+.img1 {
+  z-index: -1;
+}
+
+.img2 {
+  z-index: -2;
+}
+
+.img3 {
+  z-index: -3;
+} */
+
+/* @-webkit-keyframes fade {
     0% {opacity: 0;}
     10% {opacity: 1;}
     90% {opacity: 1;}
     100% {opacity: 0;}
-}
+} */
 
 .banner-text {
     display: flex;

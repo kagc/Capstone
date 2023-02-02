@@ -1,48 +1,59 @@
 .splash-banner {
     height: 28rem;
-    background-position-y: -11rem;
+    background-position-y: -31rem;
     display: flex;
     margin-bottom: 4rem;
-    /* animation: fade 5s ease-in-out infinite alternate;  */
-    /* -webkit-animation: fade 5s ease-in-out infinite alternate;  */
 }
 
-/* @keyframes fade {
-  0% {opacity: 0;}
-  10% {opacity: 1;}
-  90% {opacity: 1;}
-  100% {opacity: 0;}
-} */
-
-/* .background-image {
-    height: 34rem;;
+.splash-banner img {
+    position:absolute;
+    /* left:-65px; */
+    top:5rem;
+    -webkit-animation-name: fade;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 24s;
+    animation-name: fade;
+    animation-iteration-count: infinite;
+    animation-duration: 24s;
+    background-repeat: no-repeat;
+    object-position: 0px -12rem;
+    height: 28rem;
+    /* margin-bottom: 1em; */
     width: 100%;
-    background-size: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 1;
-  transition: 2s;
+    /* height: auto%; */
+    /* width: 16rem; */
+    /* padding: 25px; */
+    object-fit: cover;
+    overflow: hidden;
 }
 
-.img1 {
-  z-index: -1;
+@-webkit-keyframes fade {
+    0% {opacity: 1;}
+      20% {opacity: 1;}
+      34% {opacity: 0;}
+      88% {opacity: 0;}
+      100% {opacity: 1;}
+}
+@keyframes fade {
+    0% {opacity: 1;}
+      20% {opacity: 1;}
+      34% {opacity: 0;}
+      88% {opacity: 0;}
+      100% {opacity: 1;}
 }
 
-.img2 {
-  z-index: -2;
+#f1 {
+    -webkit-animation-delay: 0s;
+    background-color: rgb(94, 94, 94);
 }
-
-.img3 {
-  z-index: -3;
-} */
-
-/* @-webkit-keyframes fade {
-    0% {opacity: 0;}
-    10% {opacity: 1;}
-    90% {opacity: 1;}
-    100% {opacity: 0;}
-} */
+#f2 {
+    -webkit-animation-delay: 8s;
+    background-color: rgb(85, 85, 85);
+}
+#f3 {
+    -webkit-animation-delay: 16s;
+    background-color: rgb(97, 97, 97);
+}
 
 .banner-text {
     display: flex;

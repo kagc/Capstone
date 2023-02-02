@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import { useParams, useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector} from 'react-redux';
 import { getAllProjects, getOneProject, getUserProjects } from '../../store/project';
-import { getAllQuestions, askQuestion, modQuestion, removeQuestion } from '../../store/question';
+import { getAllQuestions, askQuestion, modQuestion, removeQuestion, createAnswer, editAnswer, unAnswer } from '../../store/question';
 import commentReducer from '../../store/comment';
 
 const Questions = ({project}) => {
@@ -90,18 +90,19 @@ const Questions = ({project}) => {
             answer
         }
 
-        // const data = await dispatch(submitAnswer(newAnswer, questionId))
+        const data = await dispatch(createAnswer(newAnswer, questionId))
 
-        // .catch(async (res) =>{
-        //     const data = await res.json()
-        //     if (data && data.errors) {
-        //         setAnswerErrors(data.errors)
-        //     }
-        // })
+        .catch(async (res) =>{
+            const data = await res.json()
+            if (data && data.errors) {
+                setAnswerErrors(data.errors)
+            }
+        })
 
-        // if (data) {
-        //     setShowAnswerEdit(false)
-        // }
+        if (data) {
+            setShowAnswerForm(false)
+            setAnswer("")
+        }
     }
 
     const submitEditedQuestion = async (e) => {
@@ -131,17 +132,17 @@ const Questions = ({project}) => {
             answer: editedAnswer
         }
 
-        // const data = await dispatch(modAnswer(newEditedAnswer, editedAnswerId))
-        // .catch(async (res) => {
-        //     const data = await res.json()
-        //     if (data && data.errors) {
-        //         setEditAnswerErrors(data.errors)
-        //     }
-        // })
+        const data = await dispatch(editAnswer(newEditedAnswer, editedAnswerId))
+        .catch(async (res) => {
+            const data = await res.json()
+            if (data && data.errors) {
+                setEditAnswerErrors(data.errors)
+            }
+        })
 
-        // if (data) {
-        //     setShowAnswerEdit(false)
-        // }
+        if (data) {
+            setShowAnswerEdit(false)
+        }
     }
     
     if (!questionsObj) return null
@@ -432,7 +433,7 @@ const Questions = ({project}) => {
                                                             className="ud-comment-buttons">Edit</button>
                                                             <button onClick={async (e) => {
                                                                 e.preventDefault()
-                                                                // const data = await dispatch(removeAnswer(answer.id))
+                                                                const data = await dispatch(unAnswer(answer.id))
                                                             }}
                                                             className="ud-comment-buttons">Delete</button>
                                                         </div>

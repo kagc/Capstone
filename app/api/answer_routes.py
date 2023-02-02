@@ -52,7 +52,9 @@ def create_answer(questionId):
         db.session.add(new_answer)
         db.session.commit()
         
-        return new_answer.to_dict_answer()
+        updatedQuestion = Question.query.get(questionId)
+        return updatedQuestion.to_dict_question(), 200
+        # return new_answer.to_dict_answer()
     
     if form.errors:
         return {
@@ -81,7 +83,10 @@ def edit_answer(answerId):
         form.populate_obj(answer)
         db.session.add(answer)
         db.session.commit()
-        return answer.to_dict_answer()
+        
+        updatedQuestion = Question.query.get(answer.questionId)
+        return updatedQuestion.to_dict_question(), 200
+        # return answer.to_dict_answer()
     
     if form.errors:
         return {
@@ -103,6 +108,8 @@ def delete_answer(answerId):
             'statusCode': 404
         }, 404
         
+    questionId = answer.questionId
+        
     currentId = current_user.get_id()
     if (int(answer.userId) != int(currentId)):
         return {
@@ -114,9 +121,12 @@ def delete_answer(answerId):
     db.session.delete(answer)
     db.session.commit()
     
-    return {
-        "id": answerId,
-        "message": "Answer successfully deleted.",
-        'statusCode': 200
-    }, 200
+    updatedQuestion = Question.query.get(questionId)
+    return updatedQuestion.to_dict_question(), 200
+    
+    # return {
+    #     "id": questionId,
+    #     "message": "Answer successfully deleted.",
+    #     'statusCode': 200
+    # }, 200
     

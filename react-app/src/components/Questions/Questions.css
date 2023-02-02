@@ -26,4 +26,22 @@
     padding-left: 1rem;
     padding-bottom: 1rem;
     margin-top: 2rem;
+    width: 98%;
+}
+
+.answer-tag {
+    color: black;
+    background-color: rgb(255, 213, 73);
+    font-size: 0.7rem;
+    padding: 0.2rem;
+    border-radius: 3px;
+    margin-right: 0.5rem;
+    /* margin-left: 1rem; */
+}
+
+.one-answer-top {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    justify-content: space-between;
 }

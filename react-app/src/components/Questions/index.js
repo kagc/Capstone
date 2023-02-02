@@ -405,7 +405,7 @@ const Questions = ({project}) => {
                                     return (
 
                                         <div className="answers-container">
-                                            <div className="one-comment-top">
+                                            <div className="one-answer-top">
                                                 <div className="one-comment-top-left">
                                                 <div className="user-img"><i id="cat" class="fa-solid fa-cat"></i></div>
                                                 <div className="commenter-info">
@@ -414,11 +414,15 @@ const Questions = ({project}) => {
                                                         <div className="author-tag"> (author)</div>
                                                     )}
 
-                                                    <div className="question-tag">Answer</div>
+                                                    <div className="answer-tag">
+                                                        Answer
+                                                        {/* <i class="fa-regular fa-lightbulb"></i> */}
+                                                        </div>
 
                                                     <div className="comments-posted-time">
                                                     {day > 1 ? (<>{day} Day{day > 1 ? 's' : null} ago</>) : ('Today')}
                                                     </div>
+                                                </div>
                                                 </div>
 
                                                 <div className="one-comment-top-right">
@@ -439,7 +443,7 @@ const Questions = ({project}) => {
                                                         </div>
                                                     ) : (<div></div>)}
                                                 </div>
-                                                </div>
+                                                
                                             </div>
                                             <div className="one-comment-text">
                                             {answer.answer}

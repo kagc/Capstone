@@ -1,148 +1,65 @@
-# Flask React Project
+# Directables
+## An Instructables Clone
+## by Kirin Agcaoili
 
-This is the starter for the Flask React project.
+## Link to Live Site:
+https://directables.onrender.com/
 
-## Getting started
-1. Clone this repository (only this branch)
+## Description:
+This clone of the Instructables website has create, read, update, and delete features for project instruction pages, posting comments on instruction pages, asking questions on instruction pages, answering the questions on instruction pages, and create, read, and delete features for favoriting a project instruction page.
 
-2. Install dependencies
+## Tachnologies used:
+The backend uses SqlAlchemy, Flask, and Faker in Python. The frontend uses Reach and Redux in JavaScript. The live site is hosted on Render and uses PostgresSQL. Locally, the database is SQLite.
 
-      ```bash
-      pipenv install -r requirements.txt
-      ```
+## Usage description of features
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
+## Home Page:
+Here a user can see a list of up to 5 of the most recent project instructions posted in each of the site's seven categories as cards. Each card contains the instructions cover image, title, the creator's username, and functions as a link to the full instructions page.
+![](/react-app/src/images/homepage.PNG)
 
-4. Make sure the SQLite3 database connection URL is in the **.env** file
+## Project Instruction Page:
+This page lists the title, author, number of favorites the page has received, a box with the author's name, and images and links to their 3 most recently made other instructions pages, an introduction to the instructions, supplies, and a list of steps for completing the project. If the logged in user is the creator of the page, there will be a button at the bottom right to make changes to the page.
+![](/react-app/src/images/instructionspage1.PNG)
+![](/react-app/src/images/instructionspage2.PNG)
 
-5. This starter organizes all tables inside the `flask_schema` schema, defined
-   by the `SCHEMA` environment variable.  Replace the value for
-   `SCHEMA` with a unique name, **making sure you use the snake_case
-   convention**.
+## Comments Section:
+This feature is at the bottom of each instruction page. Users must be logged in in order to leave a comment. Comments are listed in order of when they were posted and will show the user's username, how many days ago the comment was posted, the comment itself, and if the comment belongs to the logged in user, edit and delete buttons. If the user who left the comment is the creator of the instruction page, there will be an "(author)" tag next to their username.
+![](/react-app/src/images/comments1.PNG)
 
-6. Get into your pipenv, migrate your database, seed your database, and run your Flask app
+## Favorites:
+The amount of favorites an instructions page has received is listed at the top of each instruction page. Instructions that a logged in user has favorited are listed in the top right dropdown modal in the navigation bar. A logged in user can click a "Favorite" button on each instruction page to add it to their list of favorites and click it again in order to remove it from their favorites.
+![](/react-app/src/images/favorites.PNG)
 
-   ```bash
-   pipenv shell
-   ```
+## Questions Section:
+This feature is at the bottom of each instruction page and can be toggled into view by either clicking "Ask Question" throughout the page or clicking the large "Questions" button near the bottom of the page. Questions are listed in order of when they were posted and will show the user's username, how many days ago the question was posted, a "Question" tag, the question itself, and if the question belongs to the logged in user, edit and delete buttons. If the logged in user is not the creator of a question, they will be able to click an "Answer" button to open a similar input box to the question, comment, and edits to post an answer. Answers are listed in order of most recently posted underneath the question, with similar information to the question, except with an "Answer" tag. If the user who left the question or answer is the creator of the instruction page, there will be an "(author)" tag next to their username.
+![](/react-app/src/images/questions.PNG)
 
-   ```bash
-   flask db upgrade
-   ```
+## Create Project Instruction Page:
+A logged in user can fill in data to create their own page of instructions to complete a project. A similar page is used in order to make changes to a project instruction page.
+![](/react-app/src/images/create.PNG)
 
-   ```bash
-   flask seed all
-   ```
+## User Info Dropdown:
+When logged in, the top right of the navigation bar shows a "+New" button to create a new project instruction page and a button that opens a dropdown menu when clicked. The menu shows the logged in user's username, the amount of pages they've favorited, a list of links to each favorite, a list of links to each project instruction page the user has created, and a logout button.
+![](/react-app/src/images/dropdown.PNG)
 
-   ```bash
-   flask run
-   ```
+## Road Map
+I would like to implement search and category features, as well as a profile page in order to hold user data, rather than putting it in the dropdown modal.
 
-7. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
-
-
-## Deployment through Render.com
-
-First, refer to your Render.com deployment articles for more detailed
-instructions about getting started with [Render.com], creating a production
-database, and deployment debugging tips.
-
-From the [Dashboard], click on the "New +" button in the navigation bar, and
-click on "Web Service" to create the application that will be deployed.
-
-Look for the name of the application you want to deploy, and click the "Connect"
-button to the right of the name.
-
-Now, fill out the form to configure the build and start commands, as well as add
-the environment variables to properly deploy the application.
-
-### Part A: Configure the Start and Build Commands
-
-Start by giving your application a name.
-
-Leave the root directory field blank. By default, Render will run commands from
-the root directory.
-
-Make sure the Environment field is set set to "Python 3", the Region is set to
-the location closest to you, and the Branch is set to "main".
-
-Next, add your Build command. This is a script that should include everything
-that needs to happen _before_ starting the server.
-
-For your Flask project, enter the following command into the Build field, all in
-one line:
-
-```shell
-# build command - enter all in one line
-npm install --prefix react-app &&
-npm run build --prefix react-app &&
-pip install -r requirements.txt &&
-pip install psycopg2 &&
-flask db upgrade &&
+## Get started using my repo locally
+Once downloading the repo in the top level run:
+pipenv install
+pipenv shell
+pipenv install Faker
+flask db upgrade
 flask seed all
-```
+flask run
 
-This script will install dependencies for the frontend, and run the build
-command in the __package.json__ file for the frontend, which builds the React
-application. Then, it will install the dependencies needed for the Python
-backend, and run the migration and seed files.
+In the frontend folder run:
+npm install
+npm start
 
-Now, add your start command in the Start field:
-
-```shell
-# start script
-gunicorn app:app
-```
-
-_If you are using websockets, use the following start command instead for increased performance:_
-
-`gunicorn --worker-class eventlet -w 1 app:app`
-
-### Part B: Add the Environment Variables
-
-Click on the "Advanced" button at the bottom of the form to configure the
-environment variables your application needs to access to run properly. In the
-development environment, you have been securing these variables in the __.env__
-file, which has been removed from source control. In this step, you will need to
-input the keys and values for the environment variables you need for production
-into the Render GUI.
-
-Click on "Add Environment Variable" to start adding all of the variables you
-need for the production environment.
-
-Add the following keys and values in the Render GUI form:
-
-- SECRET_KEY (click "Generate" to generate a secure secret for production)
-- FLASK_ENV production
-- FLASK_APP app
-- SCHEMA (your unique schema name, in snake_case)
-- REACT_APP_BASE_URL (use render.com url, located at top of page, similar to
-  https://this-application-name.onrender.com)
-
-In a new tab, navigate to your dashboard and click on your Postgres database
-instance.
-
-Add the following keys and values:
-
-- DATABASE_URL (copy value from Internal Database URL field)
-
-_Note: Add any other keys and values that may be present in your local __.env__
-file. As you work to further develop your project, you may need to add more
-environment variables to your local __.env__ file. Make sure you add these
-environment variables to the Render GUI as well for the next deployment._
-
-Next, choose "Yes" for the Auto-Deploy field. This will re-deploy your
-application every time you push to main.
-
-Now, you are finally ready to deploy! Click "Create Web Service" to deploy your
-project. The deployment process will likely take about 10-15 minutes if
-everything works as expected. You can monitor the logs to see your build and
-start commands being executed, and see any errors in the build process.
-
-When deployment is complete, open your deployed site and check to see if you
-successfully deployed your Flask application to Render! You can find the URL for
-your site just below the name of the Web Service at the top of the page.
-
-[Render.com]: https://render.com/
-[Dashboard]: https://dashboard.render.com/
+## Contact Us:
+Kirin Agcaoili
+[Email]: kirinagcaoili@gmail.com
+[LinkedIn]: https://www.linkedin.com/in/kirin-agcaoili-a84a10187/
+[GitHub]: https://github.com/kagc

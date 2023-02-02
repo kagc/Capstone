@@ -6,7 +6,7 @@
 }
 
 .question-answer-button:hover {
-    cursor: not-allowed;
+    cursor: pointer;
 }
 
 .question-tag {
@@ -16,4 +16,14 @@
     padding: 0.2rem;
     border-radius: 3px;
     margin-right: 0.5rem;
+}
+
+.answers-container {
+    /* border: solid red 1px; */
+    border-top: solid 1px rgb(189, 189, 189);
+    margin-left: 1rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    margin-top: 2rem;
 }

@@ -445,7 +445,7 @@ const Questions = ({project}) => {
                                                 </div>
                                                 
                                             </div>
-                                            <div className="one-comment-text">
+                                            <div className="one-answer-text">
                                             {answer.answer}
                                             </div>
 

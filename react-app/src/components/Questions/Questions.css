@@ -6,7 +6,8 @@
 }
 
 .question-answer-button:hover {
-    cursor: not-allowed;
+    cursor: pointer;
+    background-color: rgb(235, 235, 235);
 }
 
 .question-tag {
@@ -17,3 +18,35 @@
     border-radius: 3px;
     margin-right: 0.5rem;
 }
+
+.answers-container {
+    /* border: solid red 1px; */
+    border-top: solid 1px rgb(189, 189, 189);
+    margin-left: 1.5rem;
+    padding-top: 1rem;
+    padding-left: 1.5rem;
+    padding-bottom: 1rem;
+    /* margin-top: 1rem; */
+    /* width: 98%; */
+    /* border-left: 1px solid rgb(189, 189, 189); */
+}
+
+.answer-tag {
+    color: black;
+    background-color: rgb(255, 213, 73);
+    font-size: 0.7rem;
+    padding: 0.2rem;
+    border-radius: 3px;
+    margin-right: 0.5rem;
+    /* margin-left: 1rem; */
+}
+
+.one-answer-top {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+}
+.one-answer-text {
+    margin-bottom: 0.5rem;
+} 

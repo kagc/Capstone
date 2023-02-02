@@ -1,8 +1,12 @@
-const LOAD_QUESTIONS = 'comments/loadQuestions'
-const USER_QUESTIONS = 'comments/userQuestions'
-const CREATE_QUESTION = 'comments/createQuestion'
-const EDIT_QUESTION = 'comments/editQuestion'
-const DELETE_QUESTION = 'comments/deleteQuestion'
+const LOAD_QUESTIONS = 'questions/loadQuestions'
+const USER_QUESTIONS = 'questions/userQuestions'
+const CREATE_QUESTION = 'questions/createQuestion'
+const EDIT_QUESTION = 'questions/editQuestion'
+const DELETE_QUESTION = 'questions/deleteQuestion'
+
+const CREATE_ANSWER = 'answers/createAnswer'
+const EDIT_ANSWER = 'answers/editAnswer'
+const DELETE_ANSWER = 'answers/deleteAnswer'
 
 const loadQuestions = (questions) => ({
     type: LOAD_QUESTIONS,
@@ -104,6 +108,60 @@ export const removeQuestion = (questionId) => async dispatch => {
         return deletedQuestion
     }
     if (response.status >= 400){
+        throw response
+    }
+}
+
+export const createAnswer = (newAnswer, questionId) => async dispatch => {
+    const response = await fetch(`/api/questions/${questionId}/answers`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newAnswer)
+    })
+    if(response.ok){
+        const question = await response.json()
+        dispatch(addQuestion(question))
+        return question
+    }
+    if (response.status >= 400){
+        throw response
+    }
+}
+
+export const editAnswer = (newEditedAnswer, editedAnswerId) => async dispatch => {
+    const response = await fetch(`/api/answers/${editedAnswerId}`, {
+        method: "PUT",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newEditedAnswer)
+    })
+    if (response.ok){
+        const question = await response.json()
+        dispatch(addQuestion(question))
+        return question
+    }
+    if (response.status >= 400){
+        throw response
+    }
+}
+
+export const unAnswer = (answerId) => async dispatch => {
+    const response = await fetch(`/api/answers/${answerId}`, {
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    if (response.ok){
+        const question = await response.json()
+        dispatch(addQuestion(question))
+        return question
+    }
+    if (response.status >= 400){
+        // console.log(response)
         throw response
     }
 }

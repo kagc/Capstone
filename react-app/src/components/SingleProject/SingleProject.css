@@ -319,7 +319,7 @@
 }
 
 .one-comment-text {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .one-comment-top {
@@ -445,6 +445,7 @@
 .author-tag {
     color: gray;
     margin-left: 0.5rem;
+    margin-right: 0.5rem;
 }
 
 .creator-box {

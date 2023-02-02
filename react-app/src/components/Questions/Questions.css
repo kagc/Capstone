@@ -10,6 +10,14 @@
     background-color: rgb(235, 235, 235);
 }
 
+.no-question-answer-button {
+    height: 2rem;
+    background-color: white;
+    border: solid lightgray 1px;
+    border-radius: 5px;
+}
+
+
 .question-tag {
     color: white;
     background-color: gray;

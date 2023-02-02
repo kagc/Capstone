@@ -239,7 +239,15 @@ const Questions = ({project}) => {
 
                                             </div>
                                         ) : (<div>
-                                            <button
+
+                                                    {currentUser === null ? (
+                                                        <button
+                                                        className="no-question-answer-button"
+                                                        disabled
+                                                        title="Must be logged in to answer"
+                                                        >Answer</button>
+                                                    ): (
+                                                        <button
                                             className="question-answer-button"
                                             onClick={(e) => {
                                                 e.preventDefault()
@@ -247,6 +255,15 @@ const Questions = ({project}) => {
                                                 setShowAnswerForm(true)
                                             }}
                                             >Answer</button>
+                                                    )}
+                                            {/* <button
+                                            className="question-answer-button"
+                                            onClick={(e) => {
+                                                e.preventDefault()
+                                                setThisQuestion(question.id)
+                                                setShowAnswerForm(true)
+                                            }}
+                                            >Answer</button> */}
                                         </div>)}
                                     </div>
                                 </div>
@@ -416,8 +433,9 @@ const Questions = ({project}) => {
                                                     {answer.userId === project.creatorId && (
                                                         <div className="author-tag"> (author)</div>
                                                     )}
-
-                                                    <div className="answer-tag">
+                                                    
+                                                    <div className="answer-tag"
+                                                    >
                                                         Answer
                                                         {/* <i class="fa-regular fa-lightbulb"></i> */}
                                                         </div>

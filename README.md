@@ -43,7 +43,7 @@ When logged in, the top right of the navigation bar shows a "+New" button to cre
 ![](/react-app/src/images/dropdown.PNG)
 
 ## Road Map
-I would like to implement search and category features, as well as a profile page in order to hold user data, rather than putting it in the dropdown modal.
+I would like to implement search and category features, as well as a profile page in order to hold user data, rather than putting it in the dropdown modal. After the profile page, I'd like to be able to have a notification function to tell the user when a comment or question has been posted to one of their instruction pages and a when a question has been answered.
 
 ## Get started using my repo locally
 Once downloading the repo in the top level run:

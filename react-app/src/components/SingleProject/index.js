@@ -153,7 +153,7 @@ const SingleProject = () => {
 
         if(!/^\d+$/.test(projectId)){
         return (<div><NotFound /></div>)
-    }
+        }
         return (
             <div className="load"><img className="loading" src="https://miro.medium.com/max/1400/1*pN5YHNX03fem8HWxnInQ3g.gif"></img></div>
         )

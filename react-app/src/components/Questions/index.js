@@ -4,7 +4,6 @@ import { useParams, useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector} from 'react-redux';
 import { getAllProjects, getOneProject, getUserProjects } from '../../store/project';
 import { getAllQuestions, askQuestion, modQuestion, removeQuestion, createAnswer, editAnswer, unAnswer } from '../../store/question';
-import commentReducer from '../../store/comment';
 
 const Questions = ({project}) => {
     const dispatch = useDispatch()
@@ -61,7 +60,7 @@ const Questions = ({project}) => {
 
     const questions = Object.values(questionsObj)
 
-    console.log(questions)
+    // console.log(questions)
 
     const submitQuestion = async (e) => {
         e.preventDefault()

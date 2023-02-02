@@ -1,10 +1,9 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from .user import User
-from .answer import Answer
 from datetime import datetime
 
-class Question(db.Model):
-    __tablename__ = 'questions'
+class Answer(db.Model):
+    __tablename__ = 'answers'
     
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
@@ -12,23 +11,21 @@ class Question(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     projectId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("projects.id")), nullable=False)
     userId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
-    question = db.Column(db.String(1000), nullable=False)
+    questionId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod(("questions.id"))))
+    answer = db.Column(db.String(1000), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
     
-    # answered = db.Column(db.Boolean, default=False)
+    question =db.relationship("Question", back_populates="answers")
+    project = db.relationship("Project", back_populates="answers")
+    user = db.relationship("User", back_populates="answers")
     
-    answers = db.relationship("Answer", back_populates="question", cascade="all, delete")
-    
-    project = db.relationship("Project", back_populates="questions")
-    user = db.relationship("User", back_populates="questions")
-    
-    def to_dict_question(self):
+    def to_dict_answer(self):
         return {
             'id': self.id,
             'projectId': self.projectId,
             'userId': self.userId,
-            'question': self.question,
+            'questionId': self.questionId,
+            'answer': self.answer,
             'created_at': self.created_at,
-            'userInfo': User.query.get(self.userId).to_dict(),
-            'answers': [answer.to_dict_answer() for answer in Answer.query.all() if int(answer.questionId) == int(self.id)]
+            'userInfo': User.query.get(self.userId).to_dict()
         }

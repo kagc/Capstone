@@ -26,11 +26,17 @@ def seed_questions():
         question = "Has anyone really been far even as decided to use even go want to do look more like?",
         created_at = datetime(2023, 1, 31, 12, 45)
     )
+    question5 = Question(
+        projectId = 1,
+        userId = 4,
+        question = "Can I substitute the supplies with cat hair and whiskers?"
+    )
     
     db.session.add(question1)
     db.session.add(question2)
     db.session.add(question3)
     db.session.add(question4)
+    db.session.add(question5)
     db.session.commit()
 
 def undo_questions():

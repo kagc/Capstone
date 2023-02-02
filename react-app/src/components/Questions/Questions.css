@@ -17,6 +17,10 @@
     border-radius: 5px;
 }
 
+.no-question-answer-button:hover {
+    cursor: not-allowed;
+}
+
 
 .question-tag {
     color: white;
@@ -57,4 +61,5 @@
 }
 .one-answer-text {
     margin-bottom: 0.5rem;
+    line-height: 1.5rem;
 } 

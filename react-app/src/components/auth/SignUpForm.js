@@ -63,6 +63,7 @@ const SignUpForm = () => {
           onChange={updateUsername}
           value={username}
           required={true}
+          maxLength="20"
         ></input>
       </div>
       <div>

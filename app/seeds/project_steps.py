@@ -1,5 +1,7 @@
 from app.models import db, Project, environment, SCHEMA
 from app.models.project_step import ProjectStep
+from faker import Faker
+fake = Faker()
 
 def seed_project_steps():
     p1step1 = ProjectStep(
@@ -169,163 +171,163 @@ def seed_project_steps():
     p10step1 = ProjectStep(
         projectId = 10,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     
     p11step1 = ProjectStep(
         projectId = 11,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     p12step1 = ProjectStep(
         projectId = 12,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     p13step1 = ProjectStep(
         projectId = 13,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     p14step1 = ProjectStep(
         projectId = 14,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     p15step1 = ProjectStep(
         projectId = 15,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     p16step1 = ProjectStep(
         projectId = 16,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     p17step1 = ProjectStep(
         projectId = 17,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     p18step1 = ProjectStep(
         projectId = 18,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     p19step1 = ProjectStep(
         projectId = 19,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     p20step1 = ProjectStep(
         projectId = 20,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     p21step1 = ProjectStep(
         projectId = 21,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     p22step1 = ProjectStep(
         projectId = 22,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     p23step1 = ProjectStep(
         projectId = 23,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     p24step1 = ProjectStep(
         projectId = 24,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     p25step1 = ProjectStep(
         projectId = 25,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     p26step1 = ProjectStep(
         projectId = 26,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     p27step1 = ProjectStep(
         projectId = 27,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     p28step1 = ProjectStep(
         projectId = 28,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     p29step1 = ProjectStep(
         projectId = 29,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     p30step1 = ProjectStep(
         projectId = 30,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     
     p31step1 = ProjectStep(
         projectId = 31,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     p32step1 = ProjectStep(
         projectId = 32,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     
     p33step1 = ProjectStep(
         projectId = 33,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     
     p34step1 = ProjectStep(
         projectId = 34,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     
     p35step1 = ProjectStep(
         projectId = 35,
         stepNum = 1,
-        stepTitle = "Lay down your origami paper color-side-up",
-        stepDescription = "Choose square origami paper with a design you enjoy. Then, lay your paper flat with the colored side facing up. Traditional origami paper is thin but durable and measures 6 in by 6 in (15 cm by 15 cm), but 3 in (7.6 cm) and 10 inches (25 cm) are common too."
+        stepTitle = fake.sentence(),
+        stepDescription = fake.text()
     )
     
     

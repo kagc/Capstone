@@ -1,5 +1,7 @@
 from datetime import datetime
 from app.models import db, Question, environment, SCHEMA
+from faker import Faker
+fake = Faker()
 
 def seed_questions():
     question1 = Question(
@@ -33,11 +35,52 @@ def seed_questions():
         created_at = datetime(2023, 1, 31, 12, 45)
     )
     
+    question6 = Question(
+        projectId = 6,
+        userId = 4,
+        question = fake.text(),
+        created_at = datetime(2023, 1, 31, 12, 45)
+    )
+    
+    question7 = Question(
+        projectId = 7,
+        userId = 4,
+        question = fake.text(),
+        created_at = datetime(2023, 1, 31, 12, 45)
+    )
+    
+    question8 = Question(
+        projectId = 8,
+        userId = 4,
+        question = fake.text(),
+        created_at = datetime(2023, 1, 31, 12, 45)
+    )
+    
+    question9 = Question(
+        projectId = 9,
+        userId = 4,
+        question = fake.text(),
+        created_at = datetime(2023, 1, 31, 12, 45)
+    )
+    
+    question10 = Question(
+        projectId = 10,
+        userId = 4,
+        question = fake.text(),
+        created_at = datetime(2023, 1, 31, 12, 45)
+    )
+    
     db.session.add(question1)
     db.session.add(question2)
     db.session.add(question3)
     db.session.add(question4)
     db.session.add(question5)
+    
+    db.session.add(question6)
+    db.session.add(question7)
+    db.session.add(question8)
+    db.session.add(question9)
+    db.session.add(question10)
     db.session.commit()
 
 def undo_questions():

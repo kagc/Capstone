@@ -28,49 +28,6 @@ const HomePage = () => {
 
   const image = imageArray[count % imageArray.length];
 
-
-
-//   function backgroundScheduler_1() {
-//     setTimeout(() => {
-//         document.querySelector(".img1").style.opacity = 0;
-//         document.querySelector(".img2").style.opacity = 1;
-//         document.querySelector(".img3").style.opacity = 1;
-//         order(["-3", "-1", "-2"], () => { backgroundScheduler_2() }, 1000);
-//     }, 3000);
-//   }
-  
-//   function backgroundScheduler_2() {
-//     setTimeout(() => {
-//         document.querySelector(".img1").style.opacity = 1;
-//         document.querySelector(".img2").style.opacity = 0;
-//         document.querySelector(".img3").style.opacity = 1;
-//         order(["-2", "-3", "-1"], () => { backgroundScheduler_3() }, 1000);
-//     }, 3000);
-//   }
-  
-//   function backgroundScheduler_3() {
-//     setTimeout(() => {
-//         document.querySelector(".img1").style.opacity = 1;
-//         document.querySelector(".img2").style.opacity = 1;
-//         document.querySelector(".img3").style.opacity = 0;
-//         order(["-1", "-2", "-3"], () => { backgroundScheduler_1() }, 1000);
-//     }, 3000);
-//   }
-  
-//   function order(array, callback, time) {
-//     setTimeout(() => {
-//         document.querySelector(".img1").style.zIndex = array[0];
-//         document.querySelector(".img2").style.zIndex = array[1];
-//         document.querySelector(".img3").style.zIndex = array[2];
-//         callback();
-//     }, time);
-//   }
-  
-//   backgroundScheduler_1();
-
-
-
-
     useEffect(() => {
         dispatch(getAllProjects())
         .then(() => setIsLoaded(true))
@@ -99,13 +56,13 @@ const HomePage = () => {
         <div>
             <div className="splash-banner" 
             style={{
-                backgroundImage: `url('${image}')`, 
+                // backgroundImage: `url('${image}')`, 
             backgroundRepeat  : 'no-repeat', backgroundSize: 'cover',
         width: '100%'}}>
 
-{/* <img class="background-image img1" src={banner}></img>
-  <img class="background-image img2" src={banner2}></img>
-  <img class="background-image img3" src={banner3}></img> */}
+  <img id="f1" class="background-image img3" src={banner3}></img>
+  <img id="f2" class="background-image img2" src={banner2}></img>
+<img id="f3" class="background-image img1" src={banner}></img>
 
                 <div className="banner-text">
                     <div className='banner-top-text'>YOURS FOR THE MAKING</div>

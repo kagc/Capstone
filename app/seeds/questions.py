@@ -29,7 +29,8 @@ def seed_questions():
     question5 = Question(
         projectId = 1,
         userId = 4,
-        question = "Can I substitute the supplies with cat hair and whiskers?"
+        question = "Can I substitute the supplies with cat hair and whiskers?",
+        created_at = datetime(2023, 1, 31, 12, 45)
     )
     
     db.session.add(question1)

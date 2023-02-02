@@ -11,10 +11,10 @@
     top:5rem;
     -webkit-animation-name: fade;
     -webkit-animation-iteration-count: infinite;
-    -webkit-animation-duration: 24s;
+    -webkit-animation-duration: 18s;
     animation-name: fade;
     animation-iteration-count: infinite;
-    animation-duration: 24s;
+    animation-duration: 18s;
     background-repeat: no-repeat;
     object-position: 0px -11rem;
     height: 28rem;
@@ -47,11 +47,11 @@
     background-color: rgb(94, 94, 94);
 }
 #f2 {
-    -webkit-animation-delay: 8s;
+    -webkit-animation-delay: 6s;
     background-color: rgb(85, 85, 85);
 }
 #f3 {
-    -webkit-animation-delay: 16s;
+    -webkit-animation-delay: 12s;
     background-color: rgb(97, 97, 97);
 }
 

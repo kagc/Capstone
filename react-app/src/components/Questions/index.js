@@ -224,9 +224,11 @@ const Questions = ({project}) => {
                                                     setEditedQuestion(question.question)
                                                     setThisQuestion(question.id)
                                                     setShowEdit(true)
+                                                    // console.log("OPENS THE EDIT BOX")
                                                 }}
                                                 className="ud-comment-buttons"
                                                 >Edit</button>
+
                                                 <button onClick={async (e) => {
                                                     e.preventDefault()
                                                     const data = await dispatch(removeQuestion(question.id))
@@ -250,6 +252,7 @@ const Questions = ({project}) => {
                                 </div>
 
                                 <div className="one-comment-text">{question.question}</div>
+    {/* ----------------------------EDIT QUESTION BOX --------------------------- */}
                                 {question.id === thisQuestion && showEdit && (
 
                                     <div className="comment-input-box-container">
@@ -298,7 +301,7 @@ const Questions = ({project}) => {
                                         </form>
                                     </div>
                                 )}
-    {/* ------------------------------------------------------------------------------ */}
+    {/* ------------------------------ANSWER FORM BOX------------------------------- */}
     {question.id === thisQuestion && showAnswerForm && (
 
 <div className="comment-input-box-container">
@@ -348,14 +351,13 @@ const Questions = ({project}) => {
     </form>
 </div>
 )}
-    {/* ------------------------------------------------------------------------------- */}
-
-                                {question.id === thisQuestion && showEdit && (
+    {/* ---------------------A SECOND EDIT QUESTION BOX??--------------------------- */}
+  {/* {question.id === thisQuestion && showEdit && (
 
                                     <div className="comment-input-box-container">
                                         <form onSubmit={submitEditedQuestion}
                                         className="comment-input">
-                                            {/* <div className="comment-input"> */}
+                                          
                                                 <div className="comment-input-top">
                                                 <div className="user-img"><i id="cat" class="fa-solid fa-cat"></i></div>
 
@@ -394,11 +396,12 @@ const Questions = ({project}) => {
                                                     </div>
                                                 </div>
 
-                                            {/* </div> */}
+                                            
                                         </form>
                                     </div>
-                                )}
-
+                                )} */}
+                              
+    {/* ----------------------------ANSWERS MAPPED --------------------------- */}
                             {question.answers.length > 0 && (
                                 question.answers.map(answer => {
                                     let day = Math.ceil(Math.abs(new Date() - new Date(question.created_at))/ (1000 * 60 * 60 * 24))

@@ -8,7 +8,8 @@ import NotFound from '../404';
 import { getAllComments, makeComment, modComment, removeComment } from '../../store/comment';
 import { getAllFavorites, makeFavorite, removeFavorite, getUserFavorites } from '../../store/favorite';
 import Questions from '../Questions';
-let errImage = 'https://previews.123rf.com/images/sonsedskaya/sonsedskaya1902/sonsedskaya190200070/118117055-portrait-of-a-builder-cat-with-tools-in-paws.jpg'
+// let errImage = 'https://previews.123rf.com/images/sonsedskaya/sonsedskaya1902/sonsedskaya190200070/118117055-portrait-of-a-builder-cat-with-tools-in-paws.jpg'
+let errImage = 'https://github.com/kagc/Capstone/raw/main/react-app/src/images/cat.jpg'
 
 const SingleProject = () => {
     const { projectId } = useParams()

@@ -47,3 +47,10 @@ a:hover {
     color: gray;
 }
 
+/* input:focus {
+  outline: none;
+} */
+
+textarea {
+  resize: none
+}

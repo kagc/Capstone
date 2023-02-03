@@ -3,7 +3,7 @@ from wtforms import StringField
 from wtforms.validators import DataRequired, ValidationError
 
 def is_image(form, field):
-    url = field.data
+    url = field.data.lower()
     
     if not url.startswith('https://') and not url.startswith('http://'):
         raise ValidationError('Invalid image url. Must begin with "http://" or "https://"')

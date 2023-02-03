@@ -7,6 +7,7 @@ import banner2 from '../../images/catputer.jpg'
 import banner3 from '../../images/cooking.jpg'
 import { getAllProjects } from '../../store/project';
 let errImage = 'https://previews.123rf.com/images/sonsedskaya/sonsedskaya1902/sonsedskaya190200070/118117055-portrait-of-a-builder-cat-with-tools-in-paws.jpg'
+// let errImage = '../../images/cooking.jpg'
 
 const imageArray = [banner, banner2, banner3];
 

@@ -110,7 +110,7 @@ export const makeProject = (newProject, newStepsArr) => async dispatch => {
             // }
             
             if (response2.status >= 400){
-                console.log('could not create steps')
+                // console.log('could not create steps')
                 throw response2
                 // dispatch(add(createdProject))
                 // return createdProject
@@ -120,7 +120,7 @@ export const makeProject = (newProject, newStepsArr) => async dispatch => {
             if(counter === newStepsArr.length){
             const project = await response2.json()
             dispatch(add(project))
-            console.log('this is the created project', project)
+            // console.log('this is the created project', project)
             return project
         }
         }
@@ -165,7 +165,7 @@ export const modProject = (projectData, stepArrDelete, stepArrCreate) => async d
             })
 
             if (response2.status >= 400){
-                console.log('could not delete steps')
+                // console.log('could not delete steps')
                 throw response2
                 }
 
@@ -182,14 +182,14 @@ export const modProject = (projectData, stepArrDelete, stepArrCreate) => async d
                         body: JSON.stringify(step)
                     })
                     if (response3.status >= 400){
-                        console.log('could not create steps')
+                        // console.log('could not create steps')
                         throw response3
                     }
                     createCounter++
                     if(createCounter === stepArrCreate.length){
                         const project = await response2.json()
                         dispatch(add(project))
-                        console.log('this is the created project', project)
+                        // console.log('this is the created project', project)
                         return project
                     }
                 }

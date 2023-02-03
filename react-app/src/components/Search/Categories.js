@@ -14,7 +14,7 @@ function Categories() {
     const history = useHistory()
     let { pathname } = useLocation()
     const [ isLoaded, setIsLoaded ] = useState(false)
-    console.log("aaaaaa0", pathname)
+    // console.log("aaaaaa0", pathname)
     const [newSrc, setNewSrc] = useState('')
 
     let { category, searchTerm } = params

@@ -388,7 +388,9 @@ function SearchResultPage() {
                                     </Link>
     
                                     <div className="scard-details">
-                                        <div><Link className="scard-title" to={`/projects/${project.id}`}>{project.title}</Link> by {project.creator.username} in {project.category}</div>
+                                        <div><Link className="scard-title" to={`/projects/${project.id}`}>{project.title}</Link> 
+                                        <div className="scard-mid">by {project.creator.username} in <Link className="scard-cat-link" to={`/${project.category.toLowerCase()}`}>{project.category}</Link></div>
+                                        </div>
                                     </div>
 
                                     <div className="scard-bottom">

@@ -121,6 +121,15 @@
     padding-bottom: 1rem;
     font-size: 0.9rem;
     border-bottom: 1px lightgray solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.scard-mid {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
 }
 
 .scard-title {
@@ -136,8 +145,9 @@
     font-size: 0.9rem;
 }
 
-.card-title:hover {
+.scard-title:hover {
     text-decoration: underline;
+    color: black;
 }
 
 .serror-page-container {
@@ -180,4 +190,15 @@
     /* margin-left: 1rem; */
     /* min-height: 30rem; */
     padding-bottom: 3rem;
+}
+
+.scard-cat-link {
+    font-size: 0.9rem;
+    margin-left: 0.3rem;
+    color: black;
+}
+
+.scard-cat-link:hover {
+    text-decoration: underline;
+    color: black;
 }

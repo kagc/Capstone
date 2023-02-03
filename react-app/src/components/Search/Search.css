@@ -140,7 +140,9 @@
     text-overflow: ellipsis;
     flex-flow: row wrap;
     overflow: hidden;
-    max-width: 99%;
+    /* max-width: 99%; */
+    max-width: 100%;
+    width: 100%;
     max-height: 1.5rem;
     font-size: 0.9rem;
 }

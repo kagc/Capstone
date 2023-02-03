@@ -321,6 +321,7 @@ function SearchResultPage() {
                         }}
                         title="Searchbar"
                         placeholder="Type your search here"
+                        required
                         minLength="3"></input>
                         
                         <button hidden

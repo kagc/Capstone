@@ -68,6 +68,7 @@ function Navigation({ isLoaded }){
                         }}
                         title="Searchbar"
                         placeholder="Search"
+                        required
                         minLength="3"></input>
                         
                         <button 

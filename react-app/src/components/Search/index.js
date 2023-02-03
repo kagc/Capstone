@@ -24,17 +24,19 @@ function SearchResultPage() {
         dispatch(getAllProjects())
         .then(() => setIsLoaded(true))
 
-        // if (searchTerm !== sear)
+        if (searchTerm !== searchCriteria){
+            setSearchCriteria(searchTerm)
+        }
     }, [dispatch, pathname])
 
     const projects = Object.values(projectsObj)
     // console.log("aaaaa", projects)
     const projectsDupe = Object.values(projectsObj)
 
-    const submitSearch = async (e) => {
+    const submitSecondSearch = async (e) => {
         e.preventDefault()
+        setSearchCriteria(searchCriteria)
         history.push(`/search/projects/all/q=${searchCriteria}`)
-        setSearchCriteria(searchTerm)
         setIsLoaded(false)
         // alert("Sorry, that function hasn't been implemented yet.")
       }
@@ -57,10 +59,45 @@ function SearchResultPage() {
                                 results.push(projectsDupe[currentIndex])
                             }
                         }
+                        
+                        if(project[key].toString().toLowerCase().includes(searchTerm.toLowerCase())) {
+                            results.push(projectsDupe[currentIndex])
+                        }
                     }
+                }
+                currentIndex++
+            })
+        }
+    }
+    const circuits = projects.filter(project => project.category === "Circuits")
+    const workshop = projects.filter(project => project.category === "Workshop")
+    const craft = projects.filter(project => project.category === "Craft")
+    const cooking = projects.filter(project => project.category === "Cooking")
+    const living = projects.filter(project => project.category === "Living")
+    const outside = projects.filter(project => project.category === "Outside")
+    const teachers = projects.filter(project => project.category === "Teachers")
 
-                    if(project[key].toString().toLowerCase().includes(searchTerm.toLowerCase())) {
-                        results.push(projectsDupe[currentIndex])
+    if (category === 'circuits') {
+        if(projects.length) {
+            const categorizedProjects = projects.filter(project => project.category === 'Circuits')
+            // console.log("aaaaa", categorizedProjects, circuits)
+            categorizedProjects.forEach((project) => {
+                delete project.creator.email
+                delete project.creator.id
+                delete project.steps
+                for (let key in project) { 
+                    // ignore these columns
+                    if (key !== 'creatorId' && key !== 'coverImageUrl' && key !== 'id' && key !== 'created_at'){
+                        // searches username only
+                        if(typeof project[key] === 'object'){
+                            if(project[key].username !== undefined && project[key].username.toLowerCase().includes(searchTerm.toLowerCase())){
+                                results.push(circuits[currentIndex])
+                            }
+                        }
+                        
+                        if(project[key].toString().toLowerCase().includes(searchTerm.toLowerCase())) {
+                            results.push(circuits[currentIndex])
+                        }
                     }
                 }
                 currentIndex++
@@ -68,7 +105,177 @@ function SearchResultPage() {
         }
     }
 
+    if (category === 'workshop') {
+        if(projects.length) {
+            const categorizedProjects = projects.filter(project => project.category === 'Workshop')
+            // console.log("aaaaa", categorizedProjects, circuits)
+            categorizedProjects.forEach((project) => {
+                delete project.creator.email
+                delete project.creator.id
+                delete project.steps
+                for (let key in project) { 
+                    // ignore these columns
+                    if (key !== 'creatorId' && key !== 'coverImageUrl' && key !== 'id' && key !== 'created_at'){
+                        // searches username only
+                        if(typeof project[key] === 'object'){
+                            if(project[key].username !== undefined && project[key].username.toLowerCase().includes(searchTerm.toLowerCase())){
+                                results.push(workshop[currentIndex])
+                            }
+                        }
+                        
+                        if(project[key].toString().toLowerCase().includes(searchTerm.toLowerCase())) {
+                            results.push(workshop[currentIndex])
+                        }
+                    }
+                }
+                currentIndex++
+            })
+        }
+    }
+
+    if (category === 'craft') {
+        if(projects.length) {
+            const categorizedProjects = projects.filter(project => project.category === 'Craft')
+            // console.log("aaaaa", categorizedProjects, circuits)
+            categorizedProjects.forEach((project) => {
+                delete project.creator.email
+                delete project.creator.id
+                delete project.steps
+                for (let key in project) { 
+                    // ignore these columns
+                    if (key !== 'creatorId' && key !== 'coverImageUrl' && key !== 'id' && key !== 'created_at'){
+                        // searches username only
+                        if(typeof project[key] === 'object'){
+                            if(project[key].username !== undefined && project[key].username.toLowerCase().includes(searchTerm.toLowerCase())){
+                                results.push(craft[currentIndex])
+                            }
+                        }
+                        
+                        if(project[key].toString().toLowerCase().includes(searchTerm.toLowerCase())) {
+                            results.push(craft[currentIndex])
+                        }
+                    }
+                }
+                currentIndex++
+            })
+        }
+    }
+
+    if (category === 'cooking') {
+        if(projects.length) {
+            const categorizedProjects = projects.filter(project => project.category === 'Cooking')
+            // console.log("aaaaa", categorizedProjects, circuits)
+            categorizedProjects.forEach((project) => {
+                delete project.creator.email
+                delete project.creator.id
+                delete project.steps
+                for (let key in project) { 
+                    // ignore these columns
+                    if (key !== 'creatorId' && key !== 'coverImageUrl' && key !== 'id' && key !== 'created_at'){
+                        // searches username only
+                        if(typeof project[key] === 'object'){
+                            if(project[key].username !== undefined && project[key].username.toLowerCase().includes(searchTerm.toLowerCase())){
+                                results.push(cooking[currentIndex])
+                            }
+                        }
+                        
+                        if(project[key].toString().toLowerCase().includes(searchTerm.toLowerCase())) {
+                            results.push(cooking[currentIndex])
+                        }
+                    }
+                }
+                currentIndex++
+            })
+        }
+    }
+
+    if (category === 'living') {
+        if(projects.length) {
+            const categorizedProjects = projects.filter(project => project.category === 'Living')
+            // console.log("aaaaa", categorizedProjects, circuits)
+            categorizedProjects.forEach((project) => {
+                delete project.creator.email
+                delete project.creator.id
+                delete project.steps
+                for (let key in project) { 
+                    // ignore these columns
+                    if (key !== 'creatorId' && key !== 'coverImageUrl' && key !== 'id' && key !== 'created_at'){
+                        // searches username only
+                        if(typeof project[key] === 'object'){
+                            if(project[key].username !== undefined && project[key].username.toLowerCase().includes(searchTerm.toLowerCase())){
+                                results.push(living[currentIndex])
+                            }
+                        }
+                        
+                        if(project[key].toString().toLowerCase().includes(searchTerm.toLowerCase())) {
+                            results.push(living[currentIndex])
+                        }
+                    }
+                }
+                currentIndex++
+            })
+        }
+    }
+
+    if (category === 'outside') {
+        if(projects.length) {
+            const categorizedProjects = projects.filter(project => project.category === 'Outside')
+            // console.log("aaaaa", categorizedProjects, circuits)
+            categorizedProjects.forEach((project) => {
+                delete project.creator.email
+                delete project.creator.id
+                delete project.steps
+                for (let key in project) { 
+                    // ignore these columns
+                    if (key !== 'creatorId' && key !== 'coverImageUrl' && key !== 'id' && key !== 'created_at'){
+                        // searches username only
+                        if(typeof project[key] === 'object'){
+                            if(project[key].username !== undefined && project[key].username.toLowerCase().includes(searchTerm.toLowerCase())){
+                                results.push(outside[currentIndex])
+                            }
+                        }
+                        
+                        if(project[key].toString().toLowerCase().includes(searchTerm.toLowerCase())) {
+                            results.push(outside[currentIndex])
+                        }
+                    }
+                }
+                currentIndex++
+            })
+        }
+    }
+
+    if (category === 'teachers') {
+        if(projects.length) {
+            const categorizedProjects = projects.filter(project => project.category === 'Teachers')
+            // console.log("aaaaa", categorizedProjects, circuits)
+            categorizedProjects.forEach((project) => {
+                delete project.creator.email
+                delete project.creator.id
+                delete project.steps
+                for (let key in project) { 
+                    // ignore these columns
+                    if (key !== 'creatorId' && key !== 'coverImageUrl' && key !== 'id' && key !== 'created_at'){
+                        // searches username only
+                        if(typeof project[key] === 'object'){
+                            if(project[key].username !== undefined && project[key].username.toLowerCase().includes(searchTerm.toLowerCase())){
+                                results.push(teachers[currentIndex])
+                            }
+                        }
+                        
+                        if(project[key].toString().toLowerCase().includes(searchTerm.toLowerCase())) {
+                            results.push(teachers[currentIndex])
+                        }
+                    }
+                }
+                currentIndex++
+            })
+        }
+    }
+    // console.log(results)
+
     let filteredResults = results.filter((result, index) => results.indexOf(result) === index);
+    // let filteredResults = results
 
     // console.log(filteredResults)
 
@@ -84,8 +291,8 @@ function SearchResultPage() {
     return isLoaded && (
         <div className="search-container">
             <div className="second-search-bar">
-                <span>Search results: </span>
-                <form onSubmit={submitSearch} className="second-searchform">
+                <span className="search-results">Search results: </span>
+                <form onSubmit={submitSecondSearch} className="second-searchform">
                         <input
                         className="search-input2"
                         type="text"

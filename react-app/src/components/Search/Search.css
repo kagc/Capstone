@@ -18,8 +18,12 @@
 }
 
 .second-searchform {
-    width: 88.5%;
+    width: 88%;
     margin-left: 1rem;
+}
+
+.search-results {
+    min-width: 10.5rem;
 }
 
 .search-input2 {

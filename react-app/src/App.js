@@ -16,6 +16,7 @@ import HomePage from './components/Home';
 import Footer from './components/Footer';
 import NotFound from './components/404';
 import SearchResultPage from './components/Search';
+import Categories from './components/Search/Categories';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -64,6 +65,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/search/projects/:category/q=:searchTerm'>
           <SearchResultPage />
+        </Route>
+        <Route path={['/projects', '/circuits','/workshop', '/craft', '/cooking', '/living', '/outside', '/teachers']}>
+          <Categories />
         </Route>
         <Route>
           <NotFound />

@@ -329,28 +329,28 @@ function SearchResultPage() {
             </div>
 
             <div className="categories-bar">
-                <Link id={category === "all" ? "search-underline" : null} to={`/search/projects/all/q=${searchTerm}`}>
+                <Link id={category.toLowerCase() === "all" ? "search-underline" : null} to={`/search/projects/all/q=${searchTerm}`}>
                     All
                 </Link>
-                <Link id={category === "circuits" ? "search-underline" : null} to={`/search/projects/circuits/q=${searchTerm}`}>
+                <Link id={category.toLowerCase() === "circuits" ? "search-underline" : null} to={`/search/projects/circuits/q=${searchTerm}`}>
                     Circuits
                 </Link>
-                <Link id={category === "workshop" ? "search-underline" : null} to={`/search/projects/workshop/q=${searchTerm}`}>
+                <Link id={category.toLowerCase() === "workshop" ? "search-underline" : null} to={`/search/projects/workshop/q=${searchTerm}`}>
                     Workshop
                 </Link>
-                <Link id={category === "craft" ? "search-underline" : null} to={`/search/projects/craft/q=${searchTerm}`}>
+                <Link id={category.toLowerCase() === "craft" ? "search-underline" : null} to={`/search/projects/craft/q=${searchTerm}`}>
                     Craft
                 </Link>
-                <Link id={category === "cooking" ? "search-underline" : null} to={`/search/projects/cooking/q=${searchTerm}`}>
+                <Link id={category.toLowerCase() === "cooking" ? "search-underline" : null} to={`/search/projects/cooking/q=${searchTerm}`}>
                     Cooking
                 </Link>
-                <Link id={category === "living" ? "search-underline" : null} to={`/search/projects/living/q=${searchTerm}`}>
+                <Link id={category.toLowerCase() === "living" ? "search-underline" : null} to={`/search/projects/living/q=${searchTerm}`}>
                     Living
                 </Link>
-                <Link id={category === "outside" ? "search-underline" : null} to={`/search/projects/outside/q=${searchTerm}`}>
+                <Link id={category.toLowerCase() === "outside" ? "search-underline" : null} to={`/search/projects/outside/q=${searchTerm}`}>
                     Outside
                 </Link>
-                <Link id={category === "teachers" ? "search-underline" : null} to={`/search/projects/teachers/q=${searchTerm}`}>
+                <Link id={category.toLowerCase() === "teachers" ? "search-underline" : null} to={`/search/projects/teachers/q=${searchTerm}`}>
                     Teachers
                 </Link>
             </div>
@@ -360,7 +360,7 @@ function SearchResultPage() {
             </div>
 
             <div className="search-card-holder">
-            <div className="category-section">
+            <div className="scategory-section">
                     {/* <div className="category-title">Circuits<i class="fa-solid fa-greater-than"></i></div> */}
 
                         {filteredResults.length > 0 ? (

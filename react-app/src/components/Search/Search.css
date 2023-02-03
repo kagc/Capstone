@@ -170,3 +170,14 @@
     padding-top: 0.4rem;
     margin-right: 0.5rem;
 }
+
+.scategory-section {
+    /* width: 30rem; */
+    /* border: solid red 1px; */
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5rem;
+    /* margin-left: 1rem; */
+    /* min-height: 30rem; */
+    padding-bottom: 3rem;
+}

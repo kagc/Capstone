@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import './Search.css'
 import { Link, useHistory, useParams, useLocation } from "react-router-dom";
 import { getAllProjects } from '../../store/project';
+import SearchNotFound from "./SearchNotFound";
 let errImage = 'https://previews.123rf.com/images/sonsedskaya/sonsedskaya1902/sonsedskaya190200070/118117055-portrait-of-a-builder-cat-with-tools-in-paws.jpg'
 
 function SearchResultPage() {
@@ -137,7 +138,42 @@ function SearchResultPage() {
             <div className="category-section">
                     {/* <div className="category-title">Circuits<i class="fa-solid fa-greater-than"></i></div> */}
 
-                    <div className="scategory-card-holder">
+                        {filteredResults.length > 0 ? (
+                            <div className="scategory-card-holder">
+                            {filteredResults.map(project => {
+    
+                                return (
+                                    <div key={project.id}  className="scard-holder">
+                                    <Link to={`/projects/${project.id}`}>
+                                    <div 
+                                    className="preview-image-container"
+                                    //         style={{ backgroundImage: `url('${project.coverImageUrl}'` }}
+                                            >
+    
+                                            <img 
+                                            className="preview-image" 
+                                            onError={(e)=>{
+                                                if(e.target.src !== errImage) {
+                                                setNewSrc(errImage)
+                                                e.target.src = errImage
+                                                }
+                                            }}
+                                        src={`${project.coverImageUrl}`}></img>
+                                            </div>
+                                    </Link>
+    
+                                    <div className="scard-details">
+                                        <div><Link className="scard-title" to={`/projects/${project.id}`}>{project.title}</Link> by {project.creator.username}</div>
+                                    </div>
+    
+                                        </div>
+                                )
+                            })}
+                        </div>
+                        ) : (
+                            <SearchNotFound />
+                        )}
+                    {/* <div className="scategory-card-holder">
                         {filteredResults.map(project => {
 
                             return (
@@ -167,7 +203,7 @@ function SearchResultPage() {
                                     </div>
                             )
                         })}
-                    </div>
+                    </div> */}
 
                 </div>
             </div>

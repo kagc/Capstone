@@ -251,6 +251,9 @@
     overflow: hidden;
     flex-flow: row wrap;
     max-height: 22rem;
+
+    justify-content: space-between;
+    align-items: space-between;
 }
 
 .fa-greater-than {

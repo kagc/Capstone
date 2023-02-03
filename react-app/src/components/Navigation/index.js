@@ -53,6 +53,7 @@ function Navigation({ isLoaded }){
             <div className="navbar">
                 <div className="left-nav">
                     <div><NavLink to="/"><img className="logo-img" src={icon}></img></NavLink></div>
+                    <NavLink className="nav-projects-link" to="/projects">Projects</NavLink>
                 </div>
 
                 <div className="mid-nav">

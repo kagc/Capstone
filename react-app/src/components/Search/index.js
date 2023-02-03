@@ -59,7 +59,10 @@ function SearchResultPage() {
                 delete project.steps
                 for (let key in project) { 
                     // ignore these columns
-                    if (key !== 'creatorId' && key !== 'coverImageUrl' && key !== 'id' && key !== 'created_at'){
+                    if (key !== 'creatorId' && key !== 'coverImageUrl' && key !== 'id' && key !== 'created_at'
+                    // only search through title, cat, username for now
+                    && key !== 'intro' && key !== 'supplies'
+                    ){
                         // searches username only
                         if(typeof project[key] === 'object'){
                             if(project[key].username !== undefined && project[key].username.toLowerCase().includes(searchTerm.toLowerCase())){

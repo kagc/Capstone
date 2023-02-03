@@ -4,6 +4,7 @@ import './Search.css'
 import { Link, useHistory, useParams, useLocation } from "react-router-dom";
 import { getAllProjects } from '../../store/project';
 import SearchNotFound from "./SearchNotFound";
+import { everyFavorite, getAllFavorites } from "../../store/favorite";
 let errImage = 'https://previews.123rf.com/images/sonsedskaya/sonsedskaya1902/sonsedskaya190200070/118117055-portrait-of-a-builder-cat-with-tools-in-paws.jpg'
 
 function SearchResultPage() {
@@ -19,10 +20,13 @@ function SearchResultPage() {
     const [searchCriteria, setSearchCriteria ] = useState(searchTerm)
 
     const projectsObj = useSelector(state => state.projects.allProjects)
+    const everyFavObj = useSelector(state => state.favorites.everyFavorite)
 
     useEffect(() => {
         dispatch(getAllProjects())
         .then(() => setIsLoaded(true))
+
+        dispatch(everyFavorite())
 
         if (searchTerm !== searchCriteria){
             setSearchCriteria(searchTerm)
@@ -32,6 +36,9 @@ function SearchResultPage() {
     const projects = Object.values(projectsObj)
     // console.log("aaaaa", projects)
     const projectsDupe = Object.values(projectsObj)
+
+    const allFavs = Object.values(everyFavObj)
+    // console.log("xxxxx", allFavs)
 
     const submitSecondSearch = async (e) => {
         e.preventDefault()
@@ -276,6 +283,17 @@ function SearchResultPage() {
 
     let filteredResults = results.filter((result, index) => results.indexOf(result) === index);
     // let filteredResults = results
+    if(filteredResults.length > 0){
+        filteredResults.forEach(result => {
+            result.total = 0
+            allFavs.forEach(fav => {
+                if(fav.projectId === result.id){
+                    result.total += 1
+                    // console.log(result.total)
+                }
+            })
+        })
+    }
 
     // console.log(filteredResults)
 
@@ -286,7 +304,7 @@ function SearchResultPage() {
             )
         }
         
-    if (!projectsObj) return null
+    if (!projectsObj || ! everyFavObj) return null
 
     return isLoaded && (
         <div className="search-container">
@@ -338,7 +356,7 @@ function SearchResultPage() {
             </div>
 
             <div className="results-num-bar">
-                {filteredResults.length} results
+                {filteredResults.length} result{filteredResults.length > 1 ? 's' : null}
             </div>
 
             <div className="search-card-holder">
@@ -370,9 +388,12 @@ function SearchResultPage() {
                                     </Link>
     
                                     <div className="scard-details">
-                                        <div><Link className="scard-title" to={`/projects/${project.id}`}>{project.title}</Link> by {project.creator.username}</div>
+                                        <div><Link className="scard-title" to={`/projects/${project.id}`}>{project.title}</Link> by {project.creator.username} in {project.category}</div>
                                     </div>
-    
+
+                                    <div className="scard-bottom">
+                                        <i id="sheart" class="fa-solid fa-heart"></i> {project.total}</div>
+                                            
                                         </div>
                                 )
                             })}

@@ -79,7 +79,7 @@
     /* overflow: hidden; */
     flex-flow: row wrap;
     /* max-height: 22rem; */
-    border: solid red 1px;
+    /* border: solid red 1px; */
 }
 
 .scard-holder {
@@ -118,7 +118,9 @@
 .scard-details {
     padding-left: 1rem;
     padding-right: 1rem;
+    padding-bottom: 1rem;
     font-size: 0.9rem;
+    border-bottom: 1px lightgray solid;
 }
 
 .scard-title {
@@ -151,4 +153,20 @@
 
 .no-results-text {
     margin-top: 0rem;
+}
+
+.scard-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    padding-top: 0.3rem;
+}
+
+#sheart {
+    color: rgb(199, 199, 199);
+    font-size: 0.8rem;
+    padding-top: 0.4rem;
+    margin-right: 0.5rem;
 }

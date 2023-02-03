@@ -1,5 +1,6 @@
 import './Footer.css'
 import logo from '../../images/directablesLogoFooter.png'
+import { Link } from 'react-router-dom';
 
 function Footer() {
 
@@ -19,16 +20,16 @@ function Footer() {
                 <div className="footer-link-section">
                     <span className="footer-links-labels">Categories</span>
                     <div className="footer-cat-holder">
-                        <div id="not-implemented" className="footer-cat-column">
-                            <span><i class="fa-solid fa-microchip"></i> Circuits</span>
-                            <span><i class="fa-solid fa-wrench"></i> Workshop</span>
-                            <span><i class="fa-solid fa-scissors"></i> Craft</span>
-                            <span><i class="fa-solid fa-utensils"></i> Cooking</span>
+                        <div className="footer-cat-column">
+                            <Link to="/circuits"><span><i class="fa-solid fa-microchip"></i> Circuits</span></Link>
+                            <Link to="/workshop"><span><i class="fa-solid fa-wrench"></i> Workshop</span></Link>
+                            <Link to="/craft"><span><i class="fa-solid fa-scissors"></i> Craft</span></Link>
+                            <Link to="/cooking"><span><i class="fa-solid fa-utensils"></i> Cooking</span></Link>
                         </div>
-                        <div id="not-implemented" className="footer-cat-column">
-                        <span><i class="fa-solid fa-house"></i> Living</span>
-                        <span><i class="fa-solid fa-bicycle"></i> Outside</span>
-                        <span><i class="fa-solid fa-book"></i> Teachers</span>
+                        <div className="footer-cat-column">
+                        <Link to="/living"><span><i class="fa-solid fa-house"></i> Living</span></Link>
+                        <Link to="/outside"><span><i class="fa-solid fa-bicycle"></i> Outside</span></Link>
+                        <Link to="/teachers"><span><i class="fa-solid fa-book"></i> Teachers</span></Link>
                         </div>
 
                     </div>

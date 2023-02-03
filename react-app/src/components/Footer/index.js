@@ -72,7 +72,7 @@ function Footer() {
             </div> */}
             <div className="footer-break"></div>
             <div className="footer-legal-links">
-                <div>2023 App Academy</div>
+                <div>2023 Kirin Agcaoili :)</div>
                 <div id="not-implemented">Placeholder not-Links | To Hold this Space | Hi Hope You're Having a Good Day</div>
                 <div className="footer-bottom-right"><i class="fa-solid fa-dragon"></i> AUTOCAT</div>
             </div>

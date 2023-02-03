@@ -15,6 +15,7 @@ import Navigation from './components/Navigation';
 import HomePage from './components/Home';
 import Footer from './components/Footer';
 import NotFound from './components/404';
+import SearchResultPage from './components/Search';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -61,6 +62,9 @@ function App() {
         <ProtectedRoute path='/editor/:projectId' exact={true} >
           <EditProject />
         </ProtectedRoute>
+        <Route path='/search/projects/:category/q=:searchTerm'>
+          <SearchResultPage />
+        </Route>
         <Route>
           <NotFound />
         </Route>

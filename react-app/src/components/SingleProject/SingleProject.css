@@ -20,6 +20,16 @@
     color: gray;
 }
 
+.pi-cat-link {
+    margin-left: 0.3rem;
+    font-size: 0.9rem;
+}
+
+.pi-cat-link:hover {
+    text-decoration: underline;
+    color: black;
+}
+
 .favsNum {
     margin-left: 1rem;
 }

@@ -6,6 +6,12 @@ from .auth_routes import validation_errors_to_error_messages
 
 favorite_routes = Blueprint('favorites', __name__)
 
+
+#GET ALL FAVORITES
+@favorite_routes.route('/favorites')
+def all_favorites():
+    return {"Favorites": [favorite.to_dict_favorite() for favorite in Favorite.query.all()]}
+
 #Get all favorites by current user
 @favorite_routes.route('/favorites/current')
 @login_required

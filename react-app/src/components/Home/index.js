@@ -96,7 +96,7 @@ const HomePage = () => {
                 </div>
 
                 <div className="category-section">
-                    <div className="category-title">Circuits<i class="fa-solid fa-greater-than"></i></div>
+                    <div className="category-title"><Link className="home-cat-link" to="/circuits">Circuits<i class="fa-solid fa-greater-than"></i></Link></div>
 
                     <div className="category-card-holder">
                         {circuits.slice(0).reverse().slice(0, 5).map(project => {
@@ -133,7 +133,7 @@ const HomePage = () => {
                 </div>
 
                 <div className="category-section">
-                    <div className="category-title">Workshop<i class="fa-solid fa-greater-than"></i></div>
+                    <div className="category-title"><Link className="home-cat-link" to="/workshop">Workshop<i class="fa-solid fa-greater-than"></i></Link></div>
                     <div className="category-card-holder">
                     {workshop.slice(0).reverse().slice(0, 5).map(project => {
                             return (
@@ -167,7 +167,7 @@ const HomePage = () => {
                 </div>
 
                 <div className="category-section">
-                    <div className="category-title">Craft<i class="fa-solid fa-greater-than"></i></div>
+                    <div className="category-title"><Link className="home-cat-link" to="/craft">Craft<i class="fa-solid fa-greater-than"></i></Link></div>
                     <div className="category-card-holder">
                     {craft.slice(0).reverse().slice(0, 5).map(project => {
                             return (
@@ -201,7 +201,7 @@ const HomePage = () => {
                 </div>
 
                 <div className="category-section">
-                    <div className="category-title">Cooking<i class="fa-solid fa-greater-than"></i></div>
+                    <div className="category-title"><Link className="home-cat-link" to="/cooking">Cooking<i class="fa-solid fa-greater-than"></i></Link></div>
                     <div className="category-card-holder">
                     {cooking.slice(0).reverse().slice(0, 5).map(project => {
                             return (
@@ -235,7 +235,7 @@ const HomePage = () => {
                 </div>
 
                 <div className="category-section">
-                    <div className="category-title">Living<i class="fa-solid fa-greater-than"></i></div>
+                    <div className="category-title"><Link className="home-cat-link" to="/living">Living<i class="fa-solid fa-greater-than"></i></Link></div>
                     <div className="category-card-holder">
                     {living.slice(0).reverse().slice(0, 5).map(project => {
                             return (
@@ -269,7 +269,7 @@ const HomePage = () => {
                 </div>
 
                 <div className="category-section">
-                    <div className="category-title">Outside<i class="fa-solid fa-greater-than"></i></div>
+                    <div className="category-title"><Link className="home-cat-link" to="/outside">Outside<i class="fa-solid fa-greater-than"></i></Link></div>
                     <div className="category-card-holder">
                     {outside.slice(0).reverse().slice(0, 5).map(project => {
                             return (
@@ -303,7 +303,7 @@ const HomePage = () => {
                 </div>
 
                 <div className="category-section">
-                    <div className="category-title">Teachers<i class="fa-solid fa-greater-than"></i></div>
+                    <div className="category-title"><Link className="home-cat-link" to="/teachers">Teachers<i class="fa-solid fa-greater-than"></i></Link></div>
                     <div className="category-card-holder">
                     {teachers.slice(0).reverse().slice(0, 5).map(project => {
                             return (

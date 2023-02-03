@@ -153,7 +153,7 @@ const SingleProject = () => {
 
         if(!/^\d+$/.test(projectId)){
         return (<div><NotFound /></div>)
-    }
+        }
         return (
             <div className="load"><img className="loading" src="https://miro.medium.com/max/1400/1*pN5YHNX03fem8HWxnInQ3g.gif"></img></div>
         )
@@ -166,7 +166,7 @@ const SingleProject = () => {
 
             
             <div className="titlebar">{project.title}</div>
-            <div className="misc-infobar">By {project.creatorInfo.username} in {project.category}<div className="favsNum"><i id="heart" class="fa-solid fa-heart"></i>{favoritesObj.total}</div></div>
+            <div className="misc-infobar">By {project.creatorInfo.username} in <Link className="pi-cat-link" to={`/${project.category.toLowerCase()}`}>{project.category}</Link><div className="favsNum"><i id="heart" class="fa-solid fa-heart"></i>{favoritesObj.total}</div></div>
 
             <div className="sub-titlebar">
                 <div className="project-published">Published {month[new Date(project.created_at).getMonth()]} {new Date(project.created_at).getDate()}, {new Date(project.created_at).getFullYear()}</div>

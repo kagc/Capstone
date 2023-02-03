@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { NavLink, Link, Route, useHistory } from 'react-router-dom';
+import { NavLink, Link, Route, useHistory, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './Navigation.css'
 import LogoutButton from "../auth/LogoutButton";
@@ -8,10 +8,13 @@ import icon from "../../images/directablesLogo.png"
 
 function Navigation({ isLoaded }){
     const sessionUser = useSelector(state => state.session.user);
+    let { pathname } = useLocation()
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
     const ulRef = useRef();
     const history = useHistory()
+
+    const [searchCriteria, setSearchCriteria ] = useState("")
 
     const openMenu = () => {
     if (showMenu) return;
@@ -32,11 +35,17 @@ function Navigation({ isLoaded }){
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
+    useEffect(() => {
+        setSearchCriteria("")
+    }, [pathname])
+
   const closeMenu = () => setShowMenu(false);
 
   const submitSearch = async (e) => {
     e.preventDefault()
-    alert("Sorry, that function hasn't been implemented yet.")
+    history.push(`/search/projects/all/q=${searchCriteria}`)
+    setSearchCriteria('')
+    // alert("Sorry, that function hasn't been implemented yet.")
   }
 
     return (
@@ -48,14 +57,21 @@ function Navigation({ isLoaded }){
 
                 <div className="mid-nav">
                     <div className="searchbar-container">
-                        <form className="searchform">
+                        <form onSubmit={submitSearch} className="searchform">
                         <input
                         className="search-input"
                         type="text"
-                        disabled="true"
-                        placeholder="Search Coming Soon!"></input>
+                        // disabled="true"
+                        value={searchCriteria}
+                        onChange={(e) => {
+                            setSearchCriteria(e.target.value)
+                        }}
+                        title="Searchbar"
+                        placeholder="Search"
+                        minLength="3"></input>
                         
-                        <button disabled onClick={submitSearch} className="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <button 
+                         className="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </form>
                     </div>
                 </div>

@@ -360,7 +360,7 @@ function SearchResultPage() {
             </div>
 
             <div className="results-num-bar">
-                {filteredResults.length} result{filteredResults.length > 1 ? 's' : null}
+                {filteredResults.length} result{filteredResults.length > 1 || filteredResults.length === 0 ? 's' : null}
             </div>
 
             <div className="search-card-holder">

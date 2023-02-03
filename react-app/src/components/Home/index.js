@@ -121,9 +121,11 @@ const HomePage = () => {
                                         </div>
                                 </Link>
 
-                                <div className="card-details">
-                                    <div><Link className="card-title" to={`/projects/${project.id}`}>{project.title}</Link> by {project.creator.username}</div>
-                                </div>
+                                <div className="scard-details">
+                                        <div><Link className="scard-title" to={`/projects/${project.id}`}>{project.title}</Link> 
+                                        <div className="scard-mid">by {project.creator.username} in <Link className="scard-cat-link" to={`/${project.category.toLowerCase()}`}>{project.category}</Link></div>
+                                        </div>
+                                    </div>
 
                                     </div>
                             )
@@ -156,9 +158,11 @@ const HomePage = () => {
                                         </div>
                                 </Link>
 
-                                <div className="card-details">
-                                    <div><Link className="card-title" to={`/projects/${project.id}`}>{project.title}</Link> by {project.creator.username}</div>
-                                </div>
+                                <div className="scard-details">
+                                        <div><Link className="scard-title" to={`/projects/${project.id}`}>{project.title}</Link> 
+                                        <div className="scard-mid">by {project.creator.username} in <Link className="scard-cat-link" to={`/${project.category.toLowerCase()}`}>{project.category}</Link></div>
+                                        </div>
+                                    </div>
 
                                     </div>
                             )
@@ -190,9 +194,11 @@ const HomePage = () => {
                                         </div>
                                 </Link>
 
-                                <div className="card-details">
-                                    <div><Link className="card-title" to={`/projects/${project.id}`}>{project.title}</Link> by {project.creator.username}</div>
-                                </div>
+                                <div className="scard-details">
+                                        <div><Link className="scard-title" to={`/projects/${project.id}`}>{project.title}</Link> 
+                                        <div className="scard-mid">by {project.creator.username} in <Link className="scard-cat-link" to={`/${project.category.toLowerCase()}`}>{project.category}</Link></div>
+                                        </div>
+                                    </div>
 
                                     </div>
                             )
@@ -224,9 +230,11 @@ const HomePage = () => {
                                         </div>
                                 </Link>
 
-                                <div className="card-details">
-                                    <div><Link className="card-title" to={`/projects/${project.id}`}>{project.title}</Link> by {project.creator.username}</div>
-                                </div>
+                                <div className="scard-details">
+                                        <div><Link className="scard-title" to={`/projects/${project.id}`}>{project.title}</Link> 
+                                        <div className="scard-mid">by {project.creator.username} in <Link className="scard-cat-link" to={`/${project.category.toLowerCase()}`}>{project.category}</Link></div>
+                                        </div>
+                                    </div>
 
                                     </div>
                             )
@@ -258,9 +266,11 @@ const HomePage = () => {
                                         </div>
                                 </Link>
 
-                                <div className="card-details">
-                                    <div><Link className="card-title" to={`/projects/${project.id}`}>{project.title}</Link> by {project.creator.username}</div>
-                                </div>
+                                <div className="scard-details">
+                                        <div><Link className="scard-title" to={`/projects/${project.id}`}>{project.title}</Link> 
+                                        <div className="scard-mid">by {project.creator.username} in <Link className="scard-cat-link" to={`/${project.category.toLowerCase()}`}>{project.category}</Link></div>
+                                        </div>
+                                    </div>
 
                                     </div>
                             )
@@ -292,9 +302,11 @@ const HomePage = () => {
                                         </div>
                                 </Link>
 
-                                <div className="card-details">
-                                    <div><Link className="card-title" to={`/projects/${project.id}`}>{project.title}</Link> by {project.creator.username}</div>
-                                </div>
+                                <div className="scard-details">
+                                        <div><Link className="scard-title" to={`/projects/${project.id}`}>{project.title}</Link> 
+                                        <div className="scard-mid">by {project.creator.username} in <Link className="scard-cat-link" to={`/${project.category.toLowerCase()}`}>{project.category}</Link></div>
+                                        </div>
+                                    </div>
 
                                     </div>
                             )
@@ -326,9 +338,11 @@ const HomePage = () => {
                                         </div>
                                 </Link>
 
-                                <div className="card-details">
-                                    <div><Link className="card-title" to={`/projects/${project.id}`}>{project.title}</Link> by {project.creator.username}</div>
-                                </div>
+                                <div className="scard-details">
+                                        <div><Link className="scard-title" to={`/projects/${project.id}`}>{project.title}</Link> 
+                                        <div className="scard-mid">by {project.creator.username} in <Link className="scard-cat-link" to={`/${project.category.toLowerCase()}`}>{project.category}</Link></div>
+                                        </div>
+                                    </div>
 
                                     </div>
                             )

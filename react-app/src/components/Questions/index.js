@@ -420,7 +420,7 @@ const Questions = ({project}) => {
     {/* ----------------------------ANSWERS MAPPED --------------------------- */}
                             {question.answers.length > 0 && (
                                 question.answers.slice(0).reverse().map(answer => {
-                                    let day = Math.ceil(Math.abs(new Date() - new Date(question.created_at))/ (1000 * 60 * 60 * 24))
+                                    let day = Math.ceil(Math.abs(new Date() - new Date(answer.created_at))/ (1000 * 60 * 60 * 24))
                                     return (
 
                                         <div className="answers-container">

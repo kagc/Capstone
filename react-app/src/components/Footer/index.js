@@ -73,9 +73,11 @@ function Footer() {
             </div> */}
             <div className="footer-break"></div>
             <div className="footer-legal-links">
-                <div>2023 Kirin Agcaoili :)</div>
+                <div>
+                    {/* <i class="fa-solid fa-splotch"></i> */}
+                    <i class="fa-solid fa-face-laugh-beam"></i> 2023 Agcaoili, K.</div>
                 <div id="not-implemented">Placeholder not-Links | To Hold this Space | Hi Hope You're Having a Good Day</div>
-                <div className="footer-bottom-right"><i class="fa-solid fa-dragon"></i> AUTOCAT</div>
+                <div className="footer-bottom-right"><i class="fa-solid fa-shield-cat"></i> AUTOCAT</div>
             </div>
         </div>
         </div>

@@ -5,8 +5,8 @@ import { Link, useHistory, useParams, useLocation } from "react-router-dom";
 import { getAllProjects } from '../../store/project';
 import SearchNotFound from "./SearchNotFound";
 import { everyFavorite, getAllFavorites } from "../../store/favorite";
-// let errImage = 'https://previews.123rf.com/images/sonsedskaya/sonsedskaya1902/sonsedskaya190200070/118117055-portrait-of-a-builder-cat-with-tools-in-paws.jpg'
-let errImage = 'https://github.com/kagc/Capstone/raw/main/react-app/src/images/cat.jpg'
+let errImage = 'https://previews.123rf.com/images/sonsedskaya/sonsedskaya1902/sonsedskaya190200070/118117055-portrait-of-a-builder-cat-with-tools-in-paws.jpg'
+// let errImage = 'https://github.com/kagc/Capstone/raw/main/react-app/src/images/cat.jpg'
 
 function Categories() {
     const params = useParams()

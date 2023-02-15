@@ -38,7 +38,7 @@ function Footer() {
                     <span className="footer-links-labels">Other Projects</span>
                     <div id="not-implemented" className="footer-link-box">
                     <a target="_blank" href="https://firestarter.onrender.com">Firestarter</a>
-                    <a target="_blank" href="https://airbnb-clone-0h30.onrender.com/">SpareBNB</a>
+                    <a target="_blank" href="https://spare-bnb.onrender.com">SpareBNB</a>
                     </div>
                 </div>
                 <div className="footer-link-section">

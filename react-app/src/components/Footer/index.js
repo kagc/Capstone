@@ -35,11 +35,10 @@ function Footer() {
                     </div>
                 </div>
                 <div className="footer-link-section">
-                    <span className="footer-links-labels">About Us</span>
+                    <span className="footer-links-labels">Other Work</span>
                     <div id="not-implemented" className="footer-link-box">
-                        <span>Not a Link Yet</span>
-                        <span>Also not a Link</span>
-                        <span>I think cats are neat</span>
+                    <a target="_blank" href="https://firestarter.onrender.com">Firestarter</a>
+                    <a target="_blank" href="https://airbnb-clone-0h30.onrender.com/">SpareBNB</a>
                     </div>
                 </div>
                 <div className="footer-link-section">
@@ -48,9 +47,14 @@ function Footer() {
                         <a target="_blank" href="https://appacademy.io">App Academy</a>
                     </div>
                 </div>
-                <div className="footer-link-section">
+                <div className="footer-link-section-last">
                     <span className="footer-links-labels">Find Us</span>
                     <div className="footer-git-link">
+                        <a target="_blank" title="Portfolio" href="https://kagc.github.io">
+                        <i class="fa-solid fa-folder-closed"></i>
+                        </a>
+
+
                             <a target="_blank" title="Github" href="https://github.com/kagc">
                         <i class="fa-brands fa-github-alt">
 
@@ -60,6 +64,9 @@ function Footer() {
                             <a target="_blank" title="LinkedIn" href="https://www.linkedin.com/in/kirin-agcaoili-a84a10187/">
                             <i class="fa-brands fa-linkedin-in"></i>
                             </a>
+
+                            <a target="_blank" title="AngelList" href="https://angel.co/u/kirin-agcaoili">
+                                <i class="fa-brands fa-angellist"></i></a>
                             </div>
                 </div>
             </div>

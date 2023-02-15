@@ -119,10 +119,12 @@
 }
 
 .footer-git-link {
-    width: 8rem;
+    /* width: 8rem; */
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    /* margin-right: 10rem; */
 }
 
 .footer-git-link> a {
@@ -170,3 +172,25 @@
     background-color: lightgray;
     border-radius: 5px;
 } */
+
+.fa-folder-closed {
+    font-size: 2.5rem;
+    border: solid lightgray 2px;
+    background-color: lightgray;
+    border-radius: 5px;
+}
+
+.fa-angellist{
+    font-size: 2.5rem;
+    border: solid lightgray 2px;
+    background-color: lightgray;
+    border-radius: 5px;
+}
+
+.footer-link-section-last {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    padding-left: 1rem;
+    /* margin-right: 5rem; */
+}

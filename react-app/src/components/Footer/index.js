@@ -35,7 +35,7 @@ function Footer() {
                     </div>
                 </div>
                 <div className="footer-link-section">
-                    <span className="footer-links-labels">Other Work</span>
+                    <span className="footer-links-labels">Other Projects</span>
                     <div id="not-implemented" className="footer-link-box">
                     <a target="_blank" href="https://firestarter.onrender.com">Firestarter</a>
                     <a target="_blank" href="https://airbnb-clone-0h30.onrender.com/">SpareBNB</a>
@@ -48,7 +48,7 @@ function Footer() {
                     </div>
                 </div>
                 <div className="footer-link-section-last">
-                    <span className="footer-links-labels">Find Us</span>
+                    <span className="footer-links-labels">About Me</span>
                     <div className="footer-git-link">
                         <a target="_blank" title="Portfolio" href="https://kagc.github.io">
                         <i class="fa-solid fa-folder-closed"></i>

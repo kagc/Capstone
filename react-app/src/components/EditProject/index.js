@@ -5,7 +5,7 @@ import { useRef } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { getAllProjects, getOneProject, modProject, nukeProject } from '../../store/project';
 import ConfirmUnpublish from './unpubProjectModal';
-import OpenModalButton from '../OpenModalButton';
+import { OpenModalButton } from '../OpenModalButton';
 
 const EditProject = () => {
     const { projectId } = useParams()

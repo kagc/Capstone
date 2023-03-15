@@ -8,7 +8,7 @@ import NotFound from '../404';
 import { getAllComments, makeComment, modComment, removeComment } from '../../store/comment';
 import { getAllFavorites, makeFavorite, removeFavorite, getUserFavorites } from '../../store/favorite';
 import Questions from '../Questions';
-import OpenModalButton from '../OpenModalButton';
+import { OpenModalButtonComment } from '../OpenModalButton';
 import ConfirmDeleteComment from './ConfirmDeleteComment';
 
 
@@ -486,7 +486,7 @@ const SingleProject = () => {
                                         e.preventDefault()
                                         const data = await dispatch(removeComment(comment.id))
                                     }} className="ud-comment-buttons">Delete</button> */}
-                                    <OpenModalButton 
+                                    <OpenModalButtonComment 
                                     modalComponent={<ConfirmDeleteComment comment={comment} />}
                                     buttonText='Delete'
                                     onButtonClick={closeMenu}

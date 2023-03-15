@@ -1,19 +1,45 @@
 // import '../CreateProject/CreateProject.css'
 import React, { useEffect, useState } from 'react'
 import { useParams, useHistory, useLocation } from 'react-router-dom';
+import { useRef } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { getAllProjects, getOneProject, modProject, nukeProject } from '../../store/project';
+import ConfirmUnpublish from './unpubProjectModal';
+import OpenModalButton from '../OpenModalButton';
 
 const EditProject = () => {
     const { projectId } = useParams()
     // console.log("did it pass", oneProject)
     const [ isLoaded, setIsLoaded ] = useState(false)
+    const [showMenu, setShowMenu] = useState(false);
+    const ulRef = useRef();
+    const dispatch = useDispatch()
+    const history = useHistory()
+
+    const openMenu = () => {
+        if (showMenu) return;
+        setShowMenu(true);
+      };
+    
+      useEffect(() => {
+        if (!showMenu) return;
+    
+        const closeMenu = (e) => {
+          if (!ulRef.current.contains(e.target)) {
+            setShowMenu(false);
+          }
+        };
+    
+        document.addEventListener('click', closeMenu);
+    
+        return () => document.removeEventListener("click", closeMenu);
+      }, [showMenu]);
+    
+      const closeMenu = () => setShowMenu(false);
 
     // .push the deleted step IDs to bulk delete on submit
     const deletedSteps = []
 
-    const dispatch = useDispatch()
-    const history = useHistory()
     const sessionUser = useSelector(state => state.session.user)
     
     const project = useSelector(state => state.projects.singleProject)
@@ -189,7 +215,13 @@ const EditProject = () => {
                         Draft
                     </div>
                     <div>
-                        <button className="unpublish-button" onClick={unpublish}>Unpublish</button>
+                        {/* <button className="unpublish-button" onClick={unpublish}>Unpublish</button> */}
+                        <OpenModalButton 
+                        modalComponent={<ConfirmUnpublish project={project} />}
+                        buttonText='Unpublish'
+                        onButtonClick={closeMenu}
+                        className='unpublish-button'/>
+                        
                         <button className="publish-button" type="submit">Publish</button>
                     </div>
                 </div>

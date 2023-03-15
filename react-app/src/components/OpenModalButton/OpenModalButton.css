@@ -1,0 +1,10 @@
+.write-rev-button {
+    all: initial;
+    font-family: helvetica;
+  font-size: 14px ;
+  font-weight: bold ;
+  padding: 10px 20px ;
+  border: 2px black solid;
+  border-radius: 10px ;
+  background: white ;
+}

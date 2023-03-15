@@ -58,8 +58,9 @@ In the frontend folder run:
 npm install
 npm start
 
-## Contact Us:
+## Contact Me:
 Kirin Agcaoili
-[Email]: kirinagcaoili@gmail.com
-[LinkedIn]: https://www.linkedin.com/in/kirin-agcaoili-a84a10187/
-[GitHub]: https://github.com/kagc
+* Email: kirinagcaoili@gmail.com
+* LinkedIn: https://www.linkedin.com/in/kirin-agcaoili
+* Portfolio: https://kagc.github.io
+* GitHub: https://github.com/kagc

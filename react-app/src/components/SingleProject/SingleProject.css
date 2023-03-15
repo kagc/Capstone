@@ -331,6 +331,9 @@
 .one-comment-text {
     margin-bottom: 2rem;
     line-height: 1.5rem;
+    /* border: red solid 1px; */
+    white-space: initial;
+    overflow-wrap: break-word;
 }
 
 .one-comment-top {
@@ -369,6 +372,19 @@
 }
 
 .ud-comment-buttons:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    /* color: gray; */
+}
+
+#ud-comment-buttons {
+    border: none;
+    margin: 0.5rem;
+    background-color: white !important;
+    
+}
+
+#ud-comment-buttons:hover {
     text-decoration: underline;
     cursor: pointer;
     /* color: gray; */

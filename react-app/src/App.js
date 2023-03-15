@@ -34,7 +34,8 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    // <BrowserRouter>
+    <>
       {/* <NavBar /> */}
       <Navigation isLoaded={loaded} />
       {loaded && (
@@ -75,7 +76,8 @@ function App() {
       </Switch>
       )}
       <Footer />
-    </BrowserRouter>
+      </>
+    // </BrowserRouter>
   );
 }
 

@@ -55,7 +55,7 @@ function Footer() {
                         </a>
 
 
-                            <a target="_blank" title="Github" href="https://github.com/kagc">
+                            <a target="_blank" title="Github" href="https://github.com/kagc/Capstone">
                         <i class="fa-brands fa-github-alt">
 
                             </i>

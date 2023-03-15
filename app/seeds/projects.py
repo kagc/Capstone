@@ -87,7 +87,7 @@ def seed_projects():
         creatorId = 6,
         title = "How to Make a Unique Username",
         category = "Circuits",
-        coverImageUrl = "https://www.wikihow.com/images/thumb/1/1b/Make-a-Unique-Username-Step-2-Version-4.jpg",
+        coverImageUrl = "https://randompicturegenerator.com/img/cat-generator/g37b82da0af399ee430f5787f93289fa6bf0cee78a334568707574b938b0c2dd44c1e6505904a70b5cb55dbb1f3116639_640.jpg",
         intro = "We all know first impressions matter on social media. So how do you choose the perfect username for Instagram, TikTok, Twitter, and other social media platforms when it feels like all the best ones are already being used? Whether you’re coming up with username ideas for your own profile or building your brand, the right name will make you stand out and get noticed. Plus, your social media handle tells your friends and followers about who you are! Need a little inspiration? Check out our list of ideas as you create a memorable, unique, influencer-worthy username.",
         supplies = "A website where you need a unique username",
         created_at = datetime(2023, 1, 31, 12, 00)

@@ -377,6 +377,19 @@
     /* color: gray; */
 }
 
+#ud-comment-buttons {
+    border: none;
+    margin: 0.5rem;
+    background-color: white !important;
+    
+}
+
+#ud-comment-buttons:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    /* color: gray; */
+}
+
 #heart {
     color: rgb(187, 31, 114);
     padding-right: 0.5rem;

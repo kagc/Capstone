@@ -8,6 +8,10 @@ import NotFound from '../404';
 import { getAllComments, makeComment, modComment, removeComment } from '../../store/comment';
 import { getAllFavorites, makeFavorite, removeFavorite, getUserFavorites } from '../../store/favorite';
 import Questions from '../Questions';
+import OpenModalButton from '../OpenModalButton';
+import ConfirmDeleteComment from './ConfirmDeleteComment';
+
+
 let errImage = 'https://previews.123rf.com/images/sonsedskaya/sonsedskaya1902/sonsedskaya190200070/118117055-portrait-of-a-builder-cat-with-tools-in-paws.jpg'
 // let errImage = 'https://github.com/kagc/Capstone/raw/main/react-app/src/images/cat.jpg'
 
@@ -17,6 +21,31 @@ const SingleProject = () => {
 
     const dispatch = useDispatch()
     const ulRef = useRef();
+
+    const history = useHistory()
+
+    const [showMenu, setShowMenu] = useState(false);
+    const openMenu = () => {
+        if (showMenu) return;
+        setShowMenu(true);
+      };
+    
+      useEffect(() => {
+        if (!showMenu) return;
+    
+        const closeMenu = (e) => {
+          if (!ulRef.current.contains(e.target)) {
+            setShowMenu(false);
+          }
+        };
+    
+        document.addEventListener('click', closeMenu);
+    
+        return () => document.removeEventListener("click", closeMenu);
+      }, [showMenu]);
+    
+      const closeMenu = () => setShowMenu(false);
+
     const currentUser = useSelector(state => state.session.user)
 
     const [ isLoaded, setIsLoaded ] = useState(false)
@@ -453,10 +482,15 @@ const SingleProject = () => {
                                         setShowEdit(true)
                                     }}
                                     className="ud-comment-buttons">Edit</button>
-                                    <button onClick={async (e) => {
+                                    {/* <button onClick={async (e) => {
                                         e.preventDefault()
                                         const data = await dispatch(removeComment(comment.id))
-                                    }} className="ud-comment-buttons">Delete</button>
+                                    }} className="ud-comment-buttons">Delete</button> */}
+                                    <OpenModalButton 
+                                    modalComponent={<ConfirmDeleteComment comment={comment} />}
+                                    buttonText='Delete'
+                                    onButtonClick={closeMenu}
+                                    id='ud-comment-buttons'/>
                                 </div>
                             )}
                         </div>

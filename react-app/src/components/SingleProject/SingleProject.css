@@ -331,6 +331,9 @@
 .one-comment-text {
     margin-bottom: 2rem;
     line-height: 1.5rem;
+    /* border: red solid 1px; */
+    white-space: initial;
+    overflow-wrap: break-word;
 }
 
 .one-comment-top {

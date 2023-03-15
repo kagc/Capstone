@@ -62,4 +62,6 @@
 .one-answer-text {
     margin-bottom: 0.5rem;
     line-height: 1.5rem;
+    white-space: initial;
+    overflow-wrap: break-word;
 } 

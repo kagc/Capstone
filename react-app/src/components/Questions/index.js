@@ -4,6 +4,8 @@ import { useParams, useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector} from 'react-redux';
 import { getAllProjects, getOneProject, getUserProjects } from '../../store/project';
 import { getAllQuestions, askQuestion, modQuestion, removeQuestion, createAnswer, editAnswer, unAnswer } from '../../store/question';
+import { OpenModalButtonComment } from '../OpenModalButton';
+import ConfirmDeleteQA from './ConfirmDeleteQA';
 
 const Questions = ({project}) => {
     const dispatch = useDispatch()
@@ -11,6 +13,32 @@ const Questions = ({project}) => {
     const questionsObj = useSelector(state => state.questions.allQuestions)
     // console.log(project)
     const [ isLoaded, setIsLoaded ] = useState(false)
+
+    const [showMenu, setShowMenu] = useState(false);
+    const ulRef = useRef();
+    const history = useHistory()
+
+    const openMenu = () => {
+        if (showMenu) return;
+        setShowMenu(true);
+      };
+    
+      useEffect(() => {
+        if (!showMenu) return;
+    
+        const closeMenu = (e) => {
+          if (!ulRef.current.contains(e.target)) {
+            setShowMenu(false);
+          }
+        };
+    
+        document.addEventListener('click', closeMenu);
+    
+        return () => document.removeEventListener("click", closeMenu);
+      }, [showMenu]);
+    
+      const closeMenu = () => setShowMenu(false);
+      
 
     const [ question, setQuestion ] = useState("")
     const [ answer, setAnswer ] = useState("")
@@ -228,13 +256,18 @@ const Questions = ({project}) => {
                                                 className="ud-comment-buttons"
                                                 >Edit</button>
 
-                                                <button onClick={async (e) => {
+                                                {/* <button onClick={async (e) => {
                                                     e.preventDefault()
                                                     const data = await dispatch(removeQuestion(question.id))
                                                     // if (data) {
                                                     //     setDeletedQ(true)
                                                     // }
-                                                }} className="ud-comment-buttons">Delete</button>
+                                                }} className="ud-comment-buttons">Delete</button> */}
+                                                <OpenModalButtonComment 
+                                                modalComponent={<ConfirmDeleteQA info={question} type={'question'} />}
+                                                buttonText='Delete'
+                                                onButtonClick={closeMenu}
+                                                id='ud-comment-buttons'/>
 
                                             </div>
                                         ) : (<div>
@@ -455,11 +488,16 @@ const Questions = ({project}) => {
                                                                 setShowAnswerEdit(true)
                                                             }}
                                                             className="ud-comment-buttons">Edit</button>
-                                                            <button onClick={async (e) => {
+                                                            {/* <button onClick={async (e) => {
                                                                 e.preventDefault()
                                                                 const data = await dispatch(unAnswer(answer.id))
                                                             }}
-                                                            className="ud-comment-buttons">Delete</button>
+                                                            className="ud-comment-buttons">Delete</button> */}
+                                                            <OpenModalButtonComment 
+                                                            modalComponent={<ConfirmDeleteQA info={answer} type={'answer'} />}
+                                                            buttonText='Delete'
+                                                            onButtonClick={closeMenu}
+                                                            id='ud-comment-buttons'/>
                                                         </div>
                                                     ) : (<div></div>)}
                                                 </div>
